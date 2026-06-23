@@ -1,6 +1,6 @@
+import Image from "next/image";
 import { notifications } from "@/content/site";
 import { Container } from "@/components/ui/Container";
-import { MediaFrame } from "@/components/ui/MediaFrame";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
 
@@ -10,15 +10,17 @@ export function Notifications() {
       <Container className="flex flex-col gap-14">
         <SectionHeading title={notifications.heading} body={notifications.body} align="center" />
 
-        <MediaFrame
-          src={notifications.image}
-          alt=""
-          width={1024}
-          height={688}
-          sizes="(max-width: 1024px) 100vw, 1024px"
-          rounded="rounded-3xl"
-          className="w-full"
-        />
+        <div className="relative overflow-hidden rounded-2xl border border-white/12 bg-[#030405] shadow-[0_36px_120px_rgba(0,0,0,0.46)]">
+          <div aria-hidden="true" className="absolute inset-0 z-10 bg-[radial-gradient(circle_at_50%_44%,transparent_0,transparent_34%,rgba(0,0,0,0.18)_58%,rgba(0,0,0,0.42)_100%)]" />
+          <Image
+            src={notifications.image}
+            alt=""
+            width={1024}
+            height={688}
+            sizes="(max-width: 1024px) 100vw, 1024px"
+            className="aspect-[16/9] w-full scale-[1.18] object-cover object-center brightness-[1.34] contrast-[1.08] saturate-[1.08]"
+          />
+        </div>
 
         <div className="grid gap-x-8 gap-y-10 sm:grid-cols-2">
           {notifications.points.map((point, i) => (
