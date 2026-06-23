@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+/*
+ * Design tokens for the Wayborne marketing site.
+ * Dark, cinematic aesthetic — deep near-black backgrounds with a cool
+ * blue accent pulled from the Wayborne app icon.
+ */
+@theme {
+  --color-bg: #08090a;
+  --color-bg-elevated: #0f1011;
+  --color-bg-marketing: #010102;
+
+  --color-fg: #f7f8f8;
+  --color-fg-muted: #8a8f98;
+  --color-fg-subtle: #62666d;
+
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-border-strong: rgba(255, 255, 255, 0.14);
+
+  --color-accent: #5b8def;
+  --color-accent-soft: #8ab4ff;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
+
+  --container-page: 1024px;
+
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+* {
+  border-color: var(--color-border);
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background-color: var(--color-bg-marketing);
+  color: var(--color-fg);
+  font-family: var(--font-sans);
+  font-feature-settings: "cv01", "cv02", "ss03";
+  overflow-x: hidden;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--color-accent) 35%, transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Animated hero aurora — slow drifting blue glow behind the headline. */
+@keyframes aurora-drift {
+  0%,
+  100% {
+    transform: translate3d(-6%, -4%, 0) scale(1.05);
+    opacity: 0.55;
+  }
+  50% {
+    transform: translate3d(6%, 6%, 0) scale(1.2);
+    opacity: 0.8;
+  }
+}
+
+@keyframes aurora-drift-alt {
+  0%,
+  100% {
+    transform: translate3d(8%, 2%, 0) scale(1.1);
+    opacity: 0.4;
+  }
+  50% {
+    transform: translate3d(-6%, -8%, 0) scale(1.25);
+    opacity: 0.65;
+  }
+}
+
+.utility-text-gradient {
+  background: linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, 0.7) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
