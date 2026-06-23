@@ -19,21 +19,23 @@ export function Header() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
-        scrolled ? "border-b border-[var(--color-border)] bg-[rgba(1,1,2,0.72)] backdrop-blur-xl" : "border-b border-transparent"
+        scrolled
+          ? "border-b border-[var(--color-border)] bg-[rgba(1,1,2,0.86)] backdrop-blur-xl"
+          : "border-b border-[var(--color-border)] bg-[rgba(1,1,2,0.96)]"
       }`}
     >
-      <nav className="mx-auto flex h-16 w-full max-w-[1100px] items-center gap-6 px-6" aria-label="Main">
+      <nav className="mx-auto flex h-[78px] w-full items-center gap-6 px-5 sm:px-8" aria-label="Main">
         <Link href="/" className="flex items-center gap-2.5" aria-label={`${site.name} home`}>
           <Image src="/icon.png" alt="" width={28} height={28} className="rounded-md" />
           <span className="text-[15px] font-semibold tracking-tight">{site.name}</span>
         </Link>
 
-        <ul className="ml-2 hidden items-center gap-1 md:flex">
+        <ul className="ml-auto hidden items-center gap-2 md:flex">
           {nav.links.map((link) => (
             <li key={link.label}>
               <a
                 href={link.href}
-                className="rounded-md px-3 py-2 text-sm text-[var(--color-fg-muted)] transition-colors hover:text-[var(--color-fg)]"
+                className="rounded-md px-3 py-2 text-[13px] font-medium text-[var(--color-fg-muted)] transition-colors hover:text-[var(--color-fg)]"
               >
                 {link.label}
               </a>
@@ -41,10 +43,10 @@ export function Header() {
           ))}
         </ul>
 
-        <div className="ml-auto flex items-center gap-2">
+        <div className="flex items-center gap-2 md:ml-5">
           <a
             href={nav.login.href}
-            className="hidden px-3 py-2 text-sm text-[var(--color-fg-muted)] transition-colors hover:text-[var(--color-fg)] sm:block"
+            className="hidden border-l border-white/10 px-5 py-2 text-[13px] font-medium text-[var(--color-fg-muted)] transition-colors hover:text-[var(--color-fg)] sm:block"
           >
             {nav.login.label}
           </a>

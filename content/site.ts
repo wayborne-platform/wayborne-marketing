@@ -28,8 +28,8 @@ export const nav = {
 export const hero = {
   eyebrow: "Introducing Wayborne",
   // Split into words for the staggered blur-up reveal.
-  headline: "The driving coach that lives in your pocket",
-  subhead: ["Real-time feedback that builds safer habits —", "and turns them into lower insurance."],
+  headline: "The portable companion to the Wayborne system",
+  subhead: ["Safer driving feedback in compact form.", "Available for iOS and Android."],
   availability: "Available for iOS and Android.",
 } as const;
 

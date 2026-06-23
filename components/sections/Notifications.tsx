@@ -18,7 +18,7 @@ export function Notifications() {
             width={1024}
             height={688}
             sizes="(max-width: 1024px) 100vw, 1024px"
-            className="aspect-[16/9] w-full scale-[1.18] object-cover object-center brightness-[1.34] contrast-[1.08] saturate-[1.08]"
+            className="aspect-[16/9] w-full translate-x-[18%] scale-[1.08] object-cover object-center brightness-[1.34] contrast-[1.08] saturate-[1.08] sm:translate-x-[24%] lg:translate-x-[30%]"
           />
         </div>
 

@@ -56,7 +56,7 @@ export function WordReveal({ text, className, delay = 0.1 }: WordRevealProps) {
           aria-hidden="true"
         >
           {w}
-          {i < words.length - 1 ? " " : ""}
+          {i < words.length - 1 ? " " : ""}
         </motion.span>
       ))}
     </motion.span>
