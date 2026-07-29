@@ -53,7 +53,11 @@ export function SplitFeature({
 
             <dl className="flex flex-col gap-4">
               {points.map((point, i) => (
-                <Reveal key={point.eyebrow} delay={0.08 + i * 0.08} className="neu-inset rounded-2xl px-5 py-4">
+                <Reveal
+                  key={point.eyebrow}
+                  delay={0.08 + i * 0.08}
+                  className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-elevated)] px-5 py-4"
+                >
                   <dt className="text-[15px] font-medium text-[var(--color-fg)]">{point.eyebrow}</dt>
                   <dd className="mt-1 text-pretty text-[14px] leading-relaxed text-[var(--color-fg-muted)]">
                     {point.body}

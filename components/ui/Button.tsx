@@ -21,7 +21,7 @@ const sizes: Record<Size, string> = {
 
 /** Applied when a destination does not exist yet. */
 const disabledClasses =
-  "cursor-not-allowed text-[var(--color-fg-subtle)] shadow-[var(--shadow-neu-inset-sm)] bg-[var(--color-bg-sunken)]";
+  "cursor-not-allowed text-[var(--color-fg-subtle)]";
 
 type ButtonProps = {
   /** `null` renders a grayed-out, non-interactive button. */
