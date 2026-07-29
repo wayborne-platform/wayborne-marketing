@@ -78,7 +78,7 @@ export const trips = {
       heading: "The route behind the score",
       body: "Each trip keeps its own map with the points Wayborne recorded, and calls out clean drives where no safety events were found at all.",
       image: "/images/app/trip-map.png",
-      alt: "Wayborne trip detail map for a drive on Maple Ave with no safety events found",
+      alt: "Wayborne trip detail map for a drive on Foster Ave with no safety events found",
     },
   ],
 } as const;
