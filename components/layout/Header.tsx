@@ -30,20 +30,7 @@ export function Header() {
           <span className="text-[15px] font-semibold tracking-tight">{site.name}</span>
         </Link>
 
-        <ul className="ml-auto hidden items-center gap-1 md:flex">
-          {nav.links.map((link) => (
-            <li key={link.label}>
-              <MaybeLink
-                label={link.label}
-                href={link.href}
-                className="rounded-lg px-3 py-2 text-[13px] font-medium"
-                linkClassName="text-[var(--color-fg-muted)] transition-colors hover:text-[var(--color-fg)]"
-              />
-            </li>
-          ))}
-        </ul>
-
-        <div className="ml-auto flex items-center gap-3 md:ml-4">
+        <div className="ml-auto flex items-center gap-3">
           <MaybeLink
             label={nav.login.label}
             href={nav.login.href}

@@ -19,9 +19,13 @@ const sizes: Record<Size, string> = {
   md: "h-11 px-6 text-[15px]",
 };
 
-/** Applied when a destination does not exist yet. */
-const disabledClasses =
-  "cursor-not-allowed text-[var(--color-fg-subtle)]";
+/** Flat, non-interactive treatments for destinations that do not exist yet. */
+const disabledVariants: Record<Variant, string> = {
+  primary: "cursor-not-allowed bg-[var(--color-accent)] text-white opacity-60",
+  secondary:
+    "cursor-not-allowed bg-[var(--color-bg-elevated)] text-[var(--color-fg-subtle)]",
+  ghost: "cursor-not-allowed text-[var(--color-fg-subtle)]",
+};
 
 type ButtonProps = {
   /** `null` renders a grayed-out, non-interactive button. */
@@ -35,7 +39,10 @@ type ButtonProps = {
 export function Button({ href, variant = "primary", size = "md", className = "", children }: ButtonProps) {
   if (!href) {
     return (
-      <span aria-disabled="true" className={`${base} ${sizes[size]} ${disabledClasses} ${className}`}>
+      <span
+        aria-disabled="true"
+        className={`${base} ${sizes[size]} ${disabledVariants[variant]} ${className}`}
+      >
         {children}
       </span>
     );

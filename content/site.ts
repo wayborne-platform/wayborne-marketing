@@ -35,13 +35,7 @@ export const stores = [
 ] as const;
 
 export const nav = {
-  links: [
-    { label: "Score", href: "#score" },
-    { label: "Trips", href: "#trips" },
-    { label: "Insurance", href: "#insurance" },
-    { label: "Progress", href: "#progress" },
-  ],
-  cta: { label: "Get the app", href: "#get-the-app" },
+  cta: { label: "Get the app", href: null as string | null },
   login: { label: "Log in", href: null as string | null },
 } as const;
 
