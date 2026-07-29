@@ -49,11 +49,6 @@ export const hero = {
   image: "/images/app/home.png",
   imageAlt:
     "Wayborne home screen showing a safety score of 84 with sub-scores for speed, smooth driving, braking, and awareness",
-  stats: [
-    { value: "84", label: "Safety score", tone: "amber" },
-    { value: "4", label: "Scored behaviors", tone: "accent" },
-    { value: "13-17%", label: "Est. discount", tone: "emerald" },
-  ],
 } as const;
 
 export const showcase = {
@@ -157,11 +152,11 @@ export const footer = {
     {
       title: "Product",
       links: [
-        { label: "Safety score", href: "#score" },
-        { label: "Trips & maps", href: "#trips" },
-        { label: "Insurance preview", href: "#insurance" },
-        { label: "Progress & rewards", href: "#progress" },
-        { label: "Friends", href: "#friends" },
+        { label: "Safety score", href: null },
+        { label: "Trips & maps", href: null },
+        { label: "Insurance preview", href: null },
+        { label: "Progress & rewards", href: null },
+        { label: "Friends", href: null },
       ],
     },
     {
@@ -185,7 +180,7 @@ export const footer = {
     {
       title: "Resources",
       links: [
-        { label: "Get the app", href: "#get-the-app" },
+        { label: "Get the app", href: null },
         { label: "Help center", href: null },
         { label: "Safety research", href: null },
         { label: "Status", href: null },

@@ -17,12 +17,6 @@ const fadeUp = {
   }),
 };
 
-const toneClasses: Record<string, string> = {
-  amber: "text-[var(--color-amber)]",
-  accent: "text-[var(--color-accent)]",
-  emerald: "text-[var(--color-emerald)]",
-};
-
 export function Hero() {
   return (
     <section className="relative overflow-hidden pb-10 pt-32 sm:pb-14 sm:pt-40">
@@ -73,27 +67,6 @@ export function Hero() {
               <AppLinks />
             </motion.div>
 
-            <motion.dl
-              variants={fadeUp}
-              custom={1}
-              initial="hidden"
-              animate="visible"
-              className="mx-auto mt-10 grid max-w-[520px] grid-cols-3 gap-3 lg:mx-0"
-            >
-              {hero.stats.map((stat) => (
-                <div key={stat.label} className="neu rounded-2xl px-3 py-4 text-center">
-                  <dt className="sr-only">{stat.label}</dt>
-                  <dd>
-                    <span className={`block text-2xl font-semibold tracking-tight ${toneClasses[stat.tone]}`}>
-                      {stat.value}
-                    </span>
-                    <span className="mt-1 block text-[11px] uppercase tracking-wide text-[var(--color-fg-subtle)]">
-                      {stat.label}
-                    </span>
-                  </dd>
-                </div>
-              ))}
-            </motion.dl>
           </div>
 
           <motion.div
