@@ -2,23 +2,30 @@
 
 /*
  * Design tokens for the Wayborne marketing site.
- * Dark, cinematic aesthetic — deep near-black backgrounds with a cool
- * blue accent pulled from the Wayborne app icon.
+ *
+ * Neumorphic (soft UI) aesthetic, pulled directly from the app: one mid-dark
+ * slate surface everywhere, with depth created by paired shadows — a cool
+ * highlight from the top-left and a deep shadow to the bottom-right — instead
+ * of borders or contrasting fills. Accent colors match the app's score ring
+ * (amber), primary actions (blue), and positive states (green).
  */
 @theme {
-  --color-bg: #08090a;
-  --color-bg-elevated: #0f1011;
-  --color-bg-marketing: #010102;
+  --color-bg: #23272e;
+  --color-bg-elevated: #272c34;
+  --color-bg-sunken: #1f232a;
+  --color-bg-marketing: #23272e;
 
-  --color-fg: #f7f8f8;
-  --color-fg-muted: #8a8f98;
-  --color-fg-subtle: #62666d;
+  --color-fg: #eef1f5;
+  --color-fg-muted: #9aa3af;
+  --color-fg-subtle: #737d8a;
 
-  --color-border: rgba(255, 255, 255, 0.08);
-  --color-border-strong: rgba(255, 255, 255, 0.14);
+  --color-border: rgba(255, 255, 255, 0.05);
+  --color-border-strong: rgba(255, 255, 255, 0.09);
 
-  --color-accent: #5b8def;
-  --color-accent-soft: #8ab4ff;
+  --color-accent: #3d8bfd;
+  --color-accent-soft: #7fb2ff;
+  --color-amber: #f5b301;
+  --color-emerald: #34d399;
 
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
 
@@ -27,18 +34,32 @@
   --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-* {
-  border-color: var(--color-border);
+/*
+ * Neumorphic elevation scale. Each step pairs a light source at the top-left
+ * with a matching shadow at the bottom-right; `inset` variants invert the pair
+ * so the surface reads as pressed into the page.
+ */
+:root {
+  --neu-light: rgba(255, 255, 255, 0.045);
+  --neu-dark: rgba(0, 0, 0, 0.5);
+
+  --shadow-neu-sm: -3px -3px 8px var(--neu-light), 4px 4px 10px var(--neu-dark);
+  --shadow-neu: -6px -6px 16px var(--neu-light), 8px 8px 20px var(--neu-dark);
+  --shadow-neu-lg: -10px -10px 30px var(--neu-light), 16px 16px 40px var(--neu-dark);
+  --shadow-neu-inset: inset -4px -4px 10px var(--neu-light), inset 5px 5px 12px var(--neu-dark);
+  --shadow-neu-inset-sm: inset -2px -2px 5px var(--neu-light), inset 3px 3px 7px var(--neu-dark);
 }
 
 html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  /* Anchor targets clear the fixed header. */
+  scroll-padding-top: 96px;
 }
 
 body {
-  background-color: var(--color-bg-marketing);
+  background-color: var(--color-bg);
   color: var(--color-fg);
   font-family: var(--font-sans);
   font-feature-settings: "cv01", "cv02", "ss03";
@@ -55,33 +76,78 @@ body {
   }
 }
 
-/* Animated hero aurora — slow drifting blue glow behind the headline. */
+/* --- Neumorphic surfaces ------------------------------------------------ */
+
+/* A raised pad: same fill as the page, lifted by the paired shadows. */
+.neu {
+  background: var(--color-bg);
+  box-shadow: var(--shadow-neu);
+}
+
+.neu-sm {
+  background: var(--color-bg);
+  box-shadow: var(--shadow-neu-sm);
+}
+
+.neu-lg {
+  background: var(--color-bg);
+  box-shadow: var(--shadow-neu-lg);
+}
+
+/* A well pressed into the page — used for image wells and inputs. */
+.neu-inset {
+  background: var(--color-bg-sunken);
+  box-shadow: var(--shadow-neu-inset);
+}
+
+.neu-inset-sm {
+  background: var(--color-bg-sunken);
+  box-shadow: var(--shadow-neu-inset-sm);
+}
+
+/* Raised pads that settle toward the page on hover. */
+.neu-interactive {
+  transition:
+    box-shadow 0.25s var(--ease-out-quart),
+    transform 0.25s var(--ease-out-quart);
+}
+
+.neu-interactive:hover {
+  box-shadow: var(--shadow-neu-sm);
+  transform: translateY(1px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .neu-interactive:hover {
+    transform: none;
+  }
+}
+
+/* A soft top-edge sheen, layered over raised cards for a subtle rim light. */
+.neu-sheen::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.055), transparent 42%);
+  pointer-events: none;
+}
+
+/* Ambient drifting glow behind the hero and final CTA. */
 @keyframes aurora-drift {
   0%,
   100% {
     transform: translate3d(-6%, -4%, 0) scale(1.05);
-    opacity: 0.55;
+    opacity: 0.45;
   }
   50% {
     transform: translate3d(6%, 6%, 0) scale(1.2);
-    opacity: 0.8;
-  }
-}
-
-@keyframes aurora-drift-alt {
-  0%,
-  100% {
-    transform: translate3d(8%, 2%, 0) scale(1.1);
-    opacity: 0.4;
-  }
-  50% {
-    transform: translate3d(-6%, -8%, 0) scale(1.25);
-    opacity: 0.65;
+    opacity: 0.7;
   }
 }
 
 .utility-text-gradient {
-  background: linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, 0.7) 100%);
+  background: linear-gradient(180deg, #ffffff 0%, rgba(238, 241, 245, 0.66) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;

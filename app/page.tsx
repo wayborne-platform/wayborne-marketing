@@ -1,11 +1,10 @@
-import { coaching, dashboard } from "@/content/site";
+import { friends, insurance, progress, trips } from "@/content/site";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/sections/Hero";
 import { Showcase } from "@/components/sections/Showcase";
-import { DualFeature } from "@/components/sections/DualFeature";
-import { FeatureSection } from "@/components/sections/FeatureSection";
-import { Notifications } from "@/components/sections/Notifications";
+import { DuoFeature } from "@/components/sections/DuoFeature";
+import { SplitFeature } from "@/components/sections/SplitFeature";
 import { FinalCta } from "@/components/sections/FinalCta";
 
 export default function Home() {
@@ -15,22 +14,40 @@ export default function Home() {
       <main>
         <Hero />
         <Showcase />
-        <DualFeature />
-        <FeatureSection
-          id="how-it-works"
-          heading={dashboard.heading}
-          body={dashboard.body}
-          image={dashboard.image}
-          subFeatures={dashboard.subFeatures}
+        <DuoFeature
+          id={trips.id}
+          eyebrow={trips.eyebrow}
+          heading={trips.heading}
+          body={trips.body}
+          features={trips.features}
         />
-        <FeatureSection
-          id="families"
-          heading={coaching.heading}
-          body={coaching.body}
-          image={coaching.image}
-          subFeatures={coaching.subFeatures}
+        <SplitFeature
+          id={insurance.id}
+          eyebrow={insurance.eyebrow}
+          heading={insurance.heading}
+          body={insurance.body}
+          image={insurance.image}
+          alt={insurance.alt}
+          points={insurance.points}
+          imageSide="left"
         />
-        <Notifications />
+        <DuoFeature
+          id={progress.id}
+          eyebrow={progress.eyebrow}
+          heading={progress.heading}
+          body={progress.body}
+          features={progress.features}
+        />
+        <SplitFeature
+          id={friends.id}
+          eyebrow={friends.eyebrow}
+          heading={friends.heading}
+          body={friends.body}
+          image={friends.image}
+          alt={friends.alt}
+          points={friends.points}
+          imageSide="right"
+        />
         <FinalCta />
       </main>
       <Footer />
