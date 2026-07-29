@@ -12,7 +12,7 @@ type Feature = {
 
 type DuoFeatureProps = {
   id?: string;
-  eyebrow: string;
+  eyebrow?: string;
   heading: string;
   body: string;
   features: readonly Feature[];

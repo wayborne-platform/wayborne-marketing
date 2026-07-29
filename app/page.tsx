@@ -16,14 +16,12 @@ export default function Home() {
         <Showcase />
         <DuoFeature
           id={trips.id}
-          eyebrow={trips.eyebrow}
           heading={trips.heading}
           body={trips.body}
           features={trips.features}
         />
         <SplitFeature
           id={insurance.id}
-          eyebrow={insurance.eyebrow}
           heading={insurance.heading}
           body={insurance.body}
           image={insurance.image}
@@ -33,14 +31,12 @@ export default function Home() {
         />
         <DuoFeature
           id={progress.id}
-          eyebrow={progress.eyebrow}
           heading={progress.heading}
           body={progress.body}
           features={progress.features}
         />
         <SplitFeature
           id={friends.id}
-          eyebrow={friends.eyebrow}
           heading={friends.heading}
           body={friends.body}
           image={friends.image}

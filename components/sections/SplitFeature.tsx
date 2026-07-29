@@ -9,7 +9,7 @@ type Point = {
 
 type SplitFeatureProps = {
   id?: string;
-  eyebrow: string;
+  eyebrow?: string;
   heading: string;
   body: string;
   image: string;
@@ -42,7 +42,9 @@ export function SplitFeature({
 
           <div className="flex flex-col gap-6">
             <Reveal className="flex flex-col gap-4">
-              <p className="text-sm font-medium text-[var(--color-accent-soft)]">{eyebrow}</p>
+              {eyebrow && (
+                <p className="text-sm font-medium text-[var(--color-accent-soft)]">{eyebrow}</p>
+              )}
               <h2 className="utility-text-gradient text-balance text-3xl font-semibold tracking-tight sm:text-4xl">
                 {heading}
               </h2>
