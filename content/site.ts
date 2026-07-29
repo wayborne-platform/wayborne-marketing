@@ -13,7 +13,7 @@
 
 export type MaybeLink = {
   label: string;
-  /** `null` means "no destination yet" — rendered disabled, never clickable. */
+  /** `null` means "no destination yet": rendered disabled, never clickable. */
   href: string | null;
 };
 
@@ -21,7 +21,7 @@ export const site = {
   name: "Wayborne",
   tagline: "Safe driving pays off",
   description:
-    "Wayborne scores every drive in real time — speed, smooth driving, braking, and awareness — then turns that record into a usage-based insurance estimate.",
+    "Wayborne scores every drive in real time, including speed, smooth driving, braking, and awareness, then turns that record into a usage-based insurance estimate.",
   url: "https://wayborne.app",
 } as const;
 
@@ -49,7 +49,7 @@ export const hero = {
   eyebrow: "Introducing Wayborne",
   headline: "Every drive, scored in real time",
   subhead: [
-    "Wayborne turns everyday driving into a safety score you can watch improve —",
+    "Wayborne turns everyday driving into a safety score you can watch improve.",
     "and a record that can lower what you pay to insure the car.",
   ],
   image: "/images/app/home.png",
@@ -64,7 +64,7 @@ export const hero = {
 
 export const showcase = {
   eyebrow: "Your driving, measured.",
-  body: "Wayborne scores every trip across the four behaviors that actually cause crashes — speed, smooth driving, braking, and awareness. An invisible risk becomes a number you can watch improve.",
+  body: "Wayborne scores every trip across the four behaviors that actually cause crashes: speed, smooth driving, braking, and awareness. An invisible risk becomes a number you can watch improve.",
   metrics: [
     { name: "Speed", body: "Stays near posted limits and avoids very high-speed exposure." },
     { name: "Smooth driving", body: "Accelerates steadily, without repeated hard launches." },
@@ -81,7 +81,7 @@ export const trips = {
   features: [
     {
       heading: "A graded history of every drive",
-      body: "Distance, duration, safety events, and a score per trip — so a rough week is obvious at a glance, and so is a clean one.",
+      body: "Distance, duration, safety events, and a score per trip make a rough week obvious at a glance, and a clean one too.",
       image: "/images/app/trips.png",
       alt: "Wayborne trips list showing recent drives with per-trip safety scores",
     },
@@ -98,7 +98,7 @@ export const insurance = {
   id: "insurance",
   eyebrow: "Insurance preview",
   heading: "See what your driving is worth",
-  body: "Wayborne translates your safety score into a usage-based insurance estimate — the discount range, what it saves per month and per year, and which behaviors are carrying it.",
+  body: "Wayborne translates your safety score into a usage-based insurance estimate: the discount range, what it saves per month and per year, and which behaviors are carrying it.",
   image: "/images/app/insurance.png",
   alt: "Wayborne insurance preview showing an estimated 13-17% discount based on a safety score of 84",
   points: [
@@ -117,7 +117,7 @@ export const progress = {
   id: "progress",
   eyebrow: "Progress",
   heading: "Turn safer habits into something worth keeping",
-  body: "Streaks, tiers, challenges, and trophies give a long-term reason to keep the score up — well after the novelty of a new app wears off.",
+  body: "Streaks, tiers, challenges, and trophies give a long-term reason to keep the score up, well after the novelty of a new app wears off.",
   features: [
     {
       heading: "Streaks, tiers, and challenges",
@@ -138,7 +138,7 @@ export const friends = {
   id: "friends",
   eyebrow: "Friends",
   heading: "Compare scores. Not locations.",
-  body: "Add friends by email or invite code and see how your safety score stacks up. Wayborne shares only the summary you choose — never raw trip routes or location points.",
+  body: "Add friends by email or invite code and see how your safety score stacks up. Wayborne shares only the summary you choose, never raw trip routes or location points.",
   image: "/images/app/friends.png",
   alt: "Wayborne friends screen showing a leaderboard and sharing controls",
   points: [

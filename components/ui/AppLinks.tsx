@@ -10,8 +10,8 @@ const shell = "group flex h-[62px] items-center gap-3 rounded-2xl px-5";
 /**
  * App Store / Google Play buttons.
  *
- * A store with no listing URL yet renders grayed out and non-interactive —
- * pressed into the page rather than raised out of it — with a "Coming soon"
+ * A store with no listing URL yet renders grayed out and non-interactive,
+ * pressed into the page rather than raised out of it, with a "Coming soon"
  * label in place of the store name, so nothing here is a dead link.
  */
 export function AppLinks({ className = "" }: AppLinksProps) {

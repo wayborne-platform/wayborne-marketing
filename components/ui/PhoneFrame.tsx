@@ -8,7 +8,7 @@ type PhoneFrameProps = {
   sizes?: string;
 };
 
-/** Intrinsic size of every app screenshot — a 924 x 1999 device capture. */
+/** Intrinsic size of every app screenshot: a 924 x 1999 device capture. */
 const SHOT_WIDTH = 924;
 const SHOT_HEIGHT = 1999;
 
@@ -16,7 +16,7 @@ const SHOT_HEIGHT = 1999;
  * A screenshot shown inside a neumorphic device bezel.
  *
  * The image is always rendered at its natural aspect ratio (`h-auto w-full`),
- * so a tall phone capture is never cropped to fit a landscape box — the frame
+ * so a tall phone capture is never cropped to fit a landscape box; the frame
  * sizes itself to the screenshot instead of the other way around.
  */
 export function PhoneFrame({ src, alt, priority = false, className = "", sizes = "(max-width: 640px) 74vw, 300px" }: PhoneFrameProps) {

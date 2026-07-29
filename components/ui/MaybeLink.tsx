@@ -8,7 +8,7 @@ type MaybeLinkProps = MaybeLinkData & {
 
 /**
  * Renders a nav or footer entry as a real link when it has a destination, and
- * as grayed-out, non-interactive text when it does not — so the site never
+ * as grayed-out, non-interactive text when it does not, so the site never
  * ships an anchor that goes nowhere.
  */
 export function MaybeLink({ label, href, className = "", linkClassName = "" }: MaybeLinkProps) {

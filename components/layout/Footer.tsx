@@ -70,7 +70,7 @@ export function Footer() {
             © {new Date().getFullYear()} {site.name}. All rights reserved.
           </p>
           <p className="text-[13px] text-[var(--color-fg-subtle)]">
-            {nav.cta.label} — {site.tagline.toLowerCase()}.
+            {nav.cta.label}. {site.tagline}.
           </p>
         </div>
       </div>

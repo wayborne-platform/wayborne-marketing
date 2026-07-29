@@ -4,7 +4,7 @@ import { Reveal } from "@/components/ui/Reveal";
 
 /**
  * The four behaviors behind the safety score, laid out as raised neumorphic
- * pads — the same breakdown the app shows under the score dial.
+ * pads, the same breakdown the app shows under the score dial.
  */
 export function Showcase() {
   return (

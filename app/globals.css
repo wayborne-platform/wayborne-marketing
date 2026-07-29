@@ -4,8 +4,8 @@
  * Design tokens for the Wayborne marketing site.
  *
  * Neumorphic (soft UI) aesthetic, pulled directly from the app: one mid-dark
- * slate surface everywhere, with depth created by paired shadows — a cool
- * highlight from the top-left and a deep shadow to the bottom-right — instead
+ * slate surface everywhere, with depth created by paired shadows: a cool
+ * highlight from the top-left and a deep shadow to the bottom-right, instead
  * of borders or contrasting fills. Accent colors match the app's score ring
  * (amber), primary actions (blue), and positive states (green).
  */
@@ -94,7 +94,7 @@ body {
   box-shadow: var(--shadow-neu-lg);
 }
 
-/* A well pressed into the page — used for image wells and inputs. */
+/* A well pressed into the page, used for image wells and inputs. */
 .neu-inset {
   background: var(--color-bg-sunken);
   box-shadow: var(--shadow-neu-inset);
