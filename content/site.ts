@@ -76,9 +76,9 @@ export const trips = {
     },
     {
       heading: "The route behind the score",
-      body: "Each trip keeps its own map with the points Wayborne recorded, and calls out clean drives where no safety events were found at all.",
+      body: "Each trip keeps its own map with the points Wayborne recorded, and pins every safety event to the spot it happened, down to your speed and the limit you passed.",
       image: "/images/app/trip-map.png",
-      alt: "Wayborne trip detail map for a drive on Foster Ave with no safety events found",
+      alt: "Wayborne trip detail map for a drive on Interstate 90, with a speeding event pinned to the route showing 71 mph in a 65 zone",
     },
   ],
 } as const;
