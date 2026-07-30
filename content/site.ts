@@ -172,9 +172,7 @@ export const footer = {
       title: "Company",
       links: [
         { label: "About", href: null },
-        { label: "Careers", href: null },
         { label: "Blog", href: null },
-        { label: "Press", href: null },
       ],
     },
     {
@@ -183,7 +181,6 @@ export const footer = {
         { label: "Get the app", href: null },
         { label: "Help center", href: null },
         { label: "Safety research", href: null },
-        { label: "Status", href: null },
       ],
     },
     {
