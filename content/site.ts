@@ -54,11 +54,12 @@ export const hero = {
 export const showcase = {
   eyebrow: "Your driving, measured.",
   body: "Wayborne scores every trip across the four behaviors that actually cause crashes: speed, smooth driving, braking, and awareness. An invisible risk becomes a number you can watch improve.",
+  /** `icon` keys the glyph the app uses for that sub-score. See ui/icons.tsx. */
   metrics: [
-    { name: "Speed", body: "Stays near posted limits and avoids very high-speed exposure." },
-    { name: "Smooth driving", body: "Accelerates steadily, without repeated hard launches." },
-    { name: "Braking", body: "Slows down predictably instead of braking late and hard." },
-    { name: "Awareness", body: "Tracks phone handling and other distractions behind the wheel." },
+    { icon: "speed", name: "Speed", body: "Stays near posted limits and avoids very high-speed exposure." },
+    { icon: "smooth", name: "Smooth driving", body: "Accelerates steadily, without repeated hard launches." },
+    { icon: "braking", name: "Braking", body: "Slows down predictably instead of braking late and hard." },
+    { icon: "awareness", name: "Awareness", body: "Tracks phone handling and other distractions behind the wheel." },
   ],
 } as const;
 

@@ -6,6 +6,7 @@ import { Container } from "@/components/ui/Container";
 import { WordReveal } from "@/components/ui/WordReveal";
 import { PhoneFrame } from "@/components/ui/PhoneFrame";
 import { AppLinks } from "@/components/ui/AppLinks";
+import { ScrollHint } from "@/components/ui/ScrollHint";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 16, filter: "blur(6px)" },
@@ -80,6 +81,8 @@ export function Hero() {
           </motion.div>
         </div>
       </Container>
+
+      <ScrollHint />
     </section>
   );
 }

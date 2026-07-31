@@ -56,6 +56,13 @@ html {
   text-rendering: optimizeLegibility;
   /* Anchor targets clear the fixed header. */
   scroll-padding-top: 96px;
+  /*
+   * Rubber-band overscroll exposes the canvas, and the canvas is painted from
+   * the root element's background: one colour for both ends of the page, with
+   * no way to vary it per end. So the root owns it explicitly, and the header
+   * and footer are both built on this same surface rather than a second one.
+   */
+  background-color: var(--color-bg);
 }
 
 body {
