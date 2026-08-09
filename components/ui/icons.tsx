@@ -37,6 +37,78 @@ export function PlayCircleIcon(props: SVGProps<SVGSVGElement>) {
   );
 }
 
+/*
+ * The four safety-score behaviours, drawn to match the glyphs the app puts in
+ * the sub-score wells on the home screen: speedometer, bolt.fill, brakesignal,
+ * and checkmark.shield.fill. The app tints each one by that driver's score, so
+ * braking shows red for a bad score; here they carry no score, so they all take
+ * a single accent instead of implying a verdict about the behaviour itself.
+ */
+
+/** Speed: an open gauge with the needle swept up and to the right. */
+export function GaugeIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" {...props}>
+      <path
+        d="M4.6 18.4a10.5 10.5 0 1 1 14.8 0"
+        stroke="currentColor"
+        strokeWidth="1.9"
+        strokeLinecap="round"
+      />
+      <path
+        d="M12 12.9 17.1 7.4a.55.55 0 0 1 .86.68l-4.06 6.36A1.85 1.85 0 1 1 12 12.9z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+}
+
+/** Smooth driving: a filled bolt. */
+export function BoltIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" {...props}>
+      <path d="M13.9 1.8 5.3 12.6a.7.7 0 0 0 .55 1.14h4.06l-1.2 8.3a.55.55 0 0 0 .98.42l8.85-11.02a.7.7 0 0 0-.55-1.14h-4.19l1.06-7.9a.55.55 0 0 0-.96-.6z" />
+    </svg>
+  );
+}
+
+/**
+ * Braking: the dashboard brake telltale, a circled "!" between two arcs.
+ *
+ * The app draws two arcs a side, which is the real symbol, but they merge into
+ * a smudge at the 22px this renders at, so this keeps one arc a side.
+ */
+export function BrakeIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true" {...props}>
+      <circle cx="12" cy="12" r="6.1" strokeWidth="1.9" />
+      <path d="M12 8.9v3.6" strokeWidth="1.9" strokeLinecap="round" />
+      <circle cx="12" cy="15.1" r="1" fill="currentColor" stroke="none" />
+      <path d="M3.9 5.9a11.2 11.2 0 0 0 0 12.2" strokeWidth="1.8" strokeLinecap="round" />
+      <path d="M20.1 5.9a11.2 11.2 0 0 1 0 12.2" strokeWidth="1.8" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+/** Awareness: a filled shield with a checkmark knocked out of it. */
+export function ShieldCheckIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" {...props}>
+      <path
+        d="M12 1.9 4.4 4.6a1 1 0 0 0-.66.94v6.02c0 4.2 2.72 7.98 6.86 9.66a3.7 3.7 0 0 0 2.8 0c4.14-1.68 6.86-5.46 6.86-9.66V5.54a1 1 0 0 0-.66-.94z"
+        fill="currentColor"
+      />
+      <path
+        d="m8.4 11.9 2.5 2.5 4.7-4.9"
+        stroke="var(--color-bg)"
+        strokeWidth="2.1"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 export function WordmarkLogo(props: SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 28 28" fill="none" aria-hidden="true" {...props}>

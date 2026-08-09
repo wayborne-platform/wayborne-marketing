@@ -1,131 +1,151 @@
 /**
  * Single source of truth for all marketing copy and navigation data.
- * Copy is written to match what the Wayborne app actually does today:
- * real-time, per-trip safety scoring from the car's OBD-II port and the
- * phone's own sensors, an event map, family sharing, and in-the-moment alerts.
+ *
+ * Copy and screenshots match what the Wayborne app actually ships today:
+ * a per-trip safety score built from speed, smooth driving, braking, and
+ * awareness; a trip list with per-trip maps; a usage-based insurance preview;
+ * streaks, tiers, challenges and trophies; and a friends leaderboard.
+ *
+ * Link policy: anything that does not have a real destination yet is modeled
+ * as `href: null` so the UI can render it grayed out and non-interactive
+ * instead of shipping a dead link.
  */
+
+export type MaybeLink = {
+  label: string;
+  /** `null` means "no destination yet": rendered disabled, never clickable. */
+  href: string | null;
+};
 
 export const site = {
   name: "Wayborne",
   tagline: "Safe driving pays off",
   description:
-    "Wayborne turns every drive into a real-time safety score — reading your car and your phone to build safer habits and a record that can lower your insurance.",
+    "Wayborne scores every drive in real time, including speed, smooth driving, braking, and awareness, then turns that record into a usage-based insurance estimate.",
   url: "https://wayborne.app",
-  appStoreUrl: "https://apps.apple.com/app/wayborne",
-  playStoreUrl: "https://play.google.com/store/apps/details?id=app.wayborne",
 } as const;
 
+/**
+ * Store listings are not live yet, so both are disabled. Flip `href` to the
+ * real listing URL and the buttons become active automatically.
+ */
+export const stores = [
+  { id: "ios", label: "Download on the", store: "App Store", href: null as string | null },
+  { id: "android", label: "Get it on", store: "Google Play", href: null as string | null },
+] as const;
+
 export const nav = {
-  links: [
-    { label: "Product", href: "#product" },
-    { label: "How it works", href: "#how-it-works" },
-    { label: "For families", href: "#families" },
-    { label: "Pricing", href: "#pricing" },
-  ],
-  cta: { label: "Get the app", href: site.appStoreUrl },
-  login: { label: "Log in", href: "#" },
+  cta: { label: "Get the app", href: null as string | null },
+  login: { label: "Log in", href: null as string | null },
 } as const;
 
 export const hero = {
   eyebrow: "Introducing Wayborne",
-  // Split into words for the staggered blur-up reveal.
   headline: "Every drive, scored in real time",
   subhead: [
     "Wayborne turns everyday driving into a safety score you can watch improve.",
-    "Available for iOS and Android.",
+    "and a record that can lower what you pay to insure the car.",
   ],
-  availability: "Available for iOS and Android.",
+  image: "/images/app/home.png",
+  imageAlt:
+    "Wayborne home screen showing a safety score of 84 with sub-scores for speed, smooth driving, braking, and awareness",
 } as const;
 
 export const showcase = {
   eyebrow: "Your driving, measured.",
-  body: "Wayborne scores every trip in real time across the behaviors that actually cause crashes — speed, acceleration, braking, and awareness. An invisible risk becomes a number you can watch improve.",
-  cta: "See how it works",
-  image: "/images/showcase.webp",
+  body: "Wayborne scores every trip across the four behaviors that actually cause crashes: speed, smooth driving, braking, and awareness. An invisible risk becomes a number you can watch improve.",
+  /** `icon` keys the glyph the app uses for that sub-score. See ui/icons.tsx. */
+  metrics: [
+    { icon: "speed", name: "Speed", body: "Stays near posted limits and avoids very high-speed exposure." },
+    { icon: "smooth", name: "Smooth driving", body: "Accelerates steadily, without repeated hard launches." },
+    { icon: "braking", name: "Braking", body: "Slows down predictably instead of braking late and hard." },
+    { icon: "awareness", name: "Awareness", body: "Tracks phone handling and other distractions behind the wheel." },
+  ],
 } as const;
 
-export const dualFeatures = [
-  {
-    eyebrow: "Real-time scoring.",
-    body: "Every trip is scored the moment you park, so the feedback lands while the habit is still fresh — not days later.",
-    image: "/images/realtime.avif",
-    width: 584,
-    height: 438,
-  },
-  {
-    eyebrow: "Straight from your car.",
-    body: "Wayborne reads live speed, RPM, and throttle from your car's OBD-II port, and fills in the rest with your phone's GPS and motion sensors.",
-    image: "/images/sensor.avif",
-    width: 408,
-    height: 438,
-  },
-] as const;
-
-export const dashboard = {
-  heading: "Stay on top of every trip that shapes your score",
-  body: "Your home screen keeps your safety score and recent trips front and center. Tap any trip to see the breakdown, and watch the number move as your habits change.",
-  image: "/images/dashboard.jpg",
-  subFeatures: [
+export const trips = {
+  id: "trips",
+  eyebrow: "Trips",
+  heading: "Every trip, scored the moment you park",
+  body: "Wayborne detects each drive automatically and grades it on its own. Open any trip to see the route it saved, the safety events it flagged, and exactly what moved the number.",
+  features: [
     {
-      heading: "See exactly what cost you points…",
-      body: "Every trip breaks down into speed, acceleration, braking, and awareness — so feedback is specific and actionable, never vague.",
-      image: "/images/breakdown.jpg",
+      heading: "A graded history of every drive",
+      body: "Distance, duration, safety events, and a score per trip make a rough week obvious at a glance, and a clean one too.",
+      image: "/images/app/trips.png",
+      alt: "Wayborne trips list showing recent drives with per-trip safety scores",
     },
     {
-      heading: "…and replay the drive, moment by moment",
-      body: "Speed, RPM, and throttle are charted across the whole trip, so you can see exactly where things got risky.",
-      image: "/images/trends.jpg",
+      heading: "The route behind the score",
+      body: "Each trip keeps its own map with the points Wayborne recorded, and pins every safety event to the spot it happened, down to your speed and the limit you passed.",
+      image: "/images/app/trip-map.png",
+      alt: "Wayborne trip detail map for a drive on Interstate 90, with a speeding event pinned to the route showing 71 mph in a 65 zone",
     },
   ],
 } as const;
 
-export const coaching = {
-  heading: "Coaching that follows you. No matter where you drive.",
-  body: "Wayborne detects every trip automatically, maps where the risky moments happen, and shares the results with the people helping you improve.",
-  image: "/images/coaching.jpg",
-  subFeatures: [
-    {
-      heading: "Scores every trip automatically",
-      body: "Wayborne starts and stops with your drive — no buttons, no setup. Get in and go, and the score is waiting when you park.",
-      image: "/images/auto-score.jpg",
-    },
-    {
-      heading: "Maps the roads where risk spikes",
-      body: "See exactly where speeding and hard braking happen, so the dangerous patterns on your regular routes become obvious.",
-      image: "/images/risk-map.jpg",
-    },
-    {
-      heading: "Shares progress with parents & instructors",
-      body: "Switch between Individual and Family to give a parent or driving instructor a shared view of real trips — even the ones they were never in the car for.",
-      image: "/images/share.jpg",
-    },
-    {
-      heading: "Explains every flagged moment",
-      body: "Tap any event on the map to see what happened — how far over the limit, how hard the acceleration — so coaching is grounded in facts, not guesses.",
-      image: "/images/insurer.jpg",
-    },
-  ],
-} as const;
-
-export const notifications = {
-  heading: "Always coaching. Never nagging.",
-  body: "Wayborne speaks up in the moment that matters — and stays quiet the rest of the time.",
-  image: "/images/alerts.jpg",
+export const insurance = {
+  id: "insurance",
+  eyebrow: "Insurance preview",
+  heading: "See what your driving is worth",
+  body: "Wayborne translates your safety score into a usage-based insurance estimate: the discount range, what it saves per month and per year, and which behaviors are carrying it.",
+  image: "/images/app/insurance.png",
+  alt: "Wayborne insurance preview showing an estimated 13-17% discount based on a safety score of 84",
   points: [
     {
-      eyebrow: "Real-time alerts.",
-      body: "Get a heads-up the instant a habit needs attention, so you can correct it while it still counts toward your score.",
+      eyebrow: "A range, not a promise.",
+      body: "Every estimate is labeled as an estimate and shows the trip count behind it, so you know how much history it is actually built on.",
     },
     {
-      eyebrow: "On your terms.",
-      body: "Tune how Wayborne coaches — set your own speeding threshold, or decide whether phone use counts against your score or stays awareness-only.",
+      eyebrow: "Traceable to your habits.",
+      body: "The same four scores that drive your safety number drive the estimate, each with a plain-language note on what it is measuring.",
+    },
+  ],
+} as const;
+
+export const progress = {
+  id: "progress",
+  eyebrow: "Progress",
+  heading: "Turn safer habits into something worth keeping",
+  body: "Streaks, tiers, challenges, and trophies give a long-term reason to keep the score up, well after the novelty of a new app wears off.",
+  features: [
+    {
+      heading: "Streaks, tiers, and challenges",
+      body: "Keep a driving streak alive, climb from Platinum toward Sapphire, and work through challenges that reward specific habits.",
+      image: "/images/app/profile.png",
+      alt: "Wayborne profile screen showing a driving streak, driver percentile, Platinum tier, and challenges",
+    },
+    {
+      heading: "Trophies for the long haul",
+      body: "Clean records, phone-free trips, flawless days, and roads explored each track toward their own trophy tier.",
+      image: "/images/app/rewards.png",
+      alt: "Wayborne rewards screen showing trophy progress for clean record, clean streak, and phone-free trips",
+    },
+  ],
+} as const;
+
+export const friends = {
+  id: "friends",
+  eyebrow: "Friends",
+  heading: "Compare scores. Not locations.",
+  body: "Add friends by email or invite code and see how your safety score stacks up. Wayborne shares only the summary you choose, never raw trip routes or location points.",
+  image: "/images/app/friends.png",
+  alt: "Wayborne friends screen showing a leaderboard and sharing controls",
+  points: [
+    {
+      eyebrow: "You pick what leaves the app.",
+      body: "Share a profile or a score on purpose. Routes and location points stay on your side of the line.",
+    },
+    {
+      eyebrow: "A leaderboard worth winning.",
+      body: "Ranking on safety instead of speed makes the competitive part of driving the part that keeps everyone safer.",
     },
   ],
 } as const;
 
 export const finalCta = {
   heading: "Ready for the road ahead",
-  body: "Download Wayborne, start scoring your trips today, and turn safer driving into a record that pays off with lower insurance.",
+  body: "Wayborne is coming to iOS and Android. Store links go live at launch.",
 } as const;
 
 export const footer = {
@@ -133,49 +153,46 @@ export const footer = {
     {
       title: "Product",
       links: [
-        { label: "Safety score", href: "#" },
-        { label: "Trip breakdown", href: "#" },
-        { label: "Event map", href: "#" },
-        { label: "Insurance discounts", href: "#" },
-        { label: "Pricing", href: "#" },
+        { label: "Safety score", href: null },
+        { label: "Trips & maps", href: null },
+        { label: "Insurance preview", href: null },
+        { label: "Progress & rewards", href: null },
+        { label: "Friends", href: null },
       ],
     },
     {
       title: "For",
       links: [
-        { label: "New drivers", href: "#" },
-        { label: "Parents", href: "#" },
-        { label: "Driving schools", href: "#" },
-        { label: "Insurers", href: "#" },
+        { label: "New drivers", href: null },
+        { label: "Parents", href: null },
+        { label: "Driving schools", href: null },
+        { label: "Insurers", href: null },
       ],
     },
     {
       title: "Company",
       links: [
-        { label: "About", href: "#" },
-        { label: "Careers", href: "#" },
-        { label: "Blog", href: "#" },
-        { label: "Press", href: "#" },
+        { label: "About", href: null },
+        { label: "Blog", href: null },
       ],
     },
     {
       title: "Resources",
       links: [
-        { label: "Download", href: "#" },
-        { label: "Help center", href: "#" },
-        { label: "Safety research", href: "#" },
-        { label: "Status", href: "#" },
+        { label: "Get the app", href: null },
+        { label: "Help center", href: null },
+        { label: "Safety research", href: null },
       ],
     },
     {
       title: "Connect",
       links: [
-        { label: "Contact us", href: "#" },
-        { label: "X (Twitter)", href: "#" },
-        { label: "Instagram", href: "#" },
-        { label: "Privacy", href: "#" },
-        { label: "Terms", href: "#" },
+        { label: "Contact us", href: null },
+        { label: "X (Twitter)", href: null },
+        { label: "Instagram", href: null },
+        { label: "Privacy", href: null },
+        { label: "Terms", href: null },
       ],
     },
-  ],
+  ] satisfies readonly { title: string; links: readonly MaybeLink[] }[],
 } as const;
