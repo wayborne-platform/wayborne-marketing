@@ -40,10 +40,7 @@ export function Showcase() {
                 delay={i * 0.06}
                 className="neu neu-sheen neu-interactive relative flex flex-col gap-3 rounded-3xl p-6"
               >
-                {/* The app seats each sub-score glyph in a recessed circle; same here. */}
-                <span className="neu-inset-sm mb-1 flex h-11 w-11 items-center justify-center rounded-full">
-                  <Icon className="h-[22px] w-[22px] text-[var(--color-accent-soft)]" />
-                </span>
+                <Icon className="mb-1 h-[22px] w-[22px] text-[var(--color-accent-soft)]" />
                 <h3 className="text-base font-medium text-[var(--color-fg)]">{metric.name}</h3>
                 <p className="text-pretty text-[14px] leading-relaxed text-[var(--color-fg-muted)]">{metric.body}</p>
               </Reveal>
