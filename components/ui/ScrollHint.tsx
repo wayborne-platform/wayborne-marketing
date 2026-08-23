@@ -34,26 +34,21 @@ export function ScrollHint() {
       animate={{ opacity: scrolled ? 0 : 1 }}
       transition={{ duration: 0.5, delay: scrolled ? 0 : 1.6, ease: [0.25, 1, 0.5, 1] }}
       aria-label="Scroll to what Wayborne measures"
-      className={`group fixed bottom-6 left-1/2 z-40 flex -translate-x-1/2 flex-col items-center gap-3 ${
+      className={`group fixed bottom-5 left-1/2 z-40 -translate-x-1/2 ${
         scrolled ? "pointer-events-none" : ""
       }`}
     >
-      <span className="text-[11px] font-medium uppercase tracking-[0.18em] text-[var(--color-fg-subtle)] transition-colors group-hover:text-[var(--color-fg-muted)]">
-        Scroll
-      </span>
-
-      {/*
-       * A wheel travelling down a mouse body. The inset shadow alone reads as a
-       * smudge at this size, so the body carries an explicit hairline border and
-       * the shape does the work.
-       */}
-      <span className="neu-inset-sm flex h-[36px] w-[22px] items-start justify-center rounded-full border border-[rgba(255,255,255,0.16)] pt-[7px] transition-colors group-hover:border-[rgba(255,255,255,0.28)]">
-        <motion.span
-          className="h-[6px] w-[3px] rounded-full bg-[var(--color-accent-soft)]"
-          animate={reduceMotion ? undefined : { y: [0, 12, 0], opacity: [0, 1, 0] }}
-          transition={{ duration: 1.9, repeat: Infinity, ease: "easeInOut", times: [0, 0.55, 1] }}
-          style={reduceMotion ? { opacity: 0.7 } : undefined}
-        />
+      <span className="flex h-10 w-10 items-center justify-center rounded-full border border-white/[0.08] bg-[rgba(35,39,46,0.72)] shadow-[0_8px_30px_rgba(0,0,0,0.22)] backdrop-blur-md transition-[border-color,background-color,transform] duration-300 group-hover:-translate-y-0.5 group-hover:border-white/[0.16] group-hover:bg-[rgba(39,44,52,0.9)]">
+        <motion.svg
+          aria-hidden="true"
+          viewBox="0 0 16 16"
+          fill="none"
+          className="h-4 w-4 text-[var(--color-accent-soft)]"
+          animate={reduceMotion ? undefined : { y: [0, 3, 0] }}
+          transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <path d="m4 6 4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+        </motion.svg>
       </span>
     </motion.a>
   );
