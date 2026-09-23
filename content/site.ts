@@ -3,7 +3,7 @@
  *
  * Copy and screenshots match what the Wayborne app actually ships today:
  * a per-trip safety score built from speed, smooth driving, braking, and
- * awareness; a trip list with per-trip maps; a usage-based insurance preview;
+ * focus; a trip list with per-trip maps; a usage-based insurance preview;
  * streaks, tiers, challenges and trophies; and a friends leaderboard.
  *
  * Link policy: anything that does not have a real destination yet is modeled
@@ -21,7 +21,7 @@ export const site = {
   name: "Wayborne",
   tagline: "Safe driving pays off",
   description:
-    "Wayborne scores every drive in real time, including speed, smooth driving, braking, and awareness, then turns that record into a usage-based insurance estimate.",
+    "Wayborne scores every drive in real time, including speed, smooth driving, braking, and focus, then turns that record into a usage-based insurance estimate.",
   url: "https://wayborne.app",
 } as const;
 
@@ -43,7 +43,7 @@ export const hero = {
   eyebrow: "Introducing Wayborne",
   headline: "Every drive, scored in real time",
   subhead: [
-    "Wayborne turns everyday driving into a safety score you can watch improve.",
+    "Wayborne turns everyday driving into a safety score you can watch improve,",
     "and a record that can lower what you pay to insure the car.",
   ],
   image: "/images/app/home.png",
@@ -53,13 +53,13 @@ export const hero = {
 
 export const showcase = {
   eyebrow: "Your driving, measured.",
-  body: "Wayborne scores every trip across the four behaviors that actually cause crashes: speed, smooth driving, braking, and awareness. An invisible risk becomes a number you can watch improve.",
+  body: "Wayborne scores every trip across the four behaviors that actually cause crashes: speed, smooth driving, braking, and focus. Risk you can't see becomes a score you can work on.",
   /** `icon` keys the glyph the app uses for that sub-score. See ui/icons.tsx. */
   metrics: [
     { icon: "speed", name: "Speed", body: "Stays near posted limits and avoids very high-speed exposure." },
     { icon: "smooth", name: "Smooth driving", body: "Accelerates steadily, without repeated hard launches." },
     { icon: "braking", name: "Braking", body: "Slows down predictably instead of braking late and hard." },
-    { icon: "awareness", name: "Awareness", body: "Tracks phone handling and other distractions behind the wheel." },
+    { icon: "focus", name: "Focus", body: "Catches phone handling and other distractions behind the wheel." },
   ],
 } as const;
 
@@ -67,19 +67,19 @@ export const trips = {
   id: "trips",
   eyebrow: "Trips",
   heading: "Every trip, scored the moment you park",
-  body: "Wayborne detects each drive automatically and grades it on its own. Open any trip to see the route it saved, the safety events it flagged, and exactly what moved the number.",
+  body: "Wayborne detects each drive automatically and grades it on its own. Open any trip to see the route it saved, every offense it flagged, and exactly what moved the number.",
   features: [
     {
       heading: "A graded history of every drive",
-      body: "Distance, duration, safety events, and a score per trip make a rough week obvious at a glance, and a clean one too.",
+      body: "Distance, duration, offenses, and a score per trip make a rough week obvious at a glance, and a clean one too.",
       image: "/images/app/trips.png",
       alt: "Wayborne trips list showing recent drives with per-trip safety scores",
     },
     {
       heading: "The route behind the score",
-      body: "Each trip keeps its own map with the points Wayborne recorded, and pins every safety event to the spot it happened, down to your speed and the limit you passed.",
+      body: "Each trip keeps its own map with the points Wayborne recorded, and pins every offense to the spot it happened, down to your speed and the limit you broke.",
       image: "/images/app/trip-map.png",
-      alt: "Wayborne trip detail map for a drive on Interstate 90, with a speeding event pinned to the route showing 71 mph in a 65 zone",
+      alt: "Wayborne trip detail map for a drive on Interstate 90, with a speeding offense pinned to the route showing 71 mph in a 65 zone",
     },
   ],
 } as const;

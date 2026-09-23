@@ -7,7 +7,7 @@ const METRIC_ICONS = {
   speed: GaugeIcon,
   smooth: BoltIcon,
   braking: BrakeIcon,
-  awareness: ShieldCheckIcon,
+  focus: ShieldCheckIcon,
 } as const;
 
 /**
