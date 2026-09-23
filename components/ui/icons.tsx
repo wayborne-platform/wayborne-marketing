@@ -90,7 +90,7 @@ export function BrakeIcon(props: SVGProps<SVGSVGElement>) {
   );
 }
 
-/** Awareness: a filled shield with a checkmark knocked out of it. */
+/** Focus: a filled shield with a checkmark knocked out of it. */
 export function ShieldCheckIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" {...props}>
