@@ -88,7 +88,7 @@ export const insurance = {
   id: "insurance",
   eyebrow: "Insurance preview",
   heading: "See what your driving is worth",
-  body: "Wayborne translates your safety score into a usage-based insurance estimate: the discount range, what it saves per month and per year, and which behaviors are carrying it.",
+  body: "Wayborne translates your safety score into a usage-based insurance estimate: the discount range, what it saves per month and per year, and which behaviors are carrying it. Estimates are for guidance only and are not a guarantee of the discount you will receive from an insurer.",
   image: "/images/app/insurance.png",
   alt: "Wayborne insurance preview showing an estimated 13-17% discount based on a safety score of 84",
   points: [
