@@ -1,7 +1,7 @@
 /**
  * Where the adapter goes: the underside of a dashboard with the steering
  * column on the left and a WiCAN-style adapter plugged into the OBD-II port
- * beside it, its status light lit, with a label pointing at the port.
+ * beside it, its status light lit, and a label pointing at the port.
  * Decorative; the step's copy says the same thing.
  */
 export function DashboardIllustration({ className = "" }: { className?: string }) {
@@ -42,11 +42,12 @@ export function DashboardIllustration({ className = "" }: { className?: string }
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      {/* Label with a leader to the port. */}
-      <path d="M200 64h14v-8h4" stroke="rgba(255,255,255,0.35)" strokeLinecap="round" strokeLinejoin="round" />
-      <text x="206" y="88" fill="rgba(255,255,255,0.6)" fontSize="10.5" fontWeight="600" fontFamily="var(--font-sans)">
-        <tspan x="206">OBD-II</tspan>
-        <tspan x="206" dy="13">port</tspan>
+      {/* Label under the steering column, with a leader up to the port. */}
+      <path d="M104 122 138 74" stroke="rgba(255,255,255,0.4)" strokeLinecap="round" />
+      <circle cx="138" cy="74" r="2.5" fill="rgba(255,255,255,0.6)" />
+      <text fill="rgba(255,255,255,0.72)" fontSize="13" fontWeight="600" fontFamily="var(--font-sans)">
+        <tspan x="12" y="132">Port under the</tspan>
+        <tspan x="12" dy="16">steering wheel</tspan>
       </text>
     </svg>
   );

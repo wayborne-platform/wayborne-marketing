@@ -130,18 +130,21 @@ export const trips = {
   /** Each screen pairs with the caption under it. */
   screens: [
     {
+      tab: "Trip history",
       src: "/images/screens/trips.png",
       alt: "Wayborne trips list with seven recent drives, each with its own score",
       heading: "A score for every trip",
       body: "A rough commute shows up as a rough commute, not an average that hides it.",
     },
     {
+      tab: "Breakdown",
       src: "/images/screens/trip.png",
       alt: "Wayborne trip detail for Home to Climbing gym, scored 95 Excellent, with a score breakdown by habit",
       heading: "What it was built from",
       body: "Tap any habit to see the events behind it, like a hard brake or time over the limit.",
     },
     {
+      tab: "Route",
       src: "/images/screens/map.png",
       alt: "Wayborne trip map for Home to Climbing gym, with the route and each driving event pinned along it",
       heading: "Where it happened",
@@ -154,13 +157,13 @@ export const insurance = {
   id: "insurance",
   eyebrow: "Insurance",
   heading: "See what your driving is worth.",
-  body: "Your score, turned into a usage-based insurance estimate and the habits behind it.",
+  body: "Your score becomes a usage-based insurance estimate, with the habits that move it.",
   image: "/images/screens/insurance-light.png",
   alt: "Wayborne insurance estimate in light mode showing a 9 to 13 percent discount at a safety score of 79, about $14 to $21 a month",
   points: [
     {
       heading: "A range, not a promise",
-      body: "Each estimate says it is an estimate and shows how many trips it uses.",
+      body: "Every estimate is labeled as one and shows how many trips it's based on.",
     },
     {
       heading: "Traceable to your habits",

@@ -17,7 +17,7 @@ function BluetoothIcon(props: React.SVGProps<SVGSVGElement>) {
 /** A short drive drawn as a route, with two events pinned on it. */
 function RouteSketch() {
   return (
-    <svg viewBox="0 0 220 120" fill="none" aria-hidden="true" className="w-[180px] sm:w-[220px]">
+    <svg viewBox="0 0 220 120" fill="none" aria-hidden="true" className="w-[170px] sm:w-[220px]">
       <path d="M0 30h220M0 70h220M0 110h220M40 0v120M110 0v120M180 0v120" stroke="rgba(255,255,255,0.05)" />
       <path
         d="M22 98c18 0 20-36 44-36s22 28 48 28 26-58 52-58 26 18 34 18"
@@ -33,10 +33,10 @@ function RouteSketch() {
   );
 }
 
-/** A status line in the app's chip style, laid over the bottom of a step's visual. */
+/** A status line in the app's chip style, under a step's drawing. Hidden on phones to keep the steps short. */
 function StatusChip({ icon, title, detail }: { icon: React.ReactNode; title: string; detail: string }) {
   return (
-    <div className="panel flex items-center gap-2.5 rounded-xl py-2 pl-2 pr-3.5">
+    <div className="panel hidden items-center gap-2.5 rounded-xl py-2 pl-2 pr-3.5 sm:flex">
       {icon}
       <div className="leading-tight">
         <p className="text-[13px] font-semibold">{title}</p>
@@ -52,7 +52,7 @@ function StatusChip({ icon, title, detail }: { icon: React.ReactNode; title: str
  */
 const visuals = [
   <>
-    <DashboardIllustration className="w-[200px] sm:w-[240px]" />
+    <DashboardIllustration className="w-[190px] sm:w-[230px]" />
     <StatusChip
       icon={
         <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[color-mix(in_srgb,var(--color-accent)_18%,transparent)] text-[var(--color-accent-soft)]">
@@ -76,7 +76,7 @@ const visuals = [
     />
   </>,
   <>
-    <ScoreRing score={sample.trip.score} showBand className="w-[84px] sm:w-[112px]" />
+    <ScoreRing score={sample.trip.score} showBand className="w-[96px] sm:w-[112px]" />
     <StatusChip
       icon={<span className="h-7 w-7 rounded-full bg-[color-mix(in_srgb,var(--color-score-excellent)_18%,transparent)] p-[9px]"><span className="block h-full w-full rounded-full bg-[var(--color-score-excellent)]" /></span>}
       title="Trip scored"
@@ -100,7 +100,7 @@ export function HowItWorks() {
               delay={i * 0.06}
               className="panel flex flex-col overflow-hidden rounded-[24px]"
             >
-              <div className="well m-2 flex h-[168px] flex-col items-center justify-center gap-3 rounded-[18px] sm:h-[230px] sm:gap-4">
+              <div className="well m-2 flex h-[150px] flex-col items-center justify-center gap-3 rounded-[18px] sm:h-[240px] sm:gap-4">
                 {visuals[i]}
               </div>
               <div className="px-5 pb-6 pt-3 sm:px-7 sm:pb-7 sm:pt-4">
