@@ -66,7 +66,7 @@ export function Hero() {
               className="mt-8 flex flex-col items-center gap-3 sm:mt-9 lg:items-start"
             >
               <AppLinks className="lg:justify-start" />
-              <p className="text-[13px] text-[var(--color-fg-subtle)]">{hero.requirement}</p>
+              <p className="text-[14px] text-[var(--color-fg-muted)]">{hero.requirement}</p>
             </motion.div>
 
           </div>
@@ -79,7 +79,7 @@ export function Hero() {
             className="mx-auto w-full max-w-[260px] sm:max-w-[290px] lg:max-w-none"
           >
             <PhoneFrame src={hero.image} alt={hero.imageAlt} priority sizes="(max-width: 1024px) 74vw, 320px" />
-            <p className="mt-4 text-center text-[12px] text-[var(--color-fg-subtle)]">{hero.sampleNote}</p>
+            <p className="mt-4 text-center text-[13px] text-[var(--color-fg-muted)]">{hero.sampleNote}</p>
           </motion.div>
         </div>
       </Container>

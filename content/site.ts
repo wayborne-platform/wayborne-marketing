@@ -70,8 +70,8 @@ export const showcase = {
 
 export const trips = {
   id: "trips",
-  heading: "Every trip, saved the moment you park",
-  body: "Plug a Bluetooth OBD-II adapter in once. After that, Wayborne picks up each drive on its own and grades it, and any trip opens to show what built its score and where each event happened.",
+  heading: "Every trip, graded the moment you park",
+  body: "Plug in a Bluetooth OBD-II adapter once. Wayborne then picks up every drive on its own and grades it. Open any trip to see what built its score and where each event happened.",
   /** Reading order: list, breakdown, map. The middle one sits forward. */
   screens: [
     {
@@ -147,7 +147,7 @@ export const friends = {
   id: "friends",
   eyebrow: "Friends",
   heading: "Compare scores. Not locations.",
-  body: "Add friends by email or invite code and see how your safety score stacks up. Wayborne shares only the summary you choose, never raw trip routes or location points.",
+  body: "Accept friend requests and see where your safety score ranks. Wayborne shares only the summary you choose, never raw trip routes or location points.",
   image: "/images/iphone/friends.png",
   alt: "Wayborne friends leaderboard with five drivers ranked by safety score",
   /** Share of the screen shown above the panel's bottom edge: the end of the leaderboard. */
