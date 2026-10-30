@@ -59,11 +59,19 @@ export function TripsTrio({ id, heading, body, screens }: TripsTrioProps) {
               );
             })}
           </Reveal>
-          <ol className="mx-auto mt-12 grid max-w-[900px] grid-cols-3 gap-6">
+          {/* Same widths and overlaps as the phone row, so each card centers under its phone. */}
+          <ol className="mt-12 flex items-stretch justify-center">
             {screens.map((screen, i) => (
-              <Reveal key={screen.src} as="li" delay={i * 0.06} className="neu neu-sheen relative rounded-3xl px-6 py-6">
-                <h3 className="text-lg font-medium text-[var(--color-fg)]">{screen.heading}</h3>
-                <p className="mt-2 text-pretty text-[15px] leading-relaxed text-[var(--color-fg-muted)]">{screen.body}</p>
+              <Reveal
+                key={screen.src}
+                as="li"
+                delay={i * 0.06}
+                className={i === 1 ? "w-[34%] max-w-[320px] px-4" : `w-[29%] max-w-[270px] px-4 ${i === 0 ? "-mr-6" : "-ml-6"}`}
+              >
+                <div className="neu neu-sheen relative h-full rounded-3xl px-6 py-6">
+                  <h3 className="text-lg font-medium text-[var(--color-fg)]">{screen.heading}</h3>
+                  <p className="mt-2 text-pretty text-[15px] leading-relaxed text-[var(--color-fg-muted)]">{screen.body}</p>
+                </div>
               </Reveal>
             ))}
           </ol>

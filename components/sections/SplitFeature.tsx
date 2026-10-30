@@ -49,13 +49,13 @@ export function SplitFeature({
           }`}
         >
           <Reveal
-            className={`mx-auto w-full max-w-[262px] ${imageSide === "right" ? "lg:order-2" : ""} ${
+            className={`mx-auto w-full max-w-[262px] ${imageSide === "right" ? "lg:order-2" : ""} ${cut ? "lg:max-w-[300px]" : ""} ${
               cut ? `order-2 self-end lg:mt-14 ${imageSide === "left" ? "lg:order-first" : ""}` : ""
             }`}
           >
             {cut ? (
               <div className="overflow-hidden" style={{ aspectRatio: visibleAspectRatio(cut) }}>
-                <PhoneFrame src={image} alt={alt} sizes="(max-width: 1024px) 68vw, 262px" />
+                <PhoneFrame src={image} alt={alt} sizes="(max-width: 1024px) 68vw, 300px" />
               </div>
             ) : (
               <PhoneFrame src={image} alt={alt} sizes="(max-width: 1024px) 68vw, 262px" />

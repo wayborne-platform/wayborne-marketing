@@ -5,7 +5,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { nav, site } from "@/content/site";
 import { Button } from "@/components/ui/Button";
-import { MaybeLink } from "@/components/ui/MaybeLink";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -31,12 +30,6 @@ export function Header() {
         </Link>
 
         <div className="ml-auto flex items-center gap-3">
-          <MaybeLink
-            label={nav.login.label}
-            href={nav.login.href}
-            className="hidden px-3 py-2 text-[13px] font-medium sm:block"
-            linkClassName="text-[var(--color-fg-muted)] transition-colors hover:text-[var(--color-fg)]"
-          />
           <Button href={nav.cta.href} size="sm" variant="primary">
             {nav.cta.label}
           </Button>

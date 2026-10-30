@@ -37,8 +37,8 @@ export const stores = [
 ] as const;
 
 export const nav = {
-  cta: { label: "Get the app", href: null as string | null },
-  login: { label: "Log in", href: null as string | null },
+  /** Scrolls to the closing panel with the store badges. */
+  cta: { label: "Get the app", href: "#get-the-app" as string | null },
 } as const;
 
 export const hero = {
@@ -70,7 +70,7 @@ export const showcase = {
 
 export const trips = {
   id: "trips",
-  heading: "Every trip, scored the moment you park",
+  heading: "Every trip, saved the moment you park",
   body: "Plug a Bluetooth OBD-II adapter in once. After that, Wayborne picks up each drive on its own and grades it, and any trip opens to show what built its score and where each event happened.",
   /** Reading order: list, breakdown, map. The middle one sits forward. */
   screens: [
@@ -105,8 +105,8 @@ export const insurance = {
   body: "Wayborne translates your safety score into a usage-based insurance estimate: the discount range, what it saves per month and per year, and which behaviors are carrying it.",
   image: "/images/iphone/insurance.png",
   alt: "Wayborne insurance estimate showing a 9 to 13 percent discount at a safety score of 79, about $14 to $21 a month",
-  /** Share of the screen shown above the panel's bottom edge: the end of the Speed row. */
-  cut: 0.84,
+  /** Share of the screen shown above the panel's bottom edge: the end of the Smooth driving row. */
+  cut: 0.94,
   points: [
     {
       eyebrow: "A range, not a promise.",
@@ -123,7 +123,7 @@ export const progress = {
   id: "progress",
   eyebrow: "Progress",
   heading: "Turn safer habits into something worth keeping",
-  body: "Streaks, tiers, and challenges give a long-term reason to keep the score up, well after the novelty of a new app wears off.",
+  body: "Streaks, tiers, challenges, and trophies give a long-term reason to keep the score up, well after the novelty of a new app wears off.",
   /** `cut` is the share of each screen shown above the card's bottom edge. */
   features: [
     {
@@ -131,14 +131,14 @@ export const progress = {
       body: "Keep a driving streak alive, see where you rank against other drivers, and climb from Silver toward Gold.",
       image: "/images/iphone/profile.png",
       alt: "Wayborne profile with a 3 day driving streak, a top 38 percent ranking, and a Silver tier",
-      cut: 0.7,
+      cut: 0.712,
     },
     {
-      heading: "Challenges, one habit at a time",
-      body: "Work through challenges like three trips without touching your phone, or two clean trips in a row.",
-      image: "/images/iphone/challenges.png",
-      alt: "Wayborne challenges list with Eyes Forward, Ten Up, Back to Back, and Perfect Day",
-      cut: 0.7,
+      heading: "Challenges and trophies",
+      body: "Work through challenges like three trips without touching your phone, and earn trophies for clean records and phone-free driving.",
+      image: "/images/iphone/challenges-trophies.png",
+      alt: "Wayborne challenges list with Eyes Forward, Ten Up, Back to Back, and Perfect Day, above trophies for Clean Record and Clean Streak",
+      cut: 0.71,
     },
   ],
 } as const;
