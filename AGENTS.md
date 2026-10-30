@@ -8,9 +8,11 @@ The signature shape is the app's score dial: `components/ui/ScoreRing.tsx` draws
 
 Insurance is the one light section, on the app's light palette with the light-mode screenshot.
 
-## Screenshots
+## Screenshots and phone frames
 
-App screenshots in `public/images/screens` are 1170 x 2532 (a 390 x 844pt screen at 3x) rendered from the app's design capture rig (`npm run capture:design` in wayborne-mobile), with the rig's rounded corners and Dynamic Island removed. `components/ui/PhoneFrame.tsx` draws them at their natural aspect ratio inside a device frame built from the real iPhone's proportions (47.33pt display corners, concentric rail and border), sized in container units so the corners match the device at any rendered size; never crop a screenshot to fit a box. A device may run off the edge of a panel; `visibleAspectRatio` sizes the clip box so the cut lands on a chosen row.
+Phones use Apple's official iPhone 18 Pro (Black) product bezel from Apple Design Resources (`public/images/device/iphone-18-pro-black.png`), laid over the screenshot unchanged; `components/ui/PhoneFrame.tsx` clips the screenshot to the bezel's screen hole with a mask cut from the bezel's own alpha (`tools/screens/screen-mask.py`), so the corners are Apple's. Apple's marketing guidelines govern its use: the latest-generation device, shown "as is". The site knowingly crops and overlaps some phones (friends panels, hero chip, trips fan); keep that in mind before adding more. When Apple ships a newer iPhone, swap in its bezel, regenerate the mask, and re-render the screenshots at its screen size.
+
+App screenshots in `public/images/iphone` are 1206 x 2622 (the bezel's 402 x 874pt screen at 3x), rendered from the app's design preview with `tools/screens/render-app-screens.mjs`. Never crop or stretch a screenshot to fit a box; a device may run off the edge of a panel, and `visibleAspectRatio` sizes the clip box so the cut lands on a chosen row.
 
 Copy and site-drawn numbers (`sample` in `content/site.ts`) match the sample driver in the screenshots. When the screenshots change, update both. A replaced screenshot needs a new file name or path, because the image optimizer caches by URL.
 

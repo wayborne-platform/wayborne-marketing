@@ -5,18 +5,11 @@ import { Reveal } from "@/components/ui/Reveal";
 import { SnapCarousel } from "@/components/ui/SnapCarousel";
 
 /**
- * How much of each screen shows above the panel's bottom edge, as a fraction
- * of screen height. Both captures have a clean break here: the end of the
- * streak card on Profile, the end of the podium on Friends.
- */
-const VISIBLE = 0.695;
-
-/**
  * Streaks and friends as two panels (a snapping row on phones). Each phone rises out of its panel's
  * bottom edge: the device is clipped by the panel, never the screenshot by a
- * box, so the capture keeps its real aspect ratio. The clip box takes its
- * shape from the frame's own geometry, so the cut lands on the same row at
- * every width.
+ * box, so the capture keeps its real aspect ratio. Each panel's `cut` (from
+ * content/site.ts) and the frame's geometry size the clip box, so the cut
+ * lands on the same row at every width.
  */
 export function CommunitySection() {
   const panels = community.panels.map((panel) => (
@@ -27,7 +20,7 @@ export function CommunitySection() {
       </div>
       <div
         className="mx-auto mt-8 w-[78%] max-w-[340px] overflow-hidden sm:mt-10"
-        style={{ aspectRatio: visibleAspectRatio(VISIBLE) }}
+        style={{ aspectRatio: visibleAspectRatio(panel.cut) }}
       >
         <PhoneFrame src={panel.image} alt={panel.alt} sizes="(max-width: 768px) 60vw, 300px" />
       </div>

@@ -40,7 +40,7 @@ export function InsuranceSection() {
           </div>
 
           <Reveal className="mx-auto w-full max-w-[260px] lg:row-span-2 lg:max-w-none lg:self-start">
-            <PhoneFrame src={insurance.image} alt={insurance.alt} sizes="(max-width: 640px) 260px, 300px" onLight />
+            <PhoneFrame src={insurance.image} alt={insurance.alt} sizes="(max-width: 640px) 260px, 300px" />
           </Reveal>
 
           <dl className="grid gap-6 self-start sm:grid-cols-2">

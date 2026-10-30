@@ -80,7 +80,7 @@ export const hero = {
   requirement: "Requires a WiCAN Bluetooth OBD-II adapter.",
   /** The app screens are a sample driver, not a real account. */
   sampleNote: "App screens show a sample driver.",
-  image: "/images/screens/home.png",
+  image: "/images/iphone/home.png",
   imageAlt:
     "Wayborne home screen showing a safety score of 79, rated Fair, with speed 100, smooth driving 39, braking 57, awareness 100, and three recent trips",
 } as const;
@@ -130,21 +130,21 @@ export const trips = {
   screens: [
     {
       tab: "Trip history",
-      src: "/images/screens/trips.png",
+      src: "/images/iphone/trips.png",
       alt: "Wayborne trips list with seven recent drives, each with its own score",
       heading: "A score for every trip",
       body: "Each drive keeps its own score, so one rough commute doesn't vanish into a weekly average.",
     },
     {
       tab: "Breakdown",
-      src: "/images/screens/trip.png",
+      src: "/images/iphone/trip.png",
       alt: "Wayborne trip detail for Home to Climbing gym, scored 95 Excellent, with a score breakdown by habit",
       heading: "What it was built from",
       body: "Tap any habit to see the events behind it, like a hard brake or time over the limit.",
     },
     {
       tab: "Route",
-      src: "/images/screens/map.png",
+      src: "/images/iphone/map.png",
       alt: "Wayborne trip map for Home to Climbing gym, with the route and each driving event pinned along it",
       heading: "Where it happened",
       body: "Each event is pinned to the route, so you know which corner or on-ramp to work on.",
@@ -157,7 +157,7 @@ export const insurance = {
   eyebrow: "Insurance",
   heading: "See what your driving is worth.",
   body: "Your score becomes a usage-based insurance estimate, with the habits that move it.",
-  image: "/images/screens/insurance-light.png",
+  image: "/images/iphone/insurance-light.png",
   alt: "Wayborne insurance estimate in light mode showing a 9 to 13 percent discount at a safety score of 79, about $14 to $21 a month",
   points: [
     {
@@ -181,14 +181,18 @@ export const community = {
       tab: "Streaks",
       heading: "Streaks and tiers",
       body: "A daily streak, your rank against other Wayborne drivers, and a tier that climbs with every clean trip.",
-      image: "/images/screens/profile.png",
+      image: "/images/iphone/profile.png",
+      /** Share of the screen shown above the panel edge: the end of the streak card. */
+      cut: 0.68,
       alt: "Wayborne profile with a 3 day driving streak, a top 38 percent ranking, and a Silver tier",
     },
     {
       tab: "Friends",
       heading: "A leaderboard for safe driving",
       body: "Add friends by email and see who drove the safest this week.",
-      image: "/images/screens/friends.png",
+      image: "/images/iphone/friends.png",
+      /** Share of the screen shown above the panel edge: the end of the podium. */
+      cut: 0.655,
       alt: "Wayborne friends leaderboard with five drivers ranked by safety score",
     },
   ],
