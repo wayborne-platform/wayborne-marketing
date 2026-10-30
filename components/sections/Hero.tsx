@@ -20,7 +20,7 @@ const fadeUp = {
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden pb-10 pt-32 sm:pb-14 sm:pt-40">
+    <section className="relative overflow-hidden pb-10 pt-24 sm:pb-14 sm:pt-40">
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
         <div
           className="absolute left-1/2 top-[-8%] h-[560px] w-[900px] -translate-x-1/2 rounded-full blur-[150px]"
@@ -53,7 +53,7 @@ export function Hero() {
               custom={0.7}
               initial="hidden"
               animate="visible"
-              className="mx-auto mt-6 max-w-[520px] text-pretty text-lg leading-relaxed text-[var(--color-fg-muted)] lg:mx-0"
+              className="mx-auto mt-5 max-w-[520px] text-pretty text-base leading-relaxed sm:mt-6 sm:text-lg text-[var(--color-fg-muted)] lg:mx-0"
             >
               {hero.subhead[0]} {hero.subhead[1]}
             </motion.p>
@@ -63,9 +63,10 @@ export function Hero() {
               custom={0.85}
               initial="hidden"
               animate="visible"
-              className="mt-9 flex justify-center lg:justify-start"
+              className="mt-8 flex flex-col items-center gap-3 sm:mt-9 lg:items-start"
             >
-              <AppLinks />
+              <AppLinks className="lg:justify-start" />
+              <p className="text-[13px] text-[var(--color-fg-subtle)]">{hero.requirement}</p>
             </motion.div>
 
           </div>
@@ -78,6 +79,7 @@ export function Hero() {
             className="mx-auto w-full max-w-[260px] sm:max-w-[290px] lg:max-w-none"
           >
             <PhoneFrame src={hero.image} alt={hero.imageAlt} priority sizes="(max-width: 1024px) 74vw, 320px" />
+            <p className="mt-4 text-center text-[12px] text-[var(--color-fg-subtle)]">{hero.sampleNote}</p>
           </motion.div>
         </div>
       </Container>

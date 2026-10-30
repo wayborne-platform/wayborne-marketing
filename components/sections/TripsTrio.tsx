@@ -18,7 +18,8 @@ type TripsTrioProps = {
  * Three screens of one flow side by side: on desktop the middle phone sits
  * forward and larger, the outer two step back and down with their bezels
  * just touching it, and each caption sits in its own column beneath. On
- * phones the three become a snapping row with tabs.
+ * phones the three become a snapping row with tabs, each caption above its
+ * phone.
  */
 export function TripsTrio({ id, heading, body, screens }: TripsTrioProps) {
   return (
@@ -29,12 +30,12 @@ export function TripsTrio({ id, heading, body, screens }: TripsTrioProps) {
         <div className="md:hidden">
           <SnapCarousel labels={screens.map((screen) => screen.tab)}>
             {screens.map((screen) => (
-              <div key={screen.src} className="mx-auto flex max-w-[280px] flex-col gap-6">
-                <PhoneFrame src={screen.src} alt={screen.alt} sizes="280px" />
+              <div key={screen.src} className="mx-auto flex max-w-[280px] flex-col gap-5">
                 <div>
                   <h3 className="text-lg font-medium text-[var(--color-fg)]">{screen.heading}</h3>
-                  <p className="mt-2 text-pretty text-[15px] leading-relaxed text-[var(--color-fg-muted)]">{screen.body}</p>
+                  <p className="mt-1.5 text-pretty text-[15px] leading-relaxed text-[var(--color-fg-muted)]">{screen.body}</p>
                 </div>
+                <PhoneFrame src={screen.src} alt={screen.alt} sizes="280px" />
               </div>
             ))}
           </SnapCarousel>
@@ -60,7 +61,7 @@ export function TripsTrio({ id, heading, body, screens }: TripsTrioProps) {
           </Reveal>
           <ol className="mx-auto mt-12 grid max-w-[900px] grid-cols-3 gap-6">
             {screens.map((screen, i) => (
-              <Reveal key={screen.src} as="li" delay={i * 0.06} className="neu neu-sheen relative rounded-3xl px-6 py-6 text-center">
+              <Reveal key={screen.src} as="li" delay={i * 0.06} className="neu neu-sheen relative rounded-3xl px-6 py-6">
                 <h3 className="text-lg font-medium text-[var(--color-fg)]">{screen.heading}</h3>
                 <p className="mt-2 text-pretty text-[15px] leading-relaxed text-[var(--color-fg-muted)]">{screen.body}</p>
               </Reveal>

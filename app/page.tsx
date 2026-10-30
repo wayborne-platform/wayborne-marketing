@@ -24,6 +24,7 @@ export default function Home() {
           alt={insurance.alt}
           points={insurance.points}
           imageSide="left"
+          cut={insurance.cut}
         />
         <DuoFeature
           id={progress.id}

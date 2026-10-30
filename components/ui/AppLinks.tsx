@@ -5,7 +5,7 @@ type AppLinksProps = {
   className?: string;
 };
 
-const shell = "group flex h-[62px] items-center gap-3 rounded-2xl px-5";
+const shell = "group flex h-[62px] items-center gap-2.5 rounded-2xl px-3 sm:gap-3 sm:px-5";
 
 /**
  * App Store / Google Play buttons.
@@ -16,7 +16,7 @@ const shell = "group flex h-[62px] items-center gap-3 rounded-2xl px-5";
  */
 export function AppLinks({ className = "" }: AppLinksProps) {
   return (
-    <div className={`flex flex-col gap-3 sm:flex-row ${className}`}>
+    <div className={`flex flex-row flex-wrap justify-center gap-3 ${className}`}>
       {stores.map((store) => {
         const icon =
           store.id === "ios" ? <AppleIcon width={22} height={22} /> : <PlayIcon width={22} height={22} />;

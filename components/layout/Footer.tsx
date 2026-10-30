@@ -7,8 +7,14 @@ import { MaybeLink } from "@/components/ui/MaybeLink";
  * colour behind bottom overscroll can only match a single surface, and a footer
  * that differed from it read as a seam under the fold. Depth comes from an
  * inset top shadow instead, which overscroll never exposes.
+ *
+ * A link group shows only once at least one of its links has a destination,
+ * so the footer is not a wall of disabled items before launch; groups appear
+ * on their own as hrefs are set in content/site.ts.
  */
 export function Footer() {
+  const columns = footer.columns.filter((column) => column.links.some((link) => link.href));
+
   return (
     <footer
       className="border-t border-[var(--color-border)] bg-[var(--color-bg)]"
@@ -16,14 +22,15 @@ export function Footer() {
     >
       <div className="mx-auto w-full max-w-[1100px] px-6 py-16">
         <div className="grid grid-cols-2 gap-x-8 gap-y-10 sm:grid-cols-3 lg:grid-cols-6">
-          <div className="col-span-2 flex flex-col gap-4 sm:col-span-3 lg:col-span-1">
+          <div className="col-span-2 flex flex-col gap-4 sm:col-span-3 lg:col-span-2">
             <div className="flex items-center gap-2.5">
               <Image src="/icon.png" alt="" width={28} height={28} className="rounded-lg" />
               <span className="text-[15px] font-semibold tracking-tight">{site.name}</span>
             </div>
+            <p className="text-[13px] text-[var(--color-fg-muted)]">{footer.tagline}</p>
           </div>
 
-          {footer.columns.map((column) => (
+          {columns.map((column) => (
             <nav key={column.title} aria-label={column.title} className="flex flex-col gap-3">
               <h3 className="text-[13px] font-medium text-[var(--color-fg)]">{column.title}</h3>
               <ul className="flex flex-col gap-2.5">

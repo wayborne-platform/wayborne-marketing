@@ -48,6 +48,9 @@ export const hero = {
     "Wayborne turns everyday driving into a safety score you can watch improve,",
     "and a record that can lower what you pay to insure the car.",
   ],
+  requirement: "Records through a Bluetooth OBD-II adapter.",
+  /** The screenshots show a sample driver, not a real account. */
+  sampleNote: "App screens show a sample driver.",
   image: "/images/iphone/home.png",
   imageAlt:
     "Wayborne home screen showing a safety score of 79, rated Fair, with speed 100, smooth driving 39, braking 57, and awareness 100",
@@ -68,7 +71,7 @@ export const showcase = {
 export const trips = {
   id: "trips",
   heading: "Every trip, scored the moment you park",
-  body: "Wayborne picks up each drive on its own and grades it. Open any trip to see what built its score and where each event happened.",
+  body: "Plug a Bluetooth OBD-II adapter in once. After that, Wayborne picks up each drive on its own and grades it, and any trip opens to show what built its score and where each event happened.",
   /** Reading order: list, breakdown, map. The middle one sits forward. */
   screens: [
     {
@@ -102,6 +105,8 @@ export const insurance = {
   body: "Wayborne translates your safety score into a usage-based insurance estimate: the discount range, what it saves per month and per year, and which behaviors are carrying it.",
   image: "/images/iphone/insurance.png",
   alt: "Wayborne insurance estimate showing a 9 to 13 percent discount at a safety score of 79, about $14 to $21 a month",
+  /** Share of the screen shown above the panel's bottom edge: the end of the Speed row. */
+  cut: 0.84,
   points: [
     {
       eyebrow: "A range, not a promise.",
@@ -145,8 +150,8 @@ export const friends = {
   body: "Add friends by email or invite code and see how your safety score stacks up. Wayborne shares only the summary you choose, never raw trip routes or location points.",
   image: "/images/iphone/friends.png",
   alt: "Wayborne friends leaderboard with five drivers ranked by safety score",
-  /** Share of the screen shown above the panel's bottom edge: the end of the podium. */
-  cut: 0.655,
+  /** Share of the screen shown above the panel's bottom edge: the end of the leaderboard. */
+  cut: 0.825,
   points: [
     {
       eyebrow: "You pick what leaves the app.",
@@ -165,6 +170,7 @@ export const finalCta = {
 } as const;
 
 export const footer = {
+  tagline: "Coming to iOS and Android.",
   columns: [
     {
       title: "Product",
