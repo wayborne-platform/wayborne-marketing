@@ -6,16 +6,16 @@ type SnapCarouselProps = {
   children: ReactNode;
   /** Optional tab labels, one per item, shown above the row; tapping one scrolls to it. */
   labels?: readonly string[];
-  /** Width classes for each card, e.g. `w-[80vw] max-w-[300px]`. */
+  /** Width classes for each card. The default, full width, shows one card at a time with no peek. */
   itemClassName?: string;
 };
 
 /**
- * A sideways row for phone widths. Cards snap to the content gutter, the next
- * one peeks in, and tabs above the row (given `labels`) or dots under it
- * show which card is in view.
+ * A sideways row for phone widths. Cards snap to the content gutter one at a
+ * time, and tabs above the row (given `labels`) or dots under it show which
+ * card is in view and switch between them.
  */
-export function SnapCarousel({ children, labels, itemClassName = "w-[80vw] max-w-[300px]" }: SnapCarouselProps) {
+export function SnapCarousel({ children, labels, itemClassName = "w-full" }: SnapCarouselProps) {
   const rowRef = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(0);
   const items = Children.toArray(children);
@@ -58,7 +58,7 @@ export function SnapCarousel({ children, labels, itemClassName = "w-[80vw] max-w
       <div
         ref={rowRef}
         onScroll={onScroll}
-        className="-mx-6 flex snap-x snap-mandatory scroll-px-6 gap-4 overflow-x-auto px-6 pb-2 [scrollbar-width:none]"
+        className="-mx-6 flex snap-x snap-mandatory scroll-px-6 gap-12 overflow-x-auto px-6 pb-2 [scrollbar-width:none]"
       >
         {items.map((item, i) => (
           <div key={i} className={`shrink-0 snap-start ${itemClassName}`}>

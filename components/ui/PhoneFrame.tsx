@@ -6,6 +6,8 @@ type PhoneFrameProps = {
   priority?: boolean;
   className?: string;
   sizes?: string;
+  /** On a light surface the deep drop shadow turns to a gray smudge; use a crisp, light one. */
+  onLight?: boolean;
 };
 
 /** Intrinsic size of every app screenshot: a 390 x 844pt screen captured at 3x. */
@@ -47,7 +49,7 @@ const BUTTONS = [
  * the composited status bar leaves between the clock and the indicators, which
  * is where a real device puts it.
  */
-export function PhoneFrame({ src, alt, priority = false, className = "", sizes = "(max-width: 640px) 74vw, 300px" }: PhoneFrameProps) {
+export function PhoneFrame({ src, alt, priority = false, className = "", sizes = "(max-width: 640px) 74vw, 300px", onLight = false }: PhoneFrameProps) {
   return (
     <div className={`relative ${className}`}>
       {/* Buttons sit behind the rail, offset outward so only their outer half shows. */}
@@ -73,7 +75,9 @@ export function PhoneFrame({ src, alt, priority = false, className = "", sizes =
         className="relative rounded-[2.7rem] p-[3px]"
         style={{
           background: "linear-gradient(150deg, #5a5b60 0%, #2a2b2f 26%, #18191b 58%, #46474c 100%)",
-          boxShadow: "0 0 0 1px rgba(0,0,0,0.6), 0 40px 80px -30px rgba(0,0,0,0.9), 0 18px 36px -18px rgba(0,0,0,0.7)",
+          boxShadow: onLight
+            ? "0 0 0 1px rgba(0,0,0,0.25), 0 1px 2px rgba(0,0,0,0.08), 0 8px 24px rgba(0,0,0,0.10)"
+            : "0 0 0 1px rgba(0,0,0,0.6), 0 40px 80px -30px rgba(0,0,0,0.9), 0 18px 36px -18px rgba(0,0,0,0.7)",
         }}
       >
         {/* The black bezel between rail and glass. */}

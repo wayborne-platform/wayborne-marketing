@@ -89,12 +89,12 @@ export function Hero() {
             <PhoneFrame src={hero.image} alt={hero.imageAlt} priority sizes="(max-width: 640px) 290px, 360px" />
 
             {/*
-             * What the score is worth, beside the phone's dial, overlapping
-             * the frame by about 40px over the empty screen left of the ring,
-             * never app text. Phones get the screenshot alone: at that width a chip can
+             * What the score is worth, inside the arc beside the habit tiles,
+             * overlapping the frame by about 20px over bezel and the screen's
+             * empty margin, never app text. Phones get the screenshot alone: at that width a chip can
              * only cover it.
              */}
-            <div className="panel-lg absolute -left-[172px] top-[11%] hidden rounded-2xl px-4 py-3 sm:block">
+            <div className="panel-lg absolute -left-[182px] top-[38%] hidden rounded-2xl px-4 py-3 sm:block">
               <p className="text-[11px] font-semibold uppercase tracking-[0.08em] text-[var(--color-fg-muted)]">
                 Example estimate
               </p>

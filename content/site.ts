@@ -87,11 +87,7 @@ export const hero = {
 
 export const howItWorks = {
   id: "how-it-works",
-  eyebrow: "How it works",
   heading: "Plug in once. Then just drive.",
-  image: "/images/screens/live.png",
-  imageAlt:
-    "Wayborne Live screen with a Connect adapter button and three setup steps: plug the WiCAN into the OBD-II port, turn the ignition on, and tap Connect adapter",
   steps: [
     {
       heading: "Plug in the adapter",
@@ -201,7 +197,6 @@ export const community = {
 /** Answers come from how the app works today; keep them in sync with it. */
 export const faq = {
   id: "faq",
-  eyebrow: "FAQ",
   heading: "Before you ask.",
   /** The three promises worth stating once, beside the questions. */
   promises: [
@@ -241,6 +236,7 @@ export const finalCta = {
   status: "Launching soon",
   heading: "Your first score takes one drive.",
   body: "Coming to iOS and Android. Plug in a WiCAN adapter at launch and your first trip scores itself.",
+  link: { label: "Check the adapter requirements", href: "#faq" },
 } as const;
 
 export const footer = {

@@ -11,11 +11,11 @@ export function Faq() {
     <section id={faq.id} className="py-14 sm:py-20">
       <Container className="grid gap-10 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-20">
         <div className="flex flex-col gap-8">
-          <SectionHeading eyebrow={faq.eyebrow} title={faq.heading} />
+          <SectionHeading title={faq.heading} />
           <ul className="flex flex-col gap-3">
             {faq.promises.map((promise) => (
               <li key={promise} className="flex items-center gap-3 text-[15px] font-medium">
-                <span aria-hidden="true" className="flex h-6 w-6 items-center justify-center rounded-full bg-[color-mix(in_srgb,var(--color-score-excellent)_16%,transparent)] text-[var(--color-score-excellent)]">
+                <span aria-hidden="true" className="flex h-6 w-6 items-center justify-center rounded-full bg-[color-mix(in_srgb,var(--color-accent)_16%,transparent)] text-[var(--color-accent-soft)]">
                   <svg viewBox="0 0 16 16" fill="none" className="h-3.5 w-3.5"><path d="m3.5 8.5 3 3 6-7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
                 </span>
                 {promise}

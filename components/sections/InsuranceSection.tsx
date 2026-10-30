@@ -15,7 +15,7 @@ export function InsuranceSection() {
   return (
     <section id={insurance.id} className="mt-8 bg-[#eef0f4] text-[#141a26] sm:mt-12">
       <Container>
-        <div className="grid gap-10 py-16 sm:py-20 lg:grid-cols-[minmax(0,1fr)_340px] lg:gap-x-12 lg:gap-y-10">
+        <div className="grid gap-10 py-16 sm:py-20 lg:grid-cols-[minmax(0,1fr)_340px] lg:grid-rows-[auto_1fr] lg:gap-x-12 lg:gap-y-10">
           <div className="flex flex-col gap-9">
             <Reveal className="flex max-w-[36rem] flex-col gap-4">
               <p className="text-[13px] font-semibold uppercase tracking-[0.08em] text-[#576071]">{insurance.eyebrow}</p>
@@ -40,10 +40,10 @@ export function InsuranceSection() {
           </div>
 
           <Reveal className="mx-auto w-full max-w-[260px] lg:row-span-2 lg:max-w-none lg:self-start lg:pt-28">
-            <PhoneFrame src={insurance.image} alt={insurance.alt} sizes="(max-width: 640px) 260px, 340px" />
+            <PhoneFrame src={insurance.image} alt={insurance.alt} sizes="(max-width: 640px) 260px, 340px" onLight />
           </Reveal>
 
-          <dl className="grid gap-6 sm:grid-cols-2">
+          <dl className="grid gap-6 self-start sm:grid-cols-2">
             {insurance.points.map((point, i) => (
               <Reveal key={point.heading} delay={0.1 + i * 0.05} className="border-t border-[rgba(20,26,38,0.1)] pt-4">
                 <dt className="text-[16px] font-semibold">{point.heading}</dt>

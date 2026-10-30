@@ -12,16 +12,20 @@ import { SnapCarousel } from "@/components/ui/SnapCarousel";
  * their own columns. On phones the three become a snapping row with tabs.
  */
 export function TripsSection() {
+  const [list, breakdown, route] = trips.screens;
+  const mobileOrder = [breakdown, route, list];
+
   return (
     <section id={trips.id} className="overflow-x-clip py-14 sm:py-20">
       <Container className="flex flex-col gap-12 sm:gap-14">
         <SectionHeading eyebrow={trips.eyebrow} title={trips.heading} body={trips.body} align="center" />
 
         <div className="md:hidden">
-          <SnapCarousel labels={trips.screens.map((screen) => screen.tab)}>
-            {trips.screens.map((screen) => (
-              <div key={screen.src} className="flex flex-col gap-5">
-                <PhoneFrame src={screen.src} alt={screen.alt} sizes="80vw" />
+          {/* Breakdown first on phones: it is the screen that explains a score. */}
+          <SnapCarousel labels={mobileOrder.map((screen) => screen.tab)}>
+            {mobileOrder.map((screen) => (
+              <div key={screen.src} className="mx-auto flex max-w-[300px] flex-col gap-5">
+                <PhoneFrame src={screen.src} alt={screen.alt} sizes="300px" />
                 <div>
                   <h3 className="text-[17px] font-semibold">{screen.heading}</h3>
                   <p className="mt-1 text-pretty text-[15px] leading-relaxed text-[var(--color-fg-muted)]">{screen.body}</p>

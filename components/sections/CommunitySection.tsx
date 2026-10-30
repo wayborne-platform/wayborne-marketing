@@ -27,7 +27,7 @@ export function CommunitySection() {
         <p className="mt-2 max-w-[26rem] text-pretty text-[15px] leading-relaxed text-[var(--color-fg-muted)]">{panel.body}</p>
       </div>
       <div
-        className="mx-auto mt-8 w-[72%] max-w-[300px] overflow-hidden sm:mt-10"
+        className="mx-auto mt-8 w-[78%] max-w-[340px] overflow-hidden sm:mt-10"
         style={{ aspectRatio: `280 / ${9 + VISIBLE * 262 * 2.164}` }}
       >
         <PhoneFrame src={panel.image} alt={panel.alt} sizes="(max-width: 768px) 60vw, 300px" />
@@ -51,7 +51,7 @@ export function CommunitySection() {
 
         <div className="md:hidden">
           {/* Friends first on phones: the leaderboard is the section's point. */}
-          <SnapCarousel itemClassName="w-[84vw] max-w-[340px]" labels={[...community.panels].reverse().map((panel) => panel.tab)}>
+          <SnapCarousel labels={[...community.panels].reverse().map((panel) => panel.tab)}>
             {[...panels].reverse()}
           </SnapCarousel>
         </div>
