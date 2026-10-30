@@ -32,7 +32,7 @@ export function AppLinks({ className = "" }: AppLinksProps) {
             >
               <span aria-hidden="true">{icon}</span>
               <span className="flex flex-col leading-tight">
-                <span className="text-[10.5px] text-[var(--color-fg-subtle)]">Coming soon</span>
+                <span className="text-[11px] text-[var(--color-fg-muted)]">Coming soon</span>
                 <span className="text-[15px] font-medium">{store.store}</span>
               </span>
             </span>

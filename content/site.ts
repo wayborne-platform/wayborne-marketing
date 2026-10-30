@@ -37,8 +37,8 @@ export const stores = [
 ] as const;
 
 export const nav = {
-  /** Scrolls to the closing panel with the store badges. */
-  cta: { label: "Get the app", href: "#get-the-app" as string | null },
+  /** Scrolls to the closing panel with the store badges. Relabel "Get the app" at launch. */
+  cta: { label: "Coming soon", href: "#get-the-app" as string | null },
 } as const;
 
 export const hero = {
@@ -79,7 +79,7 @@ export const trips = {
       src: "/images/iphone/trips.png",
       alt: "Wayborne trips list with seven recent drives, each with its own score",
       heading: "A graded history",
-      body: "Every drive gets its own score, so a rough commute shows up instead of hiding in an average.",
+      body: "Every drive gets its own score, so a rough commute can't hide in an average.",
     },
     {
       tab: "Breakdown",

@@ -17,7 +17,8 @@ type TripsTrioProps = {
 /**
  * Three screens of one flow side by side: on desktop the middle phone sits
  * forward and larger, the outer two step back and down with their bezels
- * just touching it, and each caption sits in its own column beneath. On
+ * just touching it, and the captions sit beneath in three equal columns,
+ * each roughly centered on its phone. On
  * phones the three become a snapping row with tabs, each caption above its
  * phone.
  */
@@ -59,19 +60,11 @@ export function TripsTrio({ id, heading, body, screens }: TripsTrioProps) {
               );
             })}
           </Reveal>
-          {/* Same widths and overlaps as the phone row, so each card centers under its phone. */}
-          <ol className="mt-8 flex items-stretch justify-center">
+          <ol className="mx-auto mt-8 grid max-w-[848px] grid-cols-3 gap-[22px]">
             {screens.map((screen, i) => (
-              <Reveal
-                key={screen.src}
-                as="li"
-                delay={i * 0.06}
-                className={i === 1 ? "w-[34%] max-w-[320px] px-[22px]" : `w-[29%] max-w-[270px] px-[22px] ${i === 0 ? "-mr-6" : "-ml-6"}`}
-              >
-                <div className="neu neu-sheen relative h-full rounded-3xl px-6 py-6">
-                  <h3 className="text-lg font-medium text-[var(--color-fg)]">{screen.heading}</h3>
-                  <p className="mt-2 text-pretty text-[15px] leading-relaxed text-[var(--color-fg-muted)]">{screen.body}</p>
-                </div>
+              <Reveal key={screen.src} as="li" delay={i * 0.06} className="neu neu-sheen relative rounded-3xl px-6 py-6">
+                <h3 className="text-lg font-medium text-[var(--color-fg)]">{screen.heading}</h3>
+                <p className="mt-2 text-pretty text-[15px] leading-relaxed text-[var(--color-fg-muted)]">{screen.body}</p>
               </Reveal>
             ))}
           </ol>

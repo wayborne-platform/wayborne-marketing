@@ -30,7 +30,7 @@ export function Header() {
         </Link>
 
         <div className="ml-auto flex items-center gap-3">
-          <Button href={nav.cta.href} size="sm" variant="primary">
+          <Button href={nav.cta.href} size="sm" variant="secondary">
             {nav.cta.label}
           </Button>
         </div>
