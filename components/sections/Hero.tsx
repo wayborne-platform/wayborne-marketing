@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { hero, sample } from "@/content/site";
+import { hero, nav, sample } from "@/content/site";
 import { Container } from "@/components/ui/Container";
 import { PhoneFrame } from "@/components/ui/PhoneFrame";
 import { ScoreArc } from "@/components/ui/ScoreArc";
@@ -46,8 +46,14 @@ export function Hero() {
       <Container>
         <div className="grid items-center gap-14 lg:grid-cols-[minmax(0,1fr)_460px] lg:gap-10">
           <div className="text-center lg:pb-24 lg:text-left">
-            <Rise delay={0.04}>
-              <h1 className="text-balance font-display text-[3.25rem] font-semibold leading-[0.95] tracking-[-0.02em] sm:text-[5rem] lg:text-[6rem]">
+            <Rise delay={0}>
+              <p className="inline-flex h-7 items-center rounded-full bg-[color-mix(in_srgb,var(--color-score-fair)_14%,transparent)] px-3 text-[13px] font-semibold text-[var(--color-score-fair)]">
+                {nav.status}
+              </p>
+            </Rise>
+
+            <Rise delay={0.06}>
+              <h1 className="mt-6 text-balance font-display text-[3.25rem] font-semibold leading-[0.95] tracking-[-0.02em] sm:text-[5rem] lg:text-[6rem]">
                 {hero.headline}
               </h1>
             </Rise>
@@ -63,10 +69,13 @@ export function Hero() {
                 {hero.primary.label}
                 <ArrowIcon className="h-4 w-4 rotate-90 transition-transform group-hover:translate-y-0.5" />
               </Button>
-              <p className="flex items-center gap-2 text-[15px] text-[var(--color-fg-muted)]">
+              <a
+                href="#faq"
+                className="flex items-center gap-2 text-[14px] text-[var(--color-fg-muted)] underline decoration-white/20 underline-offset-4 transition-colors hover:text-[var(--color-fg)]"
+              >
                 <PlugIcon className="h-[18px] w-[18px] shrink-0 text-[var(--color-accent-soft)]" />
                 {hero.requirement}
-              </p>
+              </a>
             </Rise>
           </div>
 
@@ -80,21 +89,19 @@ export function Hero() {
             <PhoneFrame src={hero.image} alt={hero.imageAlt} priority sizes="(max-width: 640px) 290px, 360px" />
 
             {/*
-             * What the score is worth, overlapping the frame's left edge by
-             * about 20px, over bezel and the screen's empty margin, never app
-             * text. Phones get the screenshot alone: at that width a chip can
+             * What the score is worth, beside the phone's dial, overlapping
+             * the frame by about 40px over the empty screen left of the ring,
+             * never app text. Phones get the screenshot alone: at that width a chip can
              * only cover it.
              */}
-            <div className="panel absolute -left-[192px] top-[60%] hidden items-center gap-3 rounded-2xl py-3 pl-3 pr-4 sm:flex">
-              <ScoreRing score={sample.score} size={48} />
-              <div>
-                <p className="text-[11px] font-semibold uppercase tracking-[0.08em] text-[var(--color-fg-muted)]">
-                  Example discount
-                </p>
-                <p className="text-[26px] font-semibold tabular-nums leading-tight tracking-[-0.02em]">{sample.discount}</p>
-              </div>
+            <div className="panel-lg absolute -left-[172px] top-[11%] hidden rounded-2xl px-4 py-3 sm:block">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.08em] text-[var(--color-fg-muted)]">
+                Example estimate
+              </p>
+              <p className="text-[28px] font-semibold tabular-nums leading-tight tracking-[-0.02em]">{sample.discount} off</p>
+              <p className="text-[12px] text-[var(--color-fg-muted)]">At a score of {sample.score}. Not a quote.</p>
             </div>
-            <p className="mt-5 text-center text-[14px] text-[#929ba8] sm:text-[13px]">{hero.sampleNote}</p>
+            <p className="mt-5 text-center text-[14px] text-[var(--color-fg-muted)] sm:text-[13px]">{hero.sampleNote}</p>
           </Rise>
         </div>
       </Container>

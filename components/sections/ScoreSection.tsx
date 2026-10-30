@@ -37,7 +37,7 @@ export function ScoreSection() {
                 <WeakIcon className="h-5 w-5" style={{ color: weakBand.color }} />
                 {weakest.name}
               </span>
-              <span className="rounded-full bg-[color-mix(in_srgb,var(--color-accent)_16%,transparent)] px-3 py-1 text-[13px] font-semibold text-[var(--color-accent-soft)]">
+              <span className="rounded-full bg-[color-mix(in_srgb,var(--color-accent)_18%,transparent)] px-3 py-1 text-[13px] font-semibold text-[var(--color-accent-soft)]">
                 Fix this next
               </span>
             </div>
@@ -52,34 +52,34 @@ export function ScoreSection() {
             <div className="border-t border-[var(--color-hairline)] pt-5">
               <p className="text-balance text-[20px] font-semibold leading-snug sm:text-[24px]">{sample.insight.tip}</p>
               <p className="mt-2 text-[15px] text-[var(--color-fg-muted)]">
-                Your weakest habit right now. It measures {weakest.body.charAt(0).toLowerCase() + weakest.body.slice(1)}
+                Your weakest habit right now: repeated hard acceleration is lowering it.
               </p>
             </div>
           </Reveal>
         </div>
 
-        <ul className="grid grid-cols-3 gap-3 sm:gap-4">
+        <ul className="grid gap-3 sm:grid-cols-3 sm:gap-4">
             {others.map((habit, i) => {
               const Icon = HABIT_ICONS[habit.icon];
               const band = scoreBand(habit.score);
               return (
-                <Reveal key={habit.name} as="li" delay={0.05 + i * 0.05} className="panel flex flex-col justify-center gap-2.5 rounded-[20px] p-4 sm:p-5">
-                  <span className="flex flex-col gap-1.5 text-[14px] font-semibold sm:flex-row sm:items-center sm:gap-2 sm:text-[15px]">
+                <Reveal
+                  key={habit.name}
+                  as="li"
+                  delay={0.05 + i * 0.05}
+                  className="panel grid grid-cols-[minmax(0,1fr)_auto] items-center gap-x-4 gap-y-3 rounded-[20px] px-5 py-4 sm:p-5"
+                >
+                  <span className="flex items-center gap-2 text-[15px] font-semibold">
                     <Icon className="h-[18px] w-[18px] shrink-0" style={{ color: band.color }} />
                     {habit.name}
                   </span>
-                  <div className="flex items-center gap-4">
-                    <p
-                      className="font-display text-[32px] font-semibold tabular-nums leading-none sm:text-[40px]"
-                      style={{ color: habit.score < 70 ? band.color : undefined }}
-                    >
-                      {habit.score}
-                    </p>
-                    <div className="hidden h-1.5 flex-1 overflow-hidden rounded-full bg-white/[0.06] sm:block" aria-hidden="true">
-                      <div className="h-full rounded-full" style={{ width: `${habit.score}%`, background: band.color }} />
-                    </div>
-                  </div>
-                  <div className="h-1 overflow-hidden rounded-full bg-white/[0.06] sm:hidden" aria-hidden="true">
+                  <p
+                    className="font-display text-[32px] font-semibold tabular-nums leading-none sm:text-[40px]"
+                    style={{ color: habit.score < 70 ? band.color : undefined }}
+                  >
+                    {habit.score}
+                  </p>
+                  <div className="col-span-2 h-1.5 overflow-hidden rounded-full bg-white/[0.06]" aria-hidden="true">
                     <div className="h-full rounded-full" style={{ width: `${habit.score}%`, background: band.color }} />
                   </div>
                 </Reveal>

@@ -16,7 +16,7 @@ export function FinalCta() {
       <Container>
         <Reveal
           className="panel-lg flex flex-col items-center gap-5 rounded-[32px] px-5 py-10 text-center sm:py-16"
-          style={{ backgroundImage: "radial-gradient(circle at 50% 18%, rgba(245,166,35,0.14), transparent 60%)" }}
+          style={{ backgroundImage: "radial-gradient(120% 90% at 50% 0%, rgba(245,166,35,0.26), transparent 62%)" }}
         >
           <div className="relative flex h-[104px] w-[104px] items-center justify-center sm:h-[140px] sm:w-[140px]">
             <ScoreArc score={sample.score} stroke={12} className="absolute inset-0 h-full w-full" />

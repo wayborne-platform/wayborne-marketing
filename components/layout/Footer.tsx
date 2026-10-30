@@ -34,7 +34,7 @@ export function Footer() {
         </nav>
       </div>
       <div className="mx-auto w-full max-w-[1160px] px-6 pb-10">
-        <p className="text-[13px] text-[var(--color-fg-subtle)]">
+        <p className="text-[13px] text-[#9298a3]">
           © {new Date().getFullYear()} {site.name}. All rights reserved.
         </p>
       </div>

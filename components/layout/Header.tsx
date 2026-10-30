@@ -10,9 +10,9 @@ const sections = [nav.cta, ...nav.links];
 
 /**
  * Fixed header. Transparent over the hero, then a raised panel once the page
- * scrolls. Every link is an in-page anchor, so nothing here can dead-end; the
- * launch status is a label, not a button. Below `lg` the links fold into a
- * menu that opens under the bar and closes when a link is picked.
+ * scrolls. Every link is an in-page anchor, so nothing here can dead-end.
+ * Below `lg` the links fold into a menu that opens under the bar and closes
+ * when a link is picked.
  */
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -40,7 +40,7 @@ export function Header() {
             <span className="text-[15px] font-semibold tracking-[-0.01em]">{site.name}</span>
           </Link>
 
-          <ul className="hidden items-center gap-1 lg:flex">
+          <ul className="ml-auto hidden items-center gap-1 lg:flex">
             {nav.links.map((link) => (
               <li key={link.href}>
                 <a
@@ -53,19 +53,13 @@ export function Header() {
             ))}
           </ul>
 
-          <p className="ml-auto flex items-center gap-2 whitespace-nowrap text-[13px] font-medium text-[var(--color-fg-muted)] lg:pr-2">
-            <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-[var(--color-score-fair)]" />
-            <span className="hidden sm:inline">{nav.status}</span>
-            <span className="sm:hidden">Coming soon</span>
-          </p>
-
           <button
             type="button"
             aria-expanded={menuOpen}
             aria-controls="mobile-menu"
             aria-label={menuOpen ? "Close menu" : "Open menu"}
             onClick={() => setMenuOpen((open) => !open)}
-            className="-ml-4 flex h-11 w-11 items-center justify-center rounded-xl text-[var(--color-fg)] lg:hidden"
+            className="ml-auto flex h-11 w-11 items-center justify-center rounded-xl text-[var(--color-fg)] lg:hidden"
           >
             <svg viewBox="0 0 20 20" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" aria-hidden="true">
               {menuOpen ? <path d="m5 5 10 10M15 5 5 15" /> : <path d="M3 6h14M3 10h14M3 14h14" />}

@@ -12,7 +12,7 @@ type SnapCarouselProps = {
 
 /**
  * A sideways row for phone widths. Cards snap to the content gutter, the next
- * one peeks in, and dots under the row (plus tabs above it, given `labels`)
+ * one peeks in, and tabs above the row (given `labels`) or dots under it
  * show which card is in view.
  */
 export function SnapCarousel({ children, labels, itemClassName = "w-[80vw] max-w-[300px]" }: SnapCarouselProps) {
@@ -66,6 +66,7 @@ export function SnapCarousel({ children, labels, itemClassName = "w-[80vw] max-w
           </div>
         ))}
       </div>
+      {!labels && (
       <div className="mt-5 flex justify-center gap-2" aria-hidden="true">
         {items.map((_, i) => (
           <span
@@ -76,6 +77,7 @@ export function SnapCarousel({ children, labels, itemClassName = "w-[80vw] max-w
           />
         ))}
       </div>
+      )}
     </div>
   );
 }

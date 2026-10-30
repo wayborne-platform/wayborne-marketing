@@ -50,7 +50,10 @@ export function CommunitySection() {
         </Reveal>
 
         <div className="md:hidden">
-          <SnapCarousel itemClassName="w-[84vw] max-w-[340px]">{panels}</SnapCarousel>
+          {/* Friends first on phones: the leaderboard is the section's point. */}
+          <SnapCarousel itemClassName="w-[84vw] max-w-[340px]" labels={[...community.panels].reverse().map((panel) => panel.tab)}>
+            {[...panels].reverse()}
+          </SnapCarousel>
         </div>
         <div className="hidden gap-6 md:grid md:grid-cols-2">
           {panels.map((panel, i) => (

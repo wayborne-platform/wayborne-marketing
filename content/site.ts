@@ -51,7 +51,7 @@ export const nav = {
     { label: "FAQ", href: "#faq" },
   ],
   cta: { label: "How it works", href: "#how-it-works" },
-  status: "Coming soon to iOS & Android",
+  status: "Launching soon on iOS & Android",
 } as const;
 
 /** The sample driver every screenshot and site-drawn panel shows. */
@@ -89,6 +89,9 @@ export const howItWorks = {
   id: "how-it-works",
   eyebrow: "How it works",
   heading: "Plug in once. Then just drive.",
+  image: "/images/screens/live.png",
+  imageAlt:
+    "Wayborne Live screen with a Connect adapter button and three setup steps: plug the WiCAN into the OBD-II port, turn the ignition on, and tap Connect adapter",
   steps: [
     {
       heading: "Plug in the adapter",
@@ -175,17 +178,19 @@ export const insurance = {
 export const community = {
   id: "friends",
   eyebrow: "Friends",
-  heading: "Good habits are easier with company.",
+  heading: "Compare scores. Never locations.",
   body: "Build a streak of safer trips and work through driving challenges. Compare safety scores with friends while your routes stay private.",
   panels: [
     {
-      heading: "Keep the streak going",
+      tab: "Streaks",
+      heading: "Streaks and tiers",
       body: "A daily streak, your rank against other Wayborne drivers, and a tier that climbs with every clean trip.",
       image: "/images/screens/profile.png",
       alt: "Wayborne profile with a 3 day driving streak, a top 38 percent ranking, and a Silver tier",
     },
     {
-      heading: "Compare scores, not locations",
+      tab: "Friends",
+      heading: "A leaderboard for safe driving",
       body: "Add friends by email and rank on safety. They see your score. Your routes and location points stay with you.",
       image: "/images/screens/friends.png",
       alt: "Wayborne friends leaderboard with five drivers ranked by safety score",
@@ -234,8 +239,8 @@ export const faq = {
 
 export const finalCta = {
   status: "Launching soon",
-  heading: "Your first score is one drive away.",
-  body: "Wayborne is coming to iOS and Android. Plug in a WiCAN adapter and your first trip scores itself.",
+  heading: "Your first score takes one drive.",
+  body: "Coming to iOS and Android. Plug in a WiCAN adapter at launch and your first trip scores itself.",
 } as const;
 
 export const footer = {
