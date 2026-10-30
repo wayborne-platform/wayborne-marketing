@@ -68,7 +68,6 @@ body {
   background-color: var(--color-bg);
   color: var(--color-fg);
   font-family: var(--font-sans);
-  font-optical-sizing: auto;
   font-feature-settings: "cv11", "ss01";
   overflow-x: hidden;
 }

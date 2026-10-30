@@ -1,4 +1,4 @@
-import { community } from "@/content/site";
+import { community, hero } from "@/content/site";
 import { Container } from "@/components/ui/Container";
 import { PhoneFrame } from "@/components/ui/PhoneFrame";
 import { Reveal } from "@/components/ui/Reveal";
@@ -21,9 +21,9 @@ const VISIBLE = 0.695;
  */
 export function CommunitySection() {
   return (
-    <section id={community.id} className="border-y border-[var(--color-hairline)] bg-[#111214] py-14 sm:py-20">
+    <section id={community.id} className="border-b border-[var(--color-hairline)] bg-[#111214] py-14 sm:py-20">
       <Container className="flex flex-col gap-14">
-        <SectionHeading eyebrow={community.eyebrow} title={community.heading} body={community.body} size="md" />
+        <SectionHeading title={community.heading} body={community.body} size="md" />
 
         <div className="grid gap-6 md:grid-cols-2">
           {community.panels.map((panel, i) => (
@@ -33,7 +33,7 @@ export function CommunitySection() {
               className="panel flex flex-col overflow-hidden rounded-[28px]"
             >
               <div className="flex-1 px-7 pt-8 sm:px-9 sm:pt-10">
-                <h3 className="text-[22px] font-semibold leading-tight tracking-[-0.02em]">{panel.heading}</h3>
+                <h3 className="text-[22px] font-semibold leading-tight">{panel.heading}</h3>
                 <p className="mt-2 max-w-[26rem] text-pretty text-[15px] leading-relaxed text-[var(--color-fg-muted)]">
                   {panel.body}
                 </p>
@@ -47,6 +47,7 @@ export function CommunitySection() {
             </Reveal>
           ))}
         </div>
+        <p className="-mt-6 text-[12px] text-[var(--color-fg-subtle)]">{hero.sampleNote}</p>
       </Container>
     </section>
   );

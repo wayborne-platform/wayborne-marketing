@@ -71,38 +71,30 @@ export function Hero() {
           </div>
 
           <Rise delay={0.2} className="relative mx-auto w-full max-w-[290px] sm:max-w-[360px]">
-            {/* The signature dial, centered on the phone's own score dial. */}
+            {/* The signature dial, drawn around the phone's own score dial. */}
             <ScoreArc
-              id="hero-arc"
-              className="absolute left-1/2 top-[19%] -z-10 w-[380px] max-w-none -translate-x-1/2 -translate-y-1/2 opacity-50 sm:w-[560px]"
+              score={sample.score}
+              stroke={3}
+              className="absolute left-1/2 top-[19%] -z-10 w-[380px] max-w-none -translate-x-1/2 -translate-y-1/2 sm:w-[540px]"
             />
             <PhoneFrame src={hero.image} alt={hero.imageAlt} priority sizes="(max-width: 640px) 290px, 360px" />
 
             {/*
-             * Two moments the score leads to, each overlapping the frame by
-             * about 20px, over bezel and the screen's empty margin, never
-             * app text. Phones get the screenshot alone: at that width a chip
-             * can only cover it.
+             * What the score is worth, overlapping the frame's left edge by
+             * about 20px, over bezel and the screen's empty margin, never app
+             * text. Phones get the screenshot alone: at that width a chip can
+             * only cover it.
              */}
-            <div className="panel absolute -left-[236px] top-[66%] hidden items-center gap-3 rounded-2xl p-3.5 pr-5 sm:flex">
-              <ScoreRing score={sample.trip.score} size={52} />
+            <div className="panel absolute -left-[192px] top-[60%] hidden items-center gap-3 rounded-2xl py-3 pl-3 pr-4 sm:flex">
+              <ScoreRing score={sample.score} size={48} />
               <div>
-                <p className="text-[11px] font-semibold uppercase tracking-[0.08em] text-[var(--color-score-excellent)]">
-                  Trip scored
+                <p className="text-[11px] font-semibold uppercase tracking-[0.08em] text-[var(--color-fg-muted)]">
+                  Example discount
                 </p>
-                <p className="whitespace-nowrap text-[14px] font-semibold">{sample.trip.title}</p>
-                <p className="text-[12px] text-[var(--color-fg-muted)]">
-                  {sample.trip.duration} · {sample.trip.distance} · {sample.trip.band}
-                </p>
+                <p className="text-[26px] font-semibold tabular-nums leading-tight tracking-[-0.02em]">{sample.discount}</p>
               </div>
             </div>
-
-            <div className="panel absolute -right-[128px] top-[36%] hidden rounded-2xl px-4 py-3 sm:block">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.08em] text-[var(--color-fg-muted)]">
-                Example discount
-              </p>
-              <p className="text-[28px] font-semibold tabular-nums leading-tight tracking-[-0.03em]">{sample.discount}</p>
-            </div>
+            <p className="mt-5 text-center text-[12px] text-[var(--color-fg-subtle)]">{hero.sampleNote}</p>
           </Rise>
         </div>
       </Container>

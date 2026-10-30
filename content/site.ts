@@ -78,6 +78,8 @@ export const hero = {
     "Wayborne grades every trip, shows you the one habit to fix next, and estimates what your driving could save on insurance.",
   primary: { label: "See how it works", href: "#how-it-works" },
   requirement: "Requires a WiCAN Bluetooth OBD-II adapter.",
+  /** The app screens are a sample driver, not a real account. */
+  sampleNote: "App screens show a sample driver.",
   image: "/images/screens/home.png",
   imageAlt:
     "Wayborne home screen showing a safety score of 79, rated Fair, with speed 100, smooth driving 39, braking 57, awareness 100, and three recent trips",
@@ -105,19 +107,16 @@ export const howItWorks = {
 
 export const score = {
   id: "score",
-  eyebrow: "The safety score",
   heading: "Four habits. One number you can move.",
-  body: "Every trip is graded on speed, smooth driving, braking, and awareness, then rolled into one score out of 100. Your overall score follows your trips, and Wayborne tells you which habit is holding it back.",
+  body: "Each trip is graded on speed, smooth driving, braking, and awareness. Your overall score follows your trips, and Wayborne points at the habit holding it back.",
   /**
    * `icon` keys the glyph the app uses for that sub-score (see ui/icons.tsx);
-   * `score` is that habit's score on the sample trip, as on the trip detail
-   * screenshot, so this section shows one trip's breakdown rather than
-   * repeating the Home screen's overall numbers.
+   * `score` is the sample driver's habit score, as on the Home screenshot.
    */
   habits: [
-    { icon: "speed", name: "Speed", score: 88, body: "Time near the posted limit, and how much you spend well over it." },
-    { icon: "smooth", name: "Smooth driving", score: 100, body: "Steady acceleration instead of repeated hard launches." },
-    { icon: "braking", name: "Braking", score: 100, body: "Slowing early and predictably instead of late and hard." },
+    { icon: "speed", name: "Speed", score: 100, body: "Time near the posted limit, and how much you spend well over it." },
+    { icon: "smooth", name: "Smooth driving", score: 39, body: "Steady acceleration instead of repeated hard launches." },
+    { icon: "braking", name: "Braking", score: 57, body: "Slowing early and predictably instead of late and hard." },
     { icon: "awareness", name: "Awareness", score: 100, body: "Phone handling and other distractions while moving." },
   ],
 } as const;
@@ -125,8 +124,8 @@ export const score = {
 export const trips = {
   id: "trips",
   eyebrow: "Trips",
-  heading: "Every trip, graded the moment you park.",
-  body: "Every drive lands in your trip list with its own score. Open one to see what it was built from, and where each event happened.",
+  heading: "Graded the moment you park.",
+  body: "Each drive lands in your trip list with its own score. Open one to see what it was built from, and where each event happened.",
   /** Each screen pairs with the caption under it. */
   screens: [
     {
@@ -145,7 +144,7 @@ export const trips = {
       src: "/images/screens/map.png",
       alt: "Wayborne trip map for Home to Climbing gym, with the route and each driving event pinned along it",
       heading: "Where it happened",
-      body: "Every event is pinned to the route, so you know which corner or on-ramp to work on.",
+      body: "Each event is pinned to the route, so you know which corner or on-ramp to work on.",
     },
   ],
 } as const;
@@ -160,7 +159,7 @@ export const insurance = {
   points: [
     {
       heading: "A range, not a promise",
-      body: "Every estimate is labeled as one and shows how many trips it is built on.",
+      body: "Each estimate says it is an estimate and shows how many trips it uses.",
     },
     {
       heading: "Traceable to your habits",
@@ -171,7 +170,6 @@ export const insurance = {
 
 export const community = {
   id: "friends",
-  eyebrow: "Streaks and friends",
   heading: "Good habits are easier with company.",
   body: "Build a streak of safer trips and work through driving challenges. Compare safety scores with friends while your routes stay private.",
   panels: [
@@ -193,7 +191,6 @@ export const community = {
 /** Answers come from how the app works today; keep them in sync with it. */
 export const faq = {
   id: "faq",
-  eyebrow: "Questions",
   heading: "Before you ask.",
   /** The three promises worth stating once, beside the questions. */
   promises: [
@@ -219,6 +216,10 @@ export const faq = {
       a: "Mark the trip as a passenger trip. It stays in your history but does not count toward your driving score.",
     },
     {
+      q: "Is it good for new drivers?",
+      a: "Each trip ends with the one habit to work on next, so practice has a concrete target instead of a vague grade.",
+    },
+    {
       q: "When can I get it?",
       a: "Wayborne is coming to iOS and Android. The App Store and Google Play links will appear on this page the day it launches.",
     },
@@ -226,10 +227,12 @@ export const faq = {
 } as const;
 
 export const finalCta = {
+  status: "Launching soon",
   heading: "Your first score is one drive away.",
-  body: "Wayborne launches on iOS and Android soon. These buttons go live on launch day.",
+  body: "Wayborne is coming to iOS and Android. Plug in a WiCAN adapter and your first trip scores itself.",
+  link: { label: "Review how setup works", href: "#how-it-works" },
 } as const;
 
 export const footer = {
-  blurb: "Every drive, scored.",
+  blurb: "Every drive, scored. Friends see scores, never routes.",
 } as const;

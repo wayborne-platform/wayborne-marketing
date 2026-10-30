@@ -100,11 +100,16 @@ export function HowItWorks() {
               delay={i * 0.06}
               className="panel flex flex-col overflow-hidden rounded-[24px]"
             >
-              <div className="well m-2 flex h-[176px] flex-col items-center justify-center gap-3 rounded-[18px] sm:h-[230px] sm:gap-4">
+              {/* On phones only the first step keeps its picture, so the three read as one short list. */}
+              <div
+                className={`well m-2 h-[176px] flex-col items-center justify-center gap-3 rounded-[18px] sm:flex sm:h-[230px] sm:gap-4 ${
+                  i === 0 ? "flex" : "hidden"
+                }`}
+              >
                 {visuals[i]}
               </div>
               <div className="px-5 pb-6 pt-3 sm:px-7 sm:pb-7 sm:pt-4">
-                <h3 className="flex items-baseline gap-3 text-[18px] font-semibold tracking-[-0.01em]">
+                <h3 className="flex items-baseline gap-3 text-[18px] font-semibold">
                   <span className="font-display text-[26px] font-semibold tabular-nums leading-none text-[var(--color-accent)]">
                     {String(i + 1).padStart(2, "0")}
                   </span>

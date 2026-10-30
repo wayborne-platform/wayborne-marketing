@@ -7,7 +7,6 @@ const inter = Inter({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-inter",
-  axes: ["opsz"],
 });
 
 /* Display face for headlines: a grotesk drawn from US highway signage. */

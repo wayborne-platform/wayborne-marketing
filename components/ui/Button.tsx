@@ -9,19 +9,19 @@ const base =
 
 const variants: Record<Variant, string> = {
   primary:
-    "bg-[var(--color-accent)] text-white shadow-[var(--shadow-accent)] hover:bg-[#5c98ff] active:translate-y-px",
+    "bg-[#2563eb] text-white shadow-[var(--shadow-accent)] hover:bg-[#3b74ee] active:translate-y-px",
   secondary: "panel text-[var(--color-fg)] hover:bg-[var(--color-panel-raised)]",
   ghost: "text-[var(--color-fg-muted)] hover:text-[var(--color-fg)]",
 };
 
 const sizes: Record<Size, string> = {
   sm: "h-9 px-4 text-[14px]",
-  md: "h-12 px-6 text-[15px]",
+  md: "h-12 px-6 text-[16px] font-semibold",
 };
 
 /** Flat, non-interactive treatments for destinations that do not exist yet. */
 const disabledVariants: Record<Variant, string> = {
-  primary: "cursor-not-allowed bg-[var(--color-accent)] text-white opacity-60",
+  primary: "cursor-not-allowed bg-[#2563eb] text-white opacity-60",
   secondary: "cursor-not-allowed bg-[var(--color-panel)] text-[var(--color-fg-subtle)]",
   ghost: "cursor-not-allowed text-[var(--color-fg-subtle)]",
 };

@@ -5,7 +5,7 @@ type AppLinksProps = {
   className?: string;
 };
 
-const shell = "flex h-12 items-center gap-2 rounded-xl pl-3 pr-3.5";
+const shell = "flex h-14 w-[200px] items-center gap-2.5 rounded-xl pl-4 pr-5";
 
 /**
  * App Store / Google Play badges.
@@ -18,7 +18,7 @@ const shell = "flex h-12 items-center gap-2 rounded-xl pl-3 pr-3.5";
  */
 export function AppLinks({ className = "" }: AppLinksProps) {
   return (
-    <div className={`flex flex-wrap gap-3 ${className}`}>
+    <div className={`flex flex-col items-center gap-3 sm:flex-row ${className}`}>
       {stores.map((store) => {
         const icon =
           store.id === "ios" ? <AppleIcon width={22} height={22} /> : <PlayIcon width={20} height={20} />;
@@ -29,14 +29,14 @@ export function AppLinks({ className = "" }: AppLinksProps) {
               key={store.id}
               aria-disabled="true"
               aria-label={`${store.store}: coming soon`}
-              className={`${shell} text-[var(--color-fg)] ring-1 ring-inset ring-white/12`}
+              className={`${shell} text-white/85 ring-1 ring-inset ring-white/20`}
             >
               <span aria-hidden="true" className="text-[var(--color-fg-muted)]">
                 {icon}
               </span>
               <span aria-hidden="true" className="flex flex-col leading-tight">
-                <span className="text-[10px] text-[var(--color-fg-muted)]">Coming soon to</span>
-                <span className="text-[15px] font-semibold tracking-[-0.01em]">{store.store}</span>
+                <span className="text-[11px] text-[var(--color-fg-muted)]">Coming soon to</span>
+                <span className="text-[16px] font-semibold">{store.store}</span>
               </span>
             </span>
           );
