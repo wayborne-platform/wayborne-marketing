@@ -1,6 +1,6 @@
 import { community, hero } from "@/content/site";
 import { Container } from "@/components/ui/Container";
-import { PhoneFrame } from "@/components/ui/PhoneFrame";
+import { PhoneFrame, visibleAspectRatio } from "@/components/ui/PhoneFrame";
 import { Reveal } from "@/components/ui/Reveal";
 import { SnapCarousel } from "@/components/ui/SnapCarousel";
 
@@ -14,10 +14,9 @@ const VISIBLE = 0.695;
 /**
  * Streaks and friends as two panels (a snapping row on phones). Each phone rises out of its panel's
  * bottom edge: the device is clipped by the panel, never the screenshot by a
- * box, so the capture keeps its real aspect ratio. The clip box's height is
- * VISIBLE of a 2.164:1 screen plus the frame's 9px top edge, taken at the
- * frame's typical 280px width; across the 250-300px it renders at, the cut
- * moves by a few pixels at most.
+ * box, so the capture keeps its real aspect ratio. The clip box takes its
+ * shape from the frame's own geometry, so the cut lands on the same row at
+ * every width.
  */
 export function CommunitySection() {
   const panels = community.panels.map((panel) => (
@@ -28,7 +27,7 @@ export function CommunitySection() {
       </div>
       <div
         className="mx-auto mt-8 w-[78%] max-w-[340px] overflow-hidden sm:mt-10"
-        style={{ aspectRatio: `280 / ${9 + VISIBLE * 262 * 2.164}` }}
+        style={{ aspectRatio: visibleAspectRatio(VISIBLE) }}
       >
         <PhoneFrame src={panel.image} alt={panel.alt} sizes="(max-width: 768px) 60vw, 300px" />
       </div>

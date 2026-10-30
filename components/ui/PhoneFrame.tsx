@@ -15,16 +15,30 @@ const SHOT_WIDTH = 1170;
 const SHOT_HEIGHT = 2532;
 
 /*
- * Hardware proportions, all expressed against the screen box so the frame
- * scales with the screenshot instead of needing a breakpoint per size. The
- * captures come from the app's capture rig, which lays out a 390 x 844pt
- * iPhone screen with its status bar and puts the Dynamic Island (126 x 37pt)
- * 11pt below the top edge; the rig's own island is removed so this one draws.
+ * Device geometry in points, from the iPhone the captures are sized for: a
+ * 390 x 844pt display with 47.33pt corners, and about 20.8pt of rail and black
+ * border on each side. Corners are concentric, so each layer's radius is the
+ * screen's plus everything between it and the screen. The Dynamic Island is
+ * 126 x 37pt, 11pt below the top edge; the capture rig's own island is removed
+ * so this one draws.
  */
+const SCREEN = { width: 390, height: 844, radius: 47.33 };
+const BEZEL = 16.3;
+const RAIL = 4.5;
+const BORDER = BEZEL + RAIL;
+const DEVICE_WIDTH = SCREEN.width + 2 * BORDER;
+
+/**
+ * A length in points as a share of the device's width. The frame is a size
+ * container, so every radius and border scales with the rendered phone and
+ * stays in the device's real proportions at any size.
+ */
+const cqw = (points: number) => `${(points / DEVICE_WIDTH) * 100}cqw`;
+
 const ISLAND = {
-  width: `${(126 / 390) * 100}%`,
-  height: `${(37 / 844) * 100}%`,
-  top: `${(11 / 844) * 100}%`,
+  width: `${(126 / SCREEN.width) * 100}%`,
+  height: `${(37 / SCREEN.height) * 100}%`,
+  top: `${(11 / SCREEN.height) * 100}%`,
 };
 
 /** Side buttons: [edge, top, height], as percentages of the frame height. */
@@ -36,32 +50,43 @@ const BUTTONS = [
 ] as const;
 
 /**
+ * The aspect ratio (width / height) of a box that shows the device from its
+ * top edge down to `fraction` of the screen's height. Panels that let a phone
+ * run off their bottom edge use it to land the cut on a chosen row of the
+ * screenshot at any width.
+ */
+export const visibleAspectRatio = (fraction: number) =>
+  `${DEVICE_WIDTH} / ${BORDER + fraction * SCREEN.height}`;
+
+/**
  * A screenshot shown inside a device frame.
  *
  * The image is always rendered at its natural aspect ratio (`h-auto w-full`),
  * so a tall phone capture is never cropped to fit a landscape box; the frame
  * sizes itself to the screenshot instead of the other way around.
  *
- * The frame itself is real hardware rather than a plain rounded pad: a titanium
- * rail catching light from the top-left, matching the page's top-lit panels,
- * a black bezel inside it, side buttons tucked behind the rail so they read as
- * protruding, and a Dynamic Island over the screen. The island lands in the gap
- * the composited status bar leaves between the clock and the indicators, which
- * is where a real device puts it.
+ * The frame is drawn from the real device's proportions (see the geometry
+ * above), not fixed pixel sizes, so a small phone in a caption row has the
+ * same corners and bezels as the large hero phone: a rail catching light from
+ * the top-left, a black border, side buttons tucked behind the rail so they
+ * read as protruding, and a Dynamic Island in the gap the composited status
+ * bar leaves between the clock and the indicators.
  */
 export function PhoneFrame({ src, alt, priority = false, className = "", sizes = "(max-width: 640px) 74vw, 300px", onLight = false }: PhoneFrameProps) {
   return (
-    <div className={`relative ${className}`}>
+    <div className={`relative [container-type:inline-size] ${className}`}>
       {/* Buttons sit behind the rail, offset outward so only their outer half shows. */}
       {BUTTONS.map((button, i) => (
         <span
           key={i}
           aria-hidden="true"
-          className="absolute -z-10 w-[3px] rounded-[2px] sm:w-[4px]"
+          className="absolute -z-10"
           style={{
             top: button.top,
             height: button.height,
-            [button.side]: "-2px",
+            width: cqw(4),
+            [button.side]: cqw(-1.5),
+            borderRadius: cqw(1.5),
             background:
               button.side === "left"
                 ? "linear-gradient(to right, #121314, #3a3b3f)"
@@ -70,19 +95,24 @@ export function PhoneFrame({ src, alt, priority = false, className = "", sizes =
         />
       ))}
 
-      {/* The titanium rail. */}
+      {/* The rail. */}
       <div
-        className="relative rounded-[2.7rem] p-[3px]"
+        className="relative"
         style={{
+          padding: cqw(RAIL),
+          borderRadius: cqw(SCREEN.radius + BORDER),
           background: "linear-gradient(150deg, #5a5b60 0%, #2a2b2f 26%, #18191b 58%, #46474c 100%)",
           boxShadow: onLight
             ? "0 0 0 1px rgba(0,0,0,0.25), 0 1px 2px rgba(0,0,0,0.08), 0 8px 24px rgba(0,0,0,0.10)"
             : "0 0 0 1px rgba(0,0,0,0.6), 0 40px 80px -30px rgba(0,0,0,0.9), 0 18px 36px -18px rgba(0,0,0,0.7)",
         }}
       >
-        {/* The black bezel between rail and glass. */}
-        <div className="relative overflow-hidden rounded-[2.6rem] bg-[#050607] p-[6px]">
-          <div className="relative overflow-hidden rounded-[2.15rem]">
+        {/* The black border between rail and glass. */}
+        <div
+          className="relative overflow-hidden bg-[#050607]"
+          style={{ padding: cqw(BEZEL), borderRadius: cqw(SCREEN.radius + BEZEL) }}
+        >
+          <div className="relative overflow-hidden" style={{ borderRadius: cqw(SCREEN.radius) }}>
             <Image
               src={src}
               alt={alt}
