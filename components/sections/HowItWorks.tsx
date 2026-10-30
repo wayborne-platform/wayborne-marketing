@@ -2,7 +2,7 @@ import { howItWorks, sample } from "@/content/site";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
 import { ScoreRing } from "@/components/ui/ScoreRing";
-import { AdapterIllustration } from "@/components/ui/AdapterIllustration";
+import { DashboardIllustration } from "@/components/ui/DashboardIllustration";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
 /** Bluetooth glyph for the adapter chip. */
@@ -17,7 +17,7 @@ function BluetoothIcon(props: React.SVGProps<SVGSVGElement>) {
 /** A short drive drawn as a route, with two events pinned on it. */
 function RouteSketch() {
   return (
-    <svg viewBox="0 0 220 120" fill="none" aria-hidden="true" className="w-[220px]">
+    <svg viewBox="0 0 220 120" fill="none" aria-hidden="true" className="w-[180px] sm:w-[220px]">
       <path d="M0 30h220M0 70h220M0 110h220M40 0v120M110 0v120M180 0v120" stroke="rgba(255,255,255,0.05)" />
       <path
         d="M22 98c18 0 20-36 44-36s22 28 48 28 26-58 52-58 26 18 34 18"
@@ -52,7 +52,7 @@ function StatusChip({ icon, title, detail }: { icon: React.ReactNode; title: str
  */
 const visuals = [
   <>
-    <AdapterIllustration className="w-[230px]" />
+    <DashboardIllustration className="w-[200px] sm:w-[240px]" />
     <StatusChip
       icon={
         <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[color-mix(in_srgb,var(--color-accent)_18%,transparent)] text-[var(--color-accent-soft)]">
@@ -76,7 +76,7 @@ const visuals = [
     />
   </>,
   <>
-    <ScoreRing score={sample.trip.score} size={112} showBand />
+    <ScoreRing score={sample.trip.score} showBand className="w-[84px] sm:w-[112px]" />
     <StatusChip
       icon={<span className="h-7 w-7 rounded-full bg-[color-mix(in_srgb,var(--color-score-excellent)_18%,transparent)] p-[9px]"><span className="block h-full w-full rounded-full bg-[var(--color-score-excellent)]" /></span>}
       title="Trip scored"
@@ -88,7 +88,7 @@ const visuals = [
 /** The three-step setup story: adapter, drive, score. */
 export function HowItWorks() {
   return (
-    <section id={howItWorks.id} className="py-16 sm:py-24">
+    <section id={howItWorks.id} className="py-14 sm:py-20">
       <Container className="flex flex-col gap-12">
         <SectionHeading eyebrow={howItWorks.eyebrow} title={howItWorks.heading} />
 
@@ -100,14 +100,16 @@ export function HowItWorks() {
               delay={i * 0.06}
               className="panel flex flex-col overflow-hidden rounded-[24px]"
             >
-              <div className="well relative m-2 flex h-[210px] flex-col items-center justify-center gap-4 rounded-[18px]">
-                <span className="absolute left-4 top-3.5 text-[12px] font-semibold tabular-nums text-[var(--color-fg-subtle)]">
-                  {i + 1}
-                </span>
+              <div className="well m-2 flex h-[176px] flex-col items-center justify-center gap-3 rounded-[18px] sm:h-[230px] sm:gap-4">
                 {visuals[i]}
               </div>
-              <div className="px-6 pb-7 pt-4 sm:px-7">
-                <h3 className="text-[18px] font-semibold tracking-[-0.01em]">{step.heading}</h3>
+              <div className="px-5 pb-6 pt-3 sm:px-7 sm:pb-7 sm:pt-4">
+                <h3 className="flex items-baseline gap-3 text-[18px] font-semibold tracking-[-0.01em]">
+                  <span className="font-display text-[26px] font-semibold tabular-nums leading-none text-[var(--color-accent)]">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  {step.heading}
+                </h3>
                 <p className="mt-2 text-pretty text-[15px] leading-relaxed text-[var(--color-fg-muted)]">{step.body}</p>
               </div>
             </Reveal>

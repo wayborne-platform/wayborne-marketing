@@ -5,7 +5,7 @@ type AppLinksProps = {
   className?: string;
 };
 
-const shell = "flex h-12 items-center gap-2.5 rounded-xl pl-3.5 pr-4";
+const shell = "flex h-12 items-center gap-2 rounded-xl pl-3 pr-3.5";
 
 /**
  * App Store / Google Play badges.

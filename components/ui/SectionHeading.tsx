@@ -5,8 +5,8 @@ type SectionHeadingProps = {
   title: string;
   body?: string;
   align?: "left" | "center";
-  /** `md` for the quieter sections near the end of the page. */
-  size?: "lg" | "md";
+  /** `xl` for the page's core idea, `md` for the quieter sections near the end. */
+  size?: "xl" | "lg" | "md";
   className?: string;
 };
 
@@ -19,7 +19,7 @@ export function SectionHeading({ eyebrow, title, body, align = "left", size = "l
       <p className="text-[13px] font-semibold uppercase tracking-[0.12em] text-[var(--color-fg-muted)]">{eyebrow}</p>
       <h2
         className={`text-balance font-display font-semibold leading-[1] tracking-[-0.015em] ${
-          size === "lg" ? "text-[2.5rem] sm:text-[3.5rem]" : "text-[2.25rem] sm:text-[2.75rem]"
+          { xl: "text-[2.75rem] sm:text-[4.5rem]", lg: "text-[2.5rem] sm:text-[3.5rem]", md: "text-[2.25rem] sm:text-[2.75rem]" }[size]
         }`}
       >
         {title}

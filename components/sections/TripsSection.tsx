@@ -6,30 +6,30 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 
 /**
  * The trip story left to right: the list, one trip's breakdown, and that
- * trip's map, each with its caption under it. On phones each becomes a row,
- * a small phone beside its caption, so the three fit in about one screen.
+ * trip's map, each with its caption under it. On phones they stack, each
+ * phone large enough to read.
  */
 export function TripsSection() {
   return (
-    <section id={trips.id} className="py-16 sm:py-24">
+    <section id={trips.id} className="py-14 sm:py-20">
       <Container className="flex flex-col gap-12 sm:gap-14">
         <SectionHeading eyebrow={trips.eyebrow} title={trips.heading} body={trips.body} />
 
-        <ol className="grid gap-8 md:grid-cols-3 md:gap-8">
+        <ol className="grid gap-14 md:grid-cols-3 md:gap-8">
           {trips.screens.map((screen, i) => (
             <Reveal
               key={screen.src}
               as="li"
               delay={i * 0.06}
-              className="grid grid-cols-[132px_minmax(0,1fr)] items-center gap-5 md:flex md:flex-col md:items-start md:gap-7"
+              className="flex flex-col items-center gap-6 text-center md:items-start md:gap-7 md:text-left"
             >
               <PhoneFrame
                 src={screen.src}
                 alt={screen.alt}
-                className="w-full md:max-w-[310px]"
-                sizes="(max-width: 768px) 132px, 310px"
+                className="w-full max-w-[250px] md:max-w-[310px]"
+                sizes="(max-width: 768px) 250px, 310px"
               />
-              <div>
+              <div className="max-w-[320px]">
                 <span className="text-[13px] font-semibold tabular-nums text-[var(--color-fg-subtle)]">
                   {String(i + 1).padStart(2, "0")}
                 </span>

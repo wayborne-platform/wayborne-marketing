@@ -8,7 +8,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
  */
 export function Faq() {
   return (
-    <section id={faq.id} className="py-16 sm:py-24">
+    <section id={faq.id} className="py-14 sm:py-20">
       <Container className="grid gap-10 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-20">
         <div className="flex flex-col gap-8">
           <SectionHeading eyebrow={faq.eyebrow} title={faq.heading} size="md" />

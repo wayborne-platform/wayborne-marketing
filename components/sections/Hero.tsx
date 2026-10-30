@@ -4,11 +4,10 @@ import { motion, useReducedMotion } from "framer-motion";
 import { hero, sample } from "@/content/site";
 import { Container } from "@/components/ui/Container";
 import { PhoneFrame } from "@/components/ui/PhoneFrame";
-import { AdapterIllustration } from "@/components/ui/AdapterIllustration";
 import { ScoreArc } from "@/components/ui/ScoreArc";
 import { Button } from "@/components/ui/Button";
 import { ScoreRing } from "@/components/ui/ScoreRing";
-import { ArrowIcon } from "@/components/ui/icons";
+import { ArrowIcon, PlugIcon } from "@/components/ui/icons";
 
 const ease = [0.25, 1, 0.5, 1] as const;
 
@@ -29,7 +28,7 @@ function Rise({ delay, className, children }: { delay: number; className?: strin
 
 export function Hero() {
   return (
-    <section className="relative isolate overflow-hidden pb-16 pt-28 sm:pt-36 lg:pb-24">
+    <section className="relative isolate overflow-hidden pb-12 pt-28 sm:pt-36 lg:pb-16">
       {/*
        * A static pool of light behind the phone. No animation, no blur filter.
        * The section is `isolate` so this and the arc's negative z-index stay
@@ -65,7 +64,7 @@ export function Hero() {
                 <ArrowIcon className="h-4 w-4 rotate-90 transition-transform group-hover:translate-y-0.5" />
               </Button>
               <p className="flex items-center gap-2 text-[15px] text-[var(--color-fg-muted)]">
-                <AdapterIllustration className="w-9" />
+                <PlugIcon className="h-[18px] w-[18px] shrink-0 text-[var(--color-accent-soft)]" />
                 {hero.requirement}
               </p>
             </Rise>
@@ -75,16 +74,17 @@ export function Hero() {
             {/* The signature dial, centered on the phone's own score dial. */}
             <ScoreArc
               id="hero-arc"
-              className="absolute left-1/2 top-[30%] -z-10 w-[400px] max-w-none -translate-x-1/2 -translate-y-1/2 opacity-70 sm:w-[600px]"
+              className="absolute left-1/2 top-[19%] -z-10 w-[380px] max-w-none -translate-x-1/2 -translate-y-1/2 opacity-50 sm:w-[560px]"
             />
             <PhoneFrame src={hero.image} alt={hero.imageAlt} priority sizes="(max-width: 640px) 290px, 360px" />
 
             {/*
-             * Two moments the score leads to, floating just off the frame's
-             * edges so they cover bezel, never app text. Phones get the
-             * screenshot alone: at that width a chip can only cover it.
+             * Two moments the score leads to, each overlapping the frame by
+             * about 20px, over bezel and the screen's empty margin, never
+             * app text. Phones get the screenshot alone: at that width a chip
+             * can only cover it.
              */}
-            <div className="panel absolute -left-[262px] top-[64%] hidden items-center gap-3 rounded-2xl p-3.5 pr-5 sm:flex">
+            <div className="panel absolute -left-[236px] top-[66%] hidden items-center gap-3 rounded-2xl p-3.5 pr-5 sm:flex">
               <ScoreRing score={sample.trip.score} size={52} />
               <div>
                 <p className="text-[11px] font-semibold uppercase tracking-[0.08em] text-[var(--color-score-excellent)]">
@@ -97,9 +97,9 @@ export function Hero() {
               </div>
             </div>
 
-            <div className="panel absolute -right-28 top-[40%] hidden rounded-2xl px-4 py-3 sm:block">
+            <div className="panel absolute -right-[128px] top-[36%] hidden rounded-2xl px-4 py-3 sm:block">
               <p className="text-[11px] font-semibold uppercase tracking-[0.08em] text-[var(--color-fg-muted)]">
-                Est. discount
+                Example discount
               </p>
               <p className="text-[28px] font-semibold tabular-nums leading-tight tracking-[-0.03em]">{sample.discount}</p>
             </div>

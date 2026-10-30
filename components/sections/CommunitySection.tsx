@@ -21,7 +21,7 @@ const VISIBLE = 0.695;
  */
 export function CommunitySection() {
   return (
-    <section id={community.id} className="py-16 sm:py-24">
+    <section id={community.id} className="border-y border-[var(--color-hairline)] bg-[#111214] py-14 sm:py-20">
       <Container className="flex flex-col gap-14">
         <SectionHeading eyebrow={community.eyebrow} title={community.heading} body={community.body} size="md" />
 

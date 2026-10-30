@@ -47,7 +47,7 @@ export function Header() {
         </ul>
 
         <p className="ml-auto flex items-center gap-2 whitespace-nowrap pr-2 text-[13px] font-medium text-[var(--color-fg-muted)]">
-          <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-[var(--color-score-excellent)]" />
+          <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-[var(--color-score-fair)]" />
           {nav.status}
         </p>
       </nav>

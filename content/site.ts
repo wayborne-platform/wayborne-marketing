@@ -59,7 +59,14 @@ export const sample = {
   score: 79,
   band: "Fair",
   insight: { lead: "Smooth driving is your weakest area at 39.", tip: "Roll into the throttle after stops." },
-  trip: { title: "Home to Climbing gym", score: 95, band: "Excellent", duration: "10 min", distance: "5.9 mi" },
+  trip: {
+    title: "Home to Climbing gym",
+    when: "Yesterday, 6:04 PM",
+    score: 95,
+    band: "Excellent",
+    duration: "10 min",
+    distance: "5.9 mi",
+  },
   discount: "9–13%",
   /** The insurance screen's example: a $160/mo premium at a score of 79. */
   savings: { monthly: "$14–21", premium: "$160/mo" },
@@ -68,12 +75,12 @@ export const sample = {
 export const hero = {
   headline: "Every drive, scored.",
   subhead:
-    "Wayborne grades every trip, shows you the one habit to fix next, and turns a clean record into a lower insurance estimate.",
+    "Wayborne grades every trip, shows you the one habit to fix next, and estimates what your driving could save on insurance.",
   primary: { label: "See how it works", href: "#how-it-works" },
-  requirement: "Requires a Bluetooth OBD-II adapter.",
+  requirement: "Requires a WiCAN Bluetooth OBD-II adapter.",
   image: "/images/screens/home.png",
   imageAlt:
-    "Wayborne home screen showing a safety score of 79, rated Fair, with speed 100, smooth driving 39, braking 57, and awareness 100",
+    "Wayborne home screen showing a safety score of 79, rated Fair, with speed 100, smooth driving 39, braking 57, awareness 100, and three recent trips",
 } as const;
 
 export const howItWorks = {
@@ -83,7 +90,7 @@ export const howItWorks = {
   steps: [
     {
       heading: "Plug in the adapter",
-      body: "A small Bluetooth OBD-II adapter goes in the port under your dashboard. The app pairs it and checks what your car reports.",
+      body: "A WiCAN Bluetooth OBD-II adapter goes in the port under your dashboard. The app pairs it and checks what your car reports.",
     },
     {
       heading: "Drive like you normally do",
@@ -100,15 +107,17 @@ export const score = {
   id: "score",
   eyebrow: "The safety score",
   heading: "Four habits. One number you can move.",
-  body: "Every trip is graded on speed, smooth driving, braking, and awareness. Wayborne rolls them into one score out of 100 and tells you which habit is holding it back.",
+  body: "Every trip is graded on speed, smooth driving, braking, and awareness, then rolled into one score out of 100. Your overall score follows your trips, and Wayborne tells you which habit is holding it back.",
   /**
    * `icon` keys the glyph the app uses for that sub-score (see ui/icons.tsx);
-   * `score` is the sample driver's sub-score, as on the Home screenshot.
+   * `score` is that habit's score on the sample trip, as on the trip detail
+   * screenshot, so this section shows one trip's breakdown rather than
+   * repeating the Home screen's overall numbers.
    */
   habits: [
-    { icon: "speed", name: "Speed", score: 100, body: "Time near the posted limit, and how much you spend well over it." },
-    { icon: "smooth", name: "Smooth driving", score: 39, body: "Steady acceleration instead of repeated hard launches." },
-    { icon: "braking", name: "Braking", score: 57, body: "Slowing early and predictably instead of late and hard." },
+    { icon: "speed", name: "Speed", score: 88, body: "Time near the posted limit, and how much you spend well over it." },
+    { icon: "smooth", name: "Smooth driving", score: 100, body: "Steady acceleration instead of repeated hard launches." },
+    { icon: "braking", name: "Braking", score: 100, body: "Slowing early and predictably instead of late and hard." },
     { icon: "awareness", name: "Awareness", score: 100, body: "Phone handling and other distractions while moving." },
   ],
 } as const;
@@ -164,7 +173,7 @@ export const community = {
   id: "friends",
   eyebrow: "Streaks and friends",
   heading: "Good habits are easier with company.",
-  body: "Streaks and challenges give you a reason to keep the score up after the novelty wears off. Friends give you someone to beat.",
+  body: "Build a streak of safer trips and work through driving challenges. Compare safety scores with friends while your routes stay private.",
   panels: [
     {
       heading: "Keep the streak going",
@@ -195,7 +204,7 @@ export const faq = {
   items: [
     {
       q: "Do I need any hardware?",
-      a: "Yes, a Bluetooth OBD-II adapter that plugs into your car's diagnostic port, usually under the steering wheel. The app walks you through pairing it and checks which readings your car supports.",
+      a: "Yes, a WiCAN adapter: a small Bluetooth OBD-II adapter that plugs into your car's diagnostic port, usually under the steering wheel. The app walks you through pairing it and checks which readings your car supports.",
     },
     {
       q: "Is the insurance estimate a quote?",
@@ -217,10 +226,10 @@ export const faq = {
 } as const;
 
 export const finalCta = {
-  heading: "Coming soon to iOS and Android.",
-  body: "The App Store and Google Play links go live on this page the day Wayborne launches.",
+  heading: "Your first score is one drive away.",
+  body: "Wayborne launches on iOS and Android soon. These buttons go live on launch day.",
 } as const;
 
 export const footer = {
-  blurb: "Every drive, scored. Coming soon to iOS and Android.",
+  blurb: "Every drive, scored.",
 } as const;

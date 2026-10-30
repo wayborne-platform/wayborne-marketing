@@ -26,13 +26,15 @@ export function InsuranceSection() {
             </Reveal>
 
             <Reveal delay={0.05}>
+              <p className="mb-2 text-[13px] font-semibold uppercase tracking-[0.1em] text-[#576071]">
+                Estimated savings at a score of {sample.score}
+              </p>
               <p className="flex items-baseline gap-1 font-display font-semibold leading-none tracking-[-0.02em] text-[#17803f]">
                 <span className="text-[4.5rem] tabular-nums sm:text-[6rem]">{sample.savings.monthly}</span>
-                <span className="text-[1.75rem] sm:text-[2rem]">/mo</span>
+                <span className="text-[1.75rem] sm:text-[2rem]">/mo off</span>
               </p>
               <p className="mt-3 max-w-[26rem] text-[14px] leading-snug text-[#4c5566]">
-                Example estimate: {sample.discount} off a {sample.savings.premium} premium at a score of {sample.score}.
-                Not a quote.
+                Example: {sample.discount} off a {sample.savings.premium} premium. An estimate, not a quote.
               </p>
             </Reveal>
 

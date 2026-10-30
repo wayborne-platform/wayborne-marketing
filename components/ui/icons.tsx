@@ -27,6 +27,15 @@ export function ArrowIcon(props: SVGProps<SVGSVGElement>) {
   );
 }
 
+/** A two-prong plug, for the adapter requirement. */
+export function PlugIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...props}>
+      <path d="M9 2v5M15 2v5M6 7h12v4a6 6 0 0 1-12 0zM12 17v5" />
+    </svg>
+  );
+}
+
 export function PlayCircleIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" {...props}>
