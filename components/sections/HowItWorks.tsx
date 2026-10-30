@@ -100,12 +100,7 @@ export function HowItWorks() {
               delay={i * 0.06}
               className="panel flex flex-col overflow-hidden rounded-[24px]"
             >
-              {/* On phones only the first step keeps its picture, so the three read as one short list. */}
-              <div
-                className={`well m-2 h-[176px] flex-col items-center justify-center gap-3 rounded-[18px] sm:flex sm:h-[230px] sm:gap-4 ${
-                  i === 0 ? "flex" : "hidden"
-                }`}
-              >
+              <div className="well m-2 flex h-[168px] flex-col items-center justify-center gap-3 rounded-[18px] sm:h-[230px] sm:gap-4">
                 {visuals[i]}
               </div>
               <div className="px-5 pb-6 pt-3 sm:px-7 sm:pb-7 sm:pt-4">

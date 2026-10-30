@@ -2,7 +2,7 @@ import { sample, score } from "@/content/site";
 import { scoreBand } from "@/lib/score";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
-import { ScoreRing } from "@/components/ui/ScoreRing";
+import { SectionHeading } from "@/components/ui/SectionHeading";
 import { BoltIcon, BrakeIcon, GaugeIcon, ShieldCheckIcon } from "@/components/ui/icons";
 
 const HABIT_ICONS = {
@@ -13,68 +13,75 @@ const HABIT_ICONS = {
 } as const;
 
 /**
- * The page's centered set piece: the sample driver's overall score as one
- * big dial, its four habit scores in a row beneath, and the weakest habit
- * called out with the app's coaching line. Centered and without an eyebrow,
- * so it breaks the left-aligned rhythm of the sections around it.
+ * The four habits behind the sample driver's 79, with the product making its
+ * call: the weakest habit gets the big card, its score, and the app's coaching
+ * line; the other three sit in compact cards beside it. The hero already shows
+ * the overall dial, so this section shows the decision instead.
  */
 export function ScoreSection() {
   const weakest = score.habits.reduce((low, habit) => (habit.score < low.score ? habit : low));
+  const others = score.habits.filter((habit) => habit !== weakest);
+  const WeakIcon = HABIT_ICONS[weakest.icon];
+  const weakBand = scoreBand(weakest.score);
 
   return (
     <section id={score.id} className="py-14 sm:py-20">
-      <Container className="flex flex-col items-center gap-10 text-center sm:gap-12">
-        <Reveal className="flex max-w-[44rem] flex-col items-center gap-4">
-          <h2 className="text-balance font-display text-[2.75rem] font-semibold leading-[1] tracking-[-0.015em] sm:text-[4.5rem]">
-            {score.heading}
-          </h2>
-          <p className="max-w-[36rem] text-pretty text-lg leading-relaxed text-[var(--color-fg-muted)]">{score.body}</p>
-        </Reveal>
+      <Container className="flex flex-col gap-10 sm:gap-12">
+        <SectionHeading eyebrow={score.eyebrow} title={score.heading} body={score.body} />
 
-        <Reveal>
-          <ScoreRing score={sample.score} showBand className="w-[200px] sm:w-[260px]" />
-        </Reveal>
+        <div className="grid gap-3 sm:gap-4 lg:grid-cols-3">
+          <Reveal className="panel-lg flex flex-col gap-5 rounded-[26px] p-6 sm:p-8 lg:col-span-2">
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              <span className="flex items-center gap-2.5 text-[17px] font-semibold">
+                <WeakIcon className="h-5 w-5" style={{ color: weakBand.color }} />
+                {weakest.name}
+              </span>
+              <span className="rounded-full bg-[color-mix(in_srgb,var(--color-score-fair)_16%,transparent)] px-3 py-1 text-[13px] font-semibold text-[var(--color-score-fair)]">
+                Fix this next
+              </span>
+            </div>
+            <div className="flex items-end gap-6">
+              <p className="font-display text-[88px] font-semibold tabular-nums leading-[0.8] sm:text-[120px]" style={{ color: weakBand.color }}>
+                {weakest.score}
+              </p>
+              <div className="mb-2 h-2 flex-1 overflow-hidden rounded-full bg-white/[0.06]" aria-hidden="true">
+                <div className="h-full rounded-full" style={{ width: `${weakest.score}%`, background: weakBand.color }} />
+              </div>
+            </div>
+            <div className="border-t border-[var(--color-hairline)] pt-5">
+              <p className="text-balance text-[20px] font-semibold leading-snug sm:text-[24px]">{sample.insight.tip}</p>
+              <p className="mt-2 text-[15px] text-[var(--color-fg-muted)]">
+                {sample.insight.lead} {weakest.name} measures {weakest.body.charAt(0).toLowerCase() + weakest.body.slice(1)}
+              </p>
+            </div>
+          </Reveal>
 
-        <ul className="grid w-full grid-cols-2 gap-3 text-left sm:gap-4 lg:grid-cols-4">
-          {score.habits.map((habit, i) => {
-            const Icon = HABIT_ICONS[habit.icon];
-            const band = scoreBand(habit.score);
-            const isWeakest = habit === weakest;
-            return (
-              <Reveal
-                key={habit.name}
-                as="li"
-                delay={i * 0.05}
-                className={`panel flex flex-col gap-3 rounded-[22px] p-4 sm:p-6 ${
-                  isWeakest ? "ring-2 ring-inset ring-[var(--color-accent)]" : ""
-                }`}
-              >
-                <div className="flex items-center justify-between gap-2">
-                  <span className="flex items-center gap-2 text-[15px] font-semibold sm:text-[16px]">
+          <ul className="grid grid-cols-3 gap-3 sm:gap-4 lg:grid-cols-1">
+            {others.map((habit, i) => {
+              const Icon = HABIT_ICONS[habit.icon];
+              const band = scoreBand(habit.score);
+              return (
+                <Reveal key={habit.name} as="li" delay={0.05 + i * 0.05} className="panel flex flex-col justify-center gap-2.5 rounded-[20px] p-4 sm:p-5">
+                  <span className="flex flex-col gap-1.5 text-[14px] font-semibold sm:flex-row sm:items-center sm:gap-2 sm:text-[15px]">
                     <Icon className="h-[18px] w-[18px] shrink-0" style={{ color: band.color }} />
                     {habit.name}
                   </span>
-                </div>
-                <p
-                  className="font-display text-[40px] font-semibold tabular-nums leading-none sm:text-[52px]"
-                  style={{ color: habit.score < 70 ? band.color : undefined }}
-                >
-                  {habit.score}
-                </p>
-                <div className="h-1.5 overflow-hidden rounded-full bg-white/[0.06]" aria-hidden="true">
-                  <div className="h-full rounded-full" style={{ width: `${habit.score}%`, background: band.color }} />
-                </div>
-                {isWeakest ? (
-                  <p className="text-pretty text-[14px] leading-snug text-[var(--color-fg)] sm:text-[15px]">
-                    <span className="font-semibold text-[var(--color-accent-soft)]">Fix this next.</span> {sample.insight.tip}
-                  </p>
-                ) : (
-                  <p className="text-pretty text-[14px] leading-snug text-[var(--color-fg-muted)] sm:text-[15px]">{habit.body}</p>
-                )}
-              </Reveal>
-            );
-          })}
-        </ul>
+                  <div className="flex items-center gap-4">
+                    <p
+                      className="font-display text-[32px] font-semibold tabular-nums leading-none sm:text-[40px]"
+                      style={{ color: habit.score < 70 ? band.color : undefined }}
+                    >
+                      {habit.score}
+                    </p>
+                    <div className="hidden h-1.5 flex-1 overflow-hidden rounded-full bg-white/[0.06] sm:block" aria-hidden="true">
+                      <div className="h-full rounded-full" style={{ width: `${habit.score}%`, background: band.color }} />
+                    </div>
+                  </div>
+                </Reveal>
+              );
+            })}
+          </ul>
+        </div>
       </Container>
     </section>
   );

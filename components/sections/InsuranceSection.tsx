@@ -15,7 +15,7 @@ export function InsuranceSection() {
   return (
     <section id={insurance.id} className="mt-8 overflow-hidden bg-[#eef0f4] text-[#141a26] sm:mt-12">
       <Container>
-        <div className="grid items-center gap-12 pt-16 lg:grid-cols-[minmax(0,1fr)_330px] lg:gap-20 lg:pt-0">
+        <div className="grid gap-10 py-16 lg:grid-cols-[minmax(0,1fr)_330px] lg:gap-20 lg:py-0">
           <div className="flex flex-col gap-9 lg:py-24">
             <Reveal className="flex max-w-[36rem] flex-col gap-4">
               <p className="text-[13px] font-semibold uppercase tracking-[0.12em] text-[#576071]">{insurance.eyebrow}</p>
@@ -48,8 +48,18 @@ export function InsuranceSection() {
             </dl>
           </div>
 
-          {/* The phone rises out of the panel's bottom edge. */}
-          <Reveal className="mx-auto -mb-28 w-full max-w-[290px] self-end lg:-mb-36 lg:mt-20 lg:max-w-none">
+          {/*
+           * The phone shows down to the premium selector, then fades into the
+           * band, so no row of app text is cut by the next section.
+           */}
+          <Reveal
+            className="mx-auto w-full max-w-[290px] self-start overflow-hidden lg:mt-24 lg:max-w-none"
+            style={{
+              aspectRatio: "330 / 520",
+              maskImage: "linear-gradient(to bottom, #000 72%, transparent)",
+              WebkitMaskImage: "linear-gradient(to bottom, #000 72%, transparent)",
+            }}
+          >
             <PhoneFrame src={insurance.image} alt={insurance.alt} sizes="(max-width: 640px) 290px, 330px" />
           </Reveal>
         </div>

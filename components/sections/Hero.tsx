@@ -28,7 +28,7 @@ function Rise({ delay, className, children }: { delay: number; className?: strin
 
 export function Hero() {
   return (
-    <section className="relative isolate overflow-hidden pb-12 pt-28 sm:pt-36 lg:pb-16">
+    <section className="relative isolate overflow-hidden pb-12 pt-28 sm:pt-32 lg:pb-14">
       {/*
        * A static pool of light behind the phone. No animation, no blur filter.
        * The section is `isolate` so this and the arc's negative z-index stay
@@ -45,7 +45,7 @@ export function Hero() {
 
       <Container>
         <div className="grid items-center gap-14 lg:grid-cols-[minmax(0,1fr)_460px] lg:gap-10">
-          <div className="text-center lg:text-left">
+          <div className="text-center lg:pb-24 lg:text-left">
             <Rise delay={0.04}>
               <h1 className="text-balance font-display text-[3.25rem] font-semibold leading-[0.95] tracking-[-0.02em] sm:text-[5rem] lg:text-[6rem]">
                 {hero.headline}
@@ -75,7 +75,7 @@ export function Hero() {
             <ScoreArc
               score={sample.score}
               stroke={3}
-              className="absolute left-1/2 top-[19%] -z-10 w-[380px] max-w-none -translate-x-1/2 -translate-y-1/2 sm:w-[540px]"
+              className="absolute left-1/2 top-[21%] -z-10 w-[360px] max-w-none -translate-x-1/2 -translate-y-1/2 sm:w-[500px]"
             />
             <PhoneFrame src={hero.image} alt={hero.imageAlt} priority sizes="(max-width: 640px) 290px, 360px" />
 
@@ -94,7 +94,7 @@ export function Hero() {
                 <p className="text-[26px] font-semibold tabular-nums leading-tight tracking-[-0.02em]">{sample.discount}</p>
               </div>
             </div>
-            <p className="mt-5 text-center text-[12px] text-[var(--color-fg-subtle)]">{hero.sampleNote}</p>
+            <p className="mt-5 text-center text-[14px] text-[#929ba8] sm:text-[13px]">{hero.sampleNote}</p>
           </Rise>
         </div>
       </Container>

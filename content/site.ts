@@ -75,7 +75,7 @@ export const sample = {
 export const hero = {
   headline: "Every drive, scored.",
   subhead:
-    "Wayborne grades every trip, shows you the one habit to fix next, and estimates what your driving could save on insurance.",
+    "Wayborne grades every trip, shows the one habit to fix, and estimates your insurance savings.",
   primary: { label: "See how it works", href: "#how-it-works" },
   requirement: "Requires a WiCAN Bluetooth OBD-II adapter.",
   /** The app screens are a sample driver, not a real account. */
@@ -107,6 +107,7 @@ export const howItWorks = {
 
 export const score = {
   id: "score",
+  eyebrow: "Safety score",
   heading: "Four habits. One number you can move.",
   body: "Each trip is graded on speed, smooth driving, braking, and awareness. Your overall score follows your trips, and Wayborne points at the habit holding it back.",
   /**
@@ -151,7 +152,7 @@ export const trips = {
 
 export const insurance = {
   id: "insurance",
-  eyebrow: "Insurance estimate",
+  eyebrow: "Insurance",
   heading: "See what your driving is worth.",
   body: "Your score, turned into a usage-based insurance estimate and the habits behind it.",
   image: "/images/screens/insurance-light.png",
@@ -170,6 +171,7 @@ export const insurance = {
 
 export const community = {
   id: "friends",
+  eyebrow: "Friends",
   heading: "Good habits are easier with company.",
   body: "Build a streak of safer trips and work through driving challenges. Compare safety scores with friends while your routes stay private.",
   panels: [
@@ -191,6 +193,7 @@ export const community = {
 /** Answers come from how the app works today; keep them in sync with it. */
 export const faq = {
   id: "faq",
+  eyebrow: "FAQ",
   heading: "Before you ask.",
   /** The three promises worth stating once, beside the questions. */
   promises: [
@@ -230,7 +233,6 @@ export const finalCta = {
   status: "Launching soon",
   heading: "Your first score is one drive away.",
   body: "Wayborne is coming to iOS and Android. Plug in a WiCAN adapter and your first trip scores itself.",
-  link: { label: "Review how setup works", href: "#how-it-works" },
 } as const;
 
 export const footer = {

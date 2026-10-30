@@ -23,7 +23,7 @@ export function CommunitySection() {
   return (
     <section id={community.id} className="border-b border-[var(--color-hairline)] bg-[#111214] py-14 sm:py-20">
       <Container className="flex flex-col gap-14">
-        <SectionHeading title={community.heading} body={community.body} size="md" />
+        <SectionHeading eyebrow={community.eyebrow} title={community.heading} body={community.body} />
 
         <div className="grid gap-6 md:grid-cols-2">
           {community.panels.map((panel, i) => (
@@ -47,7 +47,7 @@ export function CommunitySection() {
             </Reveal>
           ))}
         </div>
-        <p className="-mt-6 text-[12px] text-[var(--color-fg-subtle)]">{hero.sampleNote}</p>
+        <p className="-mt-6 text-[14px] text-[#929ba8] sm:text-[13px]">{hero.sampleNote}</p>
       </Container>
     </section>
   );

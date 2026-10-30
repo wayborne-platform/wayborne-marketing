@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion, type Variants } from "framer-motion";
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 
 type RevealProps = {
   children: ReactNode;
@@ -10,6 +10,7 @@ type RevealProps = {
   /** Vertical travel distance in pixels. */
   y?: number;
   className?: string;
+  style?: CSSProperties;
   as?: "div" | "section" | "li" | "span";
 };
 
@@ -17,7 +18,7 @@ type RevealProps = {
  * Reveals its children with a fade and a short upward drift the first time
  * they scroll into view. Honors prefers-reduced-motion by rendering statically.
  */
-export function Reveal({ children, delay = 0, y = 18, className, as = "div" }: RevealProps) {
+export function Reveal({ children, delay = 0, y = 18, className, style, as = "div" }: RevealProps) {
   const reduceMotion = useReducedMotion();
 
   const variants: Variants = {
@@ -34,6 +35,7 @@ export function Reveal({ children, delay = 0, y = 18, className, as = "div" }: R
   return (
     <MotionTag
       className={className}
+      style={style}
       variants={variants}
       initial="hidden"
       whileInView="visible"

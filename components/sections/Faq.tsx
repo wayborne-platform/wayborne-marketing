@@ -11,7 +11,7 @@ export function Faq() {
     <section id={faq.id} className="py-14 sm:py-20">
       <Container className="grid gap-10 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-20">
         <div className="flex flex-col gap-8">
-          <SectionHeading title={faq.heading} size="md" />
+          <SectionHeading eyebrow={faq.eyebrow} title={faq.heading} />
           <ul className="flex flex-col gap-3">
             {faq.promises.map((promise) => (
               <li key={promise} className="flex items-center gap-3 text-[15px] font-medium">
