@@ -7,7 +7,8 @@
 // Usage: WAYBORNE_MOBILE=<path to wayborne-mobile> node tools/screens/render-app-screens.mjs <outDir> [screens] [themes]
 //   screens: comma list of home,trips,trip,map,profile,live,friends,insurance
 //   themes:  comma list of dark,light
-// Env: HOME_SCROLL scrolls Home before capture; SCREEN_W/SCREEN_H override the size.
+// Env: HOME_SCROLL / PROFILE_SCROLL scroll those screens before capture (px);
+// SCREEN_W/SCREEN_H override the size.
 const { chromium } = await import(`${process.env.WAYBORNE_MOBILE}/node_modules/playwright/index.mjs`);
 const out = process.argv[2];
 const base = "http://localhost:5188";
@@ -15,8 +16,8 @@ const CLOCK = new Date("2026-10-27T18:30:00-07:00");
 const screens = (process.argv[3] ?? "home,trips,trip,map,profile,live,friends,insurance").split(",");
 const themes = (process.argv[4] ?? "dark,light").split(",");
 // Optional scroll offset per screen so the capture ends on a row boundary.
-const SCROLL = { home: Number(process.env.HOME_SCROLL ?? 0) };
-// Screen size in points; defaults to the iPhone 16 Pro, whose official bezel the site uses.
+const SCROLL = { home: Number(process.env.HOME_SCROLL ?? 0), profile: Number(process.env.PROFILE_SCROLL ?? 0) };
+// Screen size in points; defaults to the iPhone 18 Pro, whose official bezel the site uses.
 const SW = Number(process.env.SCREEN_W ?? 402), SH = Number(process.env.SCREEN_H ?? 874);
 const browser = await chromium.launch();
 for (const theme of themes) {

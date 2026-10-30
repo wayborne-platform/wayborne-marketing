@@ -38,7 +38,7 @@ export function SnapCarousel({ children, labels, itemClassName = "w-full" }: Sna
   return (
     <div>
       {labels && (
-        <div className="mb-5 flex gap-1 rounded-xl bg-white/[0.04] p-1" role="tablist">
+        <div className="neu-inset-sm mb-6 flex gap-1 rounded-2xl p-1" role="tablist">
           {labels.map((label, i) => (
             <button
               key={label}
@@ -46,8 +46,8 @@ export function SnapCarousel({ children, labels, itemClassName = "w-full" }: Sna
               role="tab"
               aria-selected={i === active}
               onClick={() => goTo(i)}
-              className={`min-h-11 flex-1 rounded-lg px-2 text-[13px] font-semibold transition-colors ${
-                i === active ? "bg-[var(--color-panel-raised)] text-[var(--color-fg)]" : "text-[var(--color-fg-muted)]"
+              className={`min-h-11 flex-1 rounded-xl px-2 text-[13px] font-semibold transition-colors ${
+                i === active ? "neu-sm text-[var(--color-fg)]" : "text-[var(--color-fg-muted)]"
               }`}
             >
               {label}

@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Barlow, Inter } from "next/font/google";
+import { Inter } from "next/font/google";
 import { site } from "@/content/site";
 import "./globals.css";
 
@@ -7,14 +7,6 @@ const inter = Inter({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-inter",
-});
-
-/* Display face for headlines: a grotesk drawn from US highway signage. */
-const barlow = Barlow({
-  subsets: ["latin"],
-  weight: ["600", "700"],
-  display: "swap",
-  variable: "--font-barlow",
 });
 
 export const metadata: Metadata = {
@@ -39,7 +31,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#09090a",
+  themeColor: "#23272e",
   colorScheme: "dark",
 };
 
@@ -47,7 +39,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${barlow.variable}`}>
+    <html lang="en" className={inter.variable}>
       <body>{children}</body>
     </html>
   );

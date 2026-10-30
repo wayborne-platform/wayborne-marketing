@@ -7,5 +7,5 @@ type ContainerProps = {
 
 /** Centered page column matching the marketing layout's max width. */
 export function Container({ children, className = "" }: ContainerProps) {
-  return <div className={`mx-auto w-full max-w-[1160px] px-6 ${className}`}>{children}</div>;
+  return <div className={`mx-auto w-full max-w-[1024px] px-6 ${className}`}>{children}</div>;
 }

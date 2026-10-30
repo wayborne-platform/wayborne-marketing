@@ -1,24 +1,34 @@
 import { Reveal } from "./Reveal";
 
 type SectionHeadingProps = {
-  eyebrow?: string;
   title: string;
+  eyebrow?: string;
   body?: string;
   align?: "left" | "center";
   className?: string;
 };
 
-/** Shared eyebrow + heading + supporting paragraph for each section. */
-export function SectionHeading({ eyebrow, title, body, align = "left", className = "" }: SectionHeadingProps) {
+/** Shared eyebrow + heading + supporting paragraph treatment for major sections. */
+export function SectionHeading({ title, eyebrow, body, align = "center", className = "" }: SectionHeadingProps) {
   const alignment = align === "center" ? "items-center text-center mx-auto" : "items-start text-left";
 
   return (
-    <Reveal className={`flex max-w-[36rem] flex-col gap-4 ${alignment} ${className}`}>
+    <div className={`flex max-w-2xl flex-col gap-4 ${alignment} ${className}`}>
       {eyebrow && (
-        <p className="text-[13px] font-semibold uppercase tracking-[0.08em] text-[var(--color-fg-muted)]">{eyebrow}</p>
+        <Reveal>
+          <p className="text-sm font-medium text-[var(--color-accent-soft)]">{eyebrow}</p>
+        </Reveal>
       )}
-      <h2 className="text-balance font-display text-[2.5rem] font-semibold leading-[1] tracking-[-0.015em] sm:text-[3.5rem]">{title}</h2>
-      {body && <p className="text-pretty text-lg leading-relaxed text-[var(--color-fg-muted)]">{body}</p>}
-    </Reveal>
+      <Reveal>
+        <h2 className="utility-text-gradient text-balance text-3xl font-semibold tracking-tight sm:text-4xl md:text-[2.6rem] md:leading-[1.1]">
+          {title}
+        </h2>
+      </Reveal>
+      {body && (
+        <Reveal delay={0.08}>
+          <p className="text-pretty text-base leading-relaxed text-[var(--color-fg-muted)] sm:text-lg">{body}</p>
+        </Reveal>
+      )}
+    </div>
   );
 }

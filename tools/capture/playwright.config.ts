@@ -23,7 +23,7 @@ export default defineConfig({
     command: `rm -rf .next/cache/images && npm run build && npx next start -p ${port}`,
     cwd: resolve(__dirname, "../.."),
     url: `http://localhost:${port}`,
-    timeout: 180_000,
+    timeout: 600_000,
     reuseExistingServer: false,
   },
 });
