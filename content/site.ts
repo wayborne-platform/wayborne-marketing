@@ -87,7 +87,16 @@ export const hero = {
 
 export const howItWorks = {
   id: "how-it-works",
+  eyebrow: "How it works",
   heading: "Plug in once. Then just drive.",
+  /** The adapter render, cut out of its white background with tools/images/cutout-white.py. */
+  adapter: {
+    image: "/images/device/wican-adapter.png",
+    width: 332,
+    height: 491,
+    alt: "The WiCAN Bluetooth OBD-II adapter: a small blue box with power, Bluetooth, and data lights, and an OBD-II plug on top",
+    caption: "WiCAN Bluetooth OBD-II adapter. Plugs into the port under your dashboard.",
+  },
   steps: [
     {
       heading: "Plug in the adapter",

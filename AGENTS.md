@@ -14,6 +14,8 @@ Phones use Apple's official iPhone 18 Pro (Black) product bezel from Apple Desig
 
 App screenshots in `public/images/iphone` are 1206 x 2622 (the bezel's 402 x 874pt screen at 3x), rendered from the app's design preview with `tools/screens/render-app-screens.mjs`. Never crop or stretch a screenshot to fit a box; a device may run off the edge of a panel, and `visibleAspectRatio` sizes the clip box so the cut lands on a chosen row.
 
+The WiCAN adapter in How it works is a product render (`public/images/device/wican-adapter.png`) cut out of its white background with `tools/images/cutout-white.py`, which also strips a baked-in glow and un-mixes the outline so no light fringe shows on the dark page. Run it again on a higher-resolution render to replace it.
+
 Copy and site-drawn numbers (`sample` in `content/site.ts`) match the sample driver in the screenshots. When the screenshots change, update both. A replaced screenshot needs a new file name or path, because the image optimizer caches by URL.
 
 ## Links
