@@ -91,15 +91,15 @@ export const howItWorks = {
   steps: [
     {
       heading: "Plug in the adapter",
-      body: "A WiCAN Bluetooth OBD-II adapter goes in the port under your dashboard. The app pairs it and checks what your car reports.",
+      body: "A WiCAN Bluetooth OBD-II adapter goes in the port under your dashboard. The app pairs it once.",
     },
     {
       heading: "Drive like you normally do",
-      body: "A trip starts when your car connects, even with the app closed. Wayborne logs the route, your speed, and every hard brake or launch.",
+      body: "Trips start when your car connects, even with the app closed, and log every hard brake or launch.",
     },
     {
       heading: "Get your score",
-      body: "Each trip is graded when it ends, and rolls into your overall score along with the one habit worth working on.",
+      body: "After each drive, see the trip's score and the one habit worth working on.",
     },
   ],
 } as const;
@@ -108,7 +108,7 @@ export const score = {
   id: "score",
   eyebrow: "Safety score",
   heading: "Four habits. One number you can move.",
-  body: "Each trip is graded on speed, smooth driving, braking, and awareness. Your overall score follows your trips, and Wayborne points at the habit holding it back.",
+  body: "Each trip is graded on speed, smooth driving, braking, and awareness. Wayborne points at the habit holding your score back.",
   /**
    * `icon` keys the glyph the app uses for that sub-score (see ui/icons.tsx);
    * `score` is the sample driver's habit score, as on the Home screenshot.
@@ -133,7 +133,7 @@ export const trips = {
       src: "/images/screens/trips.png",
       alt: "Wayborne trips list with seven recent drives, each with its own score",
       heading: "A score for every trip",
-      body: "A rough commute shows up as a rough commute, not an average that hides it.",
+      body: "Each drive keeps its own score, so one rough commute doesn't vanish into a weekly average.",
     },
     {
       tab: "Breakdown",
@@ -175,7 +175,7 @@ export const community = {
   id: "friends",
   eyebrow: "Friends",
   heading: "Compare scores. Never locations.",
-  body: "Build a streak of safer trips and work through driving challenges. Compare safety scores with friends while your routes stay private.",
+  body: "Streaks reward clean days. Challenges work on one habit at a time. Friends keep you honest.",
   panels: [
     {
       tab: "Streaks",
@@ -199,11 +199,7 @@ export const faq = {
   id: "faq",
   heading: "Before you ask.",
   /** The three promises worth stating once, beside the questions. */
-  promises: [
-    "Estimates, never quotes.",
-    "Friends see scores, never routes.",
-    "Passenger trips never count against you.",
-  ],
+  promises: ["Records with the app closed.", "Passenger trips never count against you.", "iOS and Android at launch."],
   items: [
     {
       q: "Do I need any hardware?",
@@ -240,5 +236,5 @@ export const finalCta = {
 } as const;
 
 export const footer = {
-  blurb: "Every drive, scored. Friends see scores, never routes.",
+  blurb: "Every drive, scored.",
 } as const;

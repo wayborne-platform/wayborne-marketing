@@ -59,7 +59,7 @@ export function Hero() {
             </Rise>
 
             <Rise delay={0.16}>
-              <p className="mx-auto mt-5 max-w-[34rem] text-pretty text-[17px] leading-relaxed text-[var(--color-fg-muted)] sm:mt-6 sm:text-xl lg:mx-0">
+              <p className="mx-auto mt-5 max-w-[30rem] text-pretty text-[17px] leading-relaxed text-[var(--color-fg-muted)] sm:mt-6 sm:text-xl lg:mx-0">
                 {hero.subhead}
               </p>
             </Rise>

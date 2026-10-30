@@ -89,8 +89,8 @@ export function ScoreSection() {
                     <div className="h-full rounded-full" style={{ width: `${habit.score}%`, background: band.color }} />
                   </div>
                   <p className="col-span-2 text-pretty text-[14px] leading-snug text-[var(--color-fg-muted)]">
-                    {habit === nextWeakest && habit.score < 70 ? `Next after ${weakest.name.toLowerCase()}. ` : ""}
                     {habit.body}
+                    {habit === nextWeakest && habit.score < 70 ? ` Your next habit after ${weakest.name.toLowerCase()}.` : ""}
                   </p>
                 </Reveal>
               );

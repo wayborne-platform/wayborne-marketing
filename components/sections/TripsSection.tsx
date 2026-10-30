@@ -9,21 +9,19 @@ import { SnapCarousel } from "@/components/ui/SnapCarousel";
  * One trip in reading order: the list, its breakdown, and its map. On desktop
  * the breakdown sits forward and the other two step back and down, phones
  * overlapping only at their bezels, with the captions on one row beneath in
- * their own columns. On phones the three become a snapping row with tabs.
+ * their own columns. On phones the three become a snapping row with tabs. The
+ * section sits on a band one step lighter than the page, for rhythm between
+ * the dark sections above and the light insurance band below.
  */
 export function TripsSection() {
-  const [list, breakdown, route] = trips.screens;
-  const mobileOrder = [breakdown, route, list];
-
   return (
-    <section id={trips.id} className="overflow-x-clip py-14 sm:py-20">
+    <section id={trips.id} className="overflow-x-clip bg-[#111214] py-14 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] sm:py-20">
       <Container className="flex flex-col gap-12 sm:gap-14">
         <SectionHeading eyebrow={trips.eyebrow} title={trips.heading} body={trips.body} align="center" />
 
         <div className="md:hidden">
-          {/* Breakdown first on phones: it is the screen that explains a score. */}
-          <SnapCarousel labels={mobileOrder.map((screen) => screen.tab)}>
-            {mobileOrder.map((screen) => (
+          <SnapCarousel labels={trips.screens.map((screen) => screen.tab)}>
+            {trips.screens.map((screen) => (
               <div key={screen.src} className="mx-auto flex max-w-[300px] flex-col gap-5">
                 <PhoneFrame src={screen.src} alt={screen.alt} sizes="300px" />
                 <div>

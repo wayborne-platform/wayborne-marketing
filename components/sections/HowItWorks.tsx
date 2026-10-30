@@ -17,8 +17,13 @@ export function HowItWorks() {
         <SectionHeading title={howItWorks.heading} />
 
         <Reveal className="panel-lg grid overflow-hidden rounded-[32px] lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)]">
-          <div className="well m-2 flex items-center justify-center rounded-[26px] px-4 py-8 sm:px-8 sm:py-12">
-            <AdapterDiagram className="w-full max-w-[440px]" />
+          <div className="well m-2 flex flex-col items-center justify-center gap-5 rounded-[26px] px-4 py-8 sm:px-8 sm:py-12">
+            <AdapterDiagram className="w-full max-w-[460px]" />
+            <p className="panel flex items-center gap-2 rounded-full px-3.5 py-1.5 text-[13px] font-medium">
+              <span aria-hidden="true" className="h-2 w-2 rounded-full bg-[var(--color-accent)]" />
+              Connected · recording trips
+            </p>
+            <p className="text-center text-[13px] text-[var(--color-fg-muted)]">Usually under the dashboard on the driver&apos;s side.</p>
           </div>
 
           <ol className="flex flex-col p-6 sm:p-10 lg:justify-center lg:py-12 lg:pl-8 lg:pr-14">
@@ -32,7 +37,7 @@ export function HowItWorks() {
                 </span>
                 <div>
                   <h3 className="text-[18px] font-semibold sm:text-[20px]">{step.heading}</h3>
-                  <p className="mt-1.5 text-pretty text-[16px] leading-relaxed text-[var(--color-fg-muted)]">{step.body}</p>
+                  <p className="mt-1.5 text-pretty text-[15px] leading-relaxed text-[var(--color-fg-muted)] sm:text-[16px]">{step.body}</p>
                 </div>
               </li>
             ))}

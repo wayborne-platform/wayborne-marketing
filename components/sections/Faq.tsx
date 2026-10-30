@@ -10,7 +10,7 @@ export function Faq() {
   return (
     <section id={faq.id} className="py-14 sm:py-20">
       <Container className="grid gap-10 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-20">
-        <div className="flex flex-col gap-8">
+        <div className="flex flex-col gap-8 lg:sticky lg:top-24 lg:self-start">
           <SectionHeading title={faq.heading} />
           <ul className="flex flex-col gap-3">
             {faq.promises.map((promise) => (

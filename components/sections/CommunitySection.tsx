@@ -1,4 +1,4 @@
-import { community } from "@/content/site";
+import { community, hero } from "@/content/site";
 import { Container } from "@/components/ui/Container";
 import { PhoneFrame } from "@/components/ui/PhoneFrame";
 import { Reveal } from "@/components/ui/Reveal";
@@ -62,6 +62,7 @@ export function CommunitySection() {
             </Reveal>
           ))}
         </div>
+        <p className="-mt-6 text-[13px] text-[var(--color-fg-muted)]">{hero.sampleNote}</p>
       </Container>
     </section>
   );

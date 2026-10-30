@@ -24,7 +24,8 @@ export function AdapterDiagram({ className = "" }: { className?: string }) {
         <path d="M0 60c70 26 140 36 210 36s140-10 210-36" />
         {/* Steering column and the bottom of the wheel. */}
         <path d="M64 70v92a14 14 0 0 0 14 14h44a14 14 0 0 0 14-14V80" />
-        <path d="M30 18c20 52 120 52 140 0" stroke={faint} />
+        <path d="M22 4c18 60 138 60 156 0" strokeWidth="5" />
+        <path d="M84 48v20M116 48v20" stroke={faint} />
         {/* The port, recessed into the dash. */}
         <path d="M214 96h96l-9 26h-78z" />
         {pins.map((x) => (
