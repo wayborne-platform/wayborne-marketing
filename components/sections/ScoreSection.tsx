@@ -58,7 +58,7 @@ export function ScoreSection() {
               </div>
             </div>
             <div className="border-t border-[var(--color-hairline)] pt-5">
-              <p className="text-balance text-[20px] font-semibold leading-snug sm:text-[24px]">Hard launches are costing you the most points.</p>
+              <p className="text-balance text-[20px] font-semibold leading-snug sm:text-[24px]">Accelerating hard after stops costs you the most points.</p>
               <p className="mt-2 text-[15px] text-[var(--color-fg-muted)]">Next drive: {sample.insight.tip.charAt(0).toLowerCase() + sample.insight.tip.slice(1)}</p>
             </div>
           </Reveal>

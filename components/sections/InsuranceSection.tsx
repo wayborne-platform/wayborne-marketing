@@ -13,7 +13,7 @@ import { Reveal } from "@/components/ui/Reveal";
  */
 export function InsuranceSection() {
   return (
-    <section id={insurance.id} className="mt-8 bg-[#eef0f4] text-[#141a26] sm:mt-12">
+    <section id={insurance.id} className="bg-[#eef0f4] text-[#141a26]">
       <Container>
         <div className="grid gap-10 py-16 sm:py-20 lg:grid-cols-[minmax(0,1fr)_300px] lg:grid-rows-[auto_1fr] lg:gap-x-12 lg:gap-y-10">
           <div className="flex flex-col gap-9">

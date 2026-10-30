@@ -95,7 +95,7 @@ export const howItWorks = {
     },
     {
       heading: "Drive like you normally do",
-      body: "Trips start when your car connects, even with the app closed, and log every hard brake or launch.",
+      body: "Trips start when your car connects, even with the app closed, and record braking and acceleration events.",
     },
     {
       heading: "Get your score",
@@ -175,7 +175,7 @@ export const community = {
   id: "friends",
   eyebrow: "Friends",
   heading: "Compare scores. Never locations.",
-  body: "Streaks reward clean days. Challenges work on one habit at a time. Friends keep you honest.",
+  body: "Keep a daily streak, climb tiers, and rank against friends on safety. They see your score. Your routes stay with you.",
   panels: [
     {
       tab: "Streaks",
@@ -187,7 +187,7 @@ export const community = {
     {
       tab: "Friends",
       heading: "A leaderboard for safe driving",
-      body: "Add friends by email and rank on safety. They see your score. Your routes and location points stay with you.",
+      body: "Add friends by email and see who drove the safest this week.",
       image: "/images/screens/friends.png",
       alt: "Wayborne friends leaderboard with five drivers ranked by safety score",
     },

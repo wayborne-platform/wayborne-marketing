@@ -101,7 +101,12 @@ export function Hero() {
               <p className="text-[28px] font-semibold tabular-nums leading-tight tracking-[-0.02em]">{sample.discount} off</p>
               <p className="text-[12px] text-[var(--color-fg-muted)]">At a score of {sample.score}. Not a quote.</p>
             </div>
-            <p className="mt-5 text-center text-[14px] text-[var(--color-fg-muted)] sm:text-[13px]">{hero.sampleNote}</p>
+            {/* Phones hide the estimate chip, so the example number goes under the screenshot instead. */}
+            <p className="mt-5 text-center text-[15px] text-[var(--color-fg-muted)] sm:hidden">
+              At a score of {sample.score}: <span className="font-semibold text-[var(--color-fg)]">{sample.discount} off</span> an
+              example premium. Not a quote.
+            </p>
+            <p className="mt-2 text-center text-[14px] text-[var(--color-fg-muted)] sm:mt-5 sm:text-[13px]">{hero.sampleNote}</p>
           </Rise>
         </div>
       </Container>

@@ -29,7 +29,7 @@ export function AppLinks({ className = "" }: AppLinksProps) {
               key={store.id}
               aria-disabled="true"
               aria-label={`${store.store}: coming soon`}
-              className={`${shell} text-white/85 ring-1 ring-inset ring-white/20`}
+              className={`${shell} text-[var(--color-fg-muted)] ring-1 ring-inset ring-white/10`}
             >
               <span aria-hidden="true" className="text-[var(--color-fg-muted)]">
                 {icon}
