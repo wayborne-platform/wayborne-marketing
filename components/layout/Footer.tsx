@@ -1,52 +1,42 @@
 import Image from "next/image";
-import { footer, site } from "@/content/site";
-import { MaybeLink } from "@/components/ui/MaybeLink";
+import { footer, nav, site } from "@/content/site";
 
 /**
- * The footer shares the page surface rather than the sunken one: the canvas
- * colour behind bottom overscroll can only match a single surface, and a footer
- * that differed from it read as a seam under the fold. Depth comes from an
- * inset top shadow instead, which overscroll never exposes.
+ * A short footer: brand, the same in-page anchors as the header, and the
+ * copyright line. It lists only links that go somewhere; pages that do not
+ * exist yet (privacy, contact) get added here when they do.
  */
 export function Footer() {
   return (
-    <footer
-      className="border-t border-[var(--color-border)] bg-[var(--color-bg)]"
-      style={{ boxShadow: "inset 0 10px 18px -12px rgba(0, 0, 0, 0.55)" }}
-    >
-      <div className="mx-auto w-full max-w-[1100px] px-6 py-16">
-        <div className="grid grid-cols-2 gap-x-8 gap-y-10 sm:grid-cols-3 lg:grid-cols-6">
-          <div className="col-span-2 flex flex-col gap-4 sm:col-span-3 lg:col-span-1">
-            <div className="flex items-center gap-2.5">
-              <Image src="/icon.png" alt="" width={28} height={28} className="rounded-lg" />
-              <span className="text-[15px] font-semibold tracking-tight">{site.name}</span>
-            </div>
+    <footer className="border-t border-[var(--color-hairline)]">
+      <div className="mx-auto flex w-full max-w-[1160px] flex-col gap-10 px-6 py-14 sm:flex-row sm:items-start sm:justify-between">
+        <div className="flex flex-col gap-3">
+          <div className="flex items-center gap-2.5">
+            <Image src="/icon.png" alt="" width={26} height={26} className="rounded-[7px]" />
+            <span className="text-[15px] font-semibold tracking-[-0.01em]">{site.name}</span>
           </div>
-
-          {footer.columns.map((column) => (
-            <nav key={column.title} aria-label={column.title} className="flex flex-col gap-3">
-              <h3 className="text-[13px] font-medium text-[var(--color-fg)]">{column.title}</h3>
-              <ul className="flex flex-col gap-2.5">
-                {column.links.map((link) => (
-                  <li key={link.label}>
-                    <MaybeLink
-                      label={link.label}
-                      href={link.href}
-                      className="text-[13px]"
-                      linkClassName="text-[var(--color-fg-subtle)] transition-colors hover:text-[var(--color-fg)]"
-                    />
-                  </li>
-                ))}
-              </ul>
-            </nav>
-          ))}
+          <p className="text-[14px] leading-relaxed text-[var(--color-fg-muted)]">{footer.blurb}</p>
         </div>
 
-        <div className="mt-14 flex flex-col gap-4 border-t border-[var(--color-border)] pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-[13px] text-[var(--color-fg-subtle)]">
-            © {new Date().getFullYear()} {site.name}. All rights reserved.
-          </p>
-        </div>
+        <nav aria-label="Footer">
+          <ul className="grid grid-cols-2 gap-x-10 gap-y-3 sm:flex sm:gap-8">
+            {[nav.cta, ...nav.links].map((link) => (
+              <li key={link.href}>
+                <a
+                  href={link.href}
+                  className="text-[14px] text-[var(--color-fg-muted)] transition-colors hover:text-[var(--color-fg)]"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </div>
+      <div className="mx-auto w-full max-w-[1160px] px-6 pb-10">
+        <p className="text-[13px] text-[var(--color-fg-subtle)]">
+          © {new Date().getFullYear()} {site.name}. All rights reserved.
+        </p>
       </div>
     </footer>
   );

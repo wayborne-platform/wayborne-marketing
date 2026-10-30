@@ -8,23 +8,21 @@ type PhoneFrameProps = {
   sizes?: string;
 };
 
-/** Intrinsic size of every app screenshot: a 924 x 1999 device capture. */
-const SHOT_WIDTH = 924;
-const SHOT_HEIGHT = 1999;
+/** Intrinsic size of every app screenshot: a 390 x 844pt screen captured at 3x. */
+const SHOT_WIDTH = 1170;
+const SHOT_HEIGHT = 2532;
 
 /*
  * Hardware proportions, all expressed against the screen box so the frame
- * scales with the screenshot instead of needing a breakpoint per size.
- *
- * The captures are 924 x 1999, an aspect of 2.163, which is the modern iPhone
- * screen almost exactly (1179 x 2556 is 2.168) -- so device measurements in
- * points carry over directly. The Dynamic Island is 125 x 36.7pt on a 393pt
- * screen sitting 11pt below the top edge.
+ * scales with the screenshot instead of needing a breakpoint per size. The
+ * captures come from the app's capture rig, which lays out a 390 x 844pt
+ * iPhone screen with its status bar and puts the Dynamic Island (126 x 37pt)
+ * 11pt below the top edge; the rig's own island is removed so this one draws.
  */
 const ISLAND = {
-  width: `${(125 / 393) * 100}%`,
-  height: `${(36.7 / 852) * 100}%`,
-  top: `${(11 / 852) * 100}%`,
+  width: `${(126 / 390) * 100}%`,
+  height: `${(37 / 844) * 100}%`,
+  top: `${(11 / 844) * 100}%`,
 };
 
 /** Side buttons: [edge, top, height], as percentages of the frame height. */
@@ -43,7 +41,7 @@ const BUTTONS = [
  * sizes itself to the screenshot instead of the other way around.
  *
  * The frame itself is real hardware rather than a plain rounded pad: a titanium
- * rail catching light from the top-left to match the page's neumorphic lighting,
+ * rail catching light from the top-left, matching the page's top-lit panels,
  * a black bezel inside it, side buttons tucked behind the rail so they read as
  * protruding, and a Dynamic Island over the screen. The island lands in the gap
  * the composited status bar leaves between the clock and the indicators, which
@@ -64,16 +62,19 @@ export function PhoneFrame({ src, alt, priority = false, className = "", sizes =
             [button.side]: "-2px",
             background:
               button.side === "left"
-                ? "linear-gradient(to right, #14171c, #3b414b)"
-                : "linear-gradient(to left, #14171c, #3b414b)",
+                ? "linear-gradient(to right, #121314, #3a3b3f)"
+                : "linear-gradient(to left, #121314, #3a3b3f)",
           }}
         />
       ))}
 
       {/* The titanium rail. */}
       <div
-        className="neu-lg relative rounded-[2.7rem] p-[3px]"
-        style={{ background: "linear-gradient(150deg, #5b626e 0%, #2c313a 26%, #1b1f25 58%, #454c57 100%)" }}
+        className="relative rounded-[2.7rem] p-[3px]"
+        style={{
+          background: "linear-gradient(150deg, #5a5b60 0%, #2a2b2f 26%, #18191b 58%, #46474c 100%)",
+          boxShadow: "0 0 0 1px rgba(0,0,0,0.6), 0 40px 80px -30px rgba(0,0,0,0.9), 0 18px 36px -18px rgba(0,0,0,0.7)",
+        }}
       >
         {/* The black bezel between rail and glass. */}
         <div className="relative overflow-hidden rounded-[2.6rem] bg-[#050607] p-[6px]">

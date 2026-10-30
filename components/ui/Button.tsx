@@ -9,21 +9,20 @@ const base =
 
 const variants: Record<Variant, string> = {
   primary:
-    "bg-[var(--color-accent)] text-white shadow-[var(--shadow-neu-sm)] hover:bg-[#4f97ff] hover:shadow-[var(--shadow-neu)] active:shadow-[var(--shadow-neu-inset-sm)]",
-  secondary: "neu neu-interactive text-[var(--color-fg)]",
+    "bg-[var(--color-accent)] text-white shadow-[var(--shadow-accent)] hover:bg-[#5c98ff] active:translate-y-px",
+  secondary: "panel text-[var(--color-fg)] hover:bg-[var(--color-panel-raised)]",
   ghost: "text-[var(--color-fg-muted)] hover:text-[var(--color-fg)]",
 };
 
 const sizes: Record<Size, string> = {
-  sm: "h-9 px-5 text-[13px]",
-  md: "h-11 px-6 text-[15px]",
+  sm: "h-9 px-4 text-[14px]",
+  md: "h-12 px-6 text-[15px]",
 };
 
 /** Flat, non-interactive treatments for destinations that do not exist yet. */
 const disabledVariants: Record<Variant, string> = {
   primary: "cursor-not-allowed bg-[var(--color-accent)] text-white opacity-60",
-  secondary:
-    "cursor-not-allowed bg-[var(--color-bg-elevated)] text-[var(--color-fg-subtle)]",
+  secondary: "cursor-not-allowed bg-[var(--color-panel)] text-[var(--color-fg-subtle)]",
   ghost: "cursor-not-allowed text-[var(--color-fg-subtle)]",
 };
 
