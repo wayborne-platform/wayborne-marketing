@@ -5,7 +5,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { nav, site } from "@/content/site";
 import { Button } from "@/components/ui/Button";
-import { MaybeLink } from "@/components/ui/MaybeLink";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -22,7 +21,7 @@ export function Header() {
       <nav
         aria-label="Main"
         className={`mx-auto flex h-[64px] w-full max-w-[1100px] items-center gap-6 rounded-2xl px-4 transition-shadow duration-300 sm:px-6 ${
-          scrolled ? "neu bg-[rgba(35,39,46,0.92)] backdrop-blur-xl" : "bg-transparent"
+          scrolled ? "neu bg-[rgba(23,24,27,0.92)] backdrop-blur-xl" : "bg-transparent"
         }`}
       >
         <Link href="/" className="flex items-center gap-2.5" aria-label={`${site.name} home`}>
@@ -31,13 +30,7 @@ export function Header() {
         </Link>
 
         <div className="ml-auto flex items-center gap-3">
-          <MaybeLink
-            label={nav.login.label}
-            href={nav.login.href}
-            className="hidden px-3 py-2 text-[13px] font-medium sm:block"
-            linkClassName="text-[var(--color-fg-muted)] transition-colors hover:text-[var(--color-fg)]"
-          />
-          <Button href={nav.cta.href} size="sm" variant="primary">
+          <Button href={nav.cta.href} size="sm" variant="secondary">
             {nav.cta.label}
           </Button>
         </div>

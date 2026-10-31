@@ -5,18 +5,19 @@ type AppLinksProps = {
   className?: string;
 };
 
-const shell = "group flex h-[62px] items-center gap-3 rounded-2xl px-5";
+const shell = "group flex h-[62px] items-center gap-2.5 rounded-2xl px-3 sm:gap-3 sm:px-5";
 
 /**
  * App Store / Google Play buttons.
  *
- * A store with no listing URL yet renders grayed out and non-interactive,
- * with a flat surface and a "Coming soon" label in place of the store name,
- * so nothing here is a dead link.
+ * A store with no listing URL yet renders as an inset pill: in this design
+ * language a surface pressed into the page reads as "not pressable yet". It
+ * is non-interactive, with "Coming soon" above the store name, so nothing
+ * here is a dead link.
  */
 export function AppLinks({ className = "" }: AppLinksProps) {
   return (
-    <div className={`flex flex-col gap-3 sm:flex-row ${className}`}>
+    <div className={`flex flex-row flex-wrap justify-center gap-3 ${className}`}>
       {stores.map((store) => {
         const icon =
           store.id === "ios" ? <AppleIcon width={22} height={22} /> : <PlayIcon width={22} height={22} />;
@@ -27,12 +28,12 @@ export function AppLinks({ className = "" }: AppLinksProps) {
               key={store.id}
               aria-disabled="true"
               title={`${store.store} listing coming soon`}
-              className={`${shell} cursor-not-allowed text-[var(--color-fg-subtle)]`}
+              className="neu-inset-sm flex h-12 items-center gap-2 rounded-[14px] px-3 text-[var(--color-fg-muted)] sm:gap-2.5 sm:px-4"
             >
               <span aria-hidden="true">{icon}</span>
               <span className="flex flex-col leading-tight">
-                <span className="text-[11px]">{store.store}</span>
-                <span className="text-[15px] font-medium">Coming soon</span>
+                <span className="text-[11px] text-[var(--color-fg-muted)]">Coming soon</span>
+                <span className="text-[15px] font-medium">{store.store}</span>
               </span>
             </span>
           );

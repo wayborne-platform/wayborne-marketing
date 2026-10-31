@@ -4,6 +4,7 @@ import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/sections/Hero";
 import { Showcase } from "@/components/sections/Showcase";
 import { DuoFeature } from "@/components/sections/DuoFeature";
+import { TripsTrio } from "@/components/sections/TripsTrio";
 import { SplitFeature } from "@/components/sections/SplitFeature";
 import { FinalCta } from "@/components/sections/FinalCta";
 
@@ -14,12 +15,7 @@ export default function Home() {
       <main>
         <Hero />
         <Showcase />
-        <DuoFeature
-          id={trips.id}
-          heading={trips.heading}
-          body={trips.body}
-          features={trips.features}
-        />
+        <TripsTrio id={trips.id} heading={trips.heading} body={trips.body} screens={trips.screens} />
         <SplitFeature
           id={insurance.id}
           heading={insurance.heading}
@@ -28,6 +24,7 @@ export default function Home() {
           alt={insurance.alt}
           points={insurance.points}
           imageSide="left"
+          cut={insurance.cut}
         />
         <DuoFeature
           id={progress.id}
@@ -43,6 +40,7 @@ export default function Home() {
           alt={friends.alt}
           points={friends.points}
           imageSide="right"
+          cut={friends.cut}
         />
         <FinalCta />
       </main>

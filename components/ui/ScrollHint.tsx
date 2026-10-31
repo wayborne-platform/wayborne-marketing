@@ -15,6 +15,7 @@ import { motion, useReducedMotion } from "framer-motion";
  * than a laptop viewport, so a hint at the bottom of it would sit below the
  * fold, which is exactly where a scroll hint is no use. Since it only exists
  * for the first 48px of scroll, fixed positioning is just "the first screen".
+ * Hidden on phones, where it would sit on top of the hero phone's score.
  */
 export function ScrollHint() {
   const [scrolled, setScrolled] = useState(false);
@@ -34,11 +35,11 @@ export function ScrollHint() {
       animate={{ opacity: scrolled ? 0 : 1 }}
       transition={{ duration: 0.5, delay: scrolled ? 0 : 1.6, ease: [0.25, 1, 0.5, 1] }}
       aria-label="Scroll to what Wayborne measures"
-      className={`group fixed bottom-5 left-1/2 z-40 -translate-x-1/2 ${
+      className={`group fixed bottom-5 left-1/2 z-40 hidden -translate-x-1/2 md:block ${
         scrolled ? "pointer-events-none" : ""
       }`}
     >
-      <span className="flex h-10 w-10 items-center justify-center rounded-full border border-white/[0.08] bg-[rgba(35,39,46,0.72)] shadow-[0_8px_30px_rgba(0,0,0,0.22)] backdrop-blur-md transition-[border-color,background-color,transform] duration-300 group-hover:-translate-y-0.5 group-hover:border-white/[0.16] group-hover:bg-[rgba(39,44,52,0.9)]">
+      <span className="flex h-10 w-10 items-center justify-center rounded-full border border-white/[0.08] bg-[rgba(23,24,27,0.72)] shadow-[0_8px_30px_rgba(0,0,0,0.22)] backdrop-blur-md transition-[border-color,background-color,transform] duration-300 group-hover:-translate-y-0.5 group-hover:border-white/[0.16] group-hover:bg-[rgba(28,29,32,0.9)]">
         <motion.svg
           aria-hidden="true"
           viewBox="0 0 16 16"

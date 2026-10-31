@@ -1,10 +1,12 @@
 /**
  * Single source of truth for all marketing copy and navigation data.
  *
- * Copy and screenshots match what the Wayborne app actually ships today:
+ * Copy and screenshots match the Wayborne app's current design (screens in
+ * public/images/iphone are rendered from the app's design preview; see
+ * AGENTS.md):
  * a per-trip safety score built from speed, smooth driving, braking, and
  * awareness; a trip list with per-trip maps; a usage-based insurance preview;
- * streaks, tiers, challenges and trophies; and a friends leaderboard.
+ * streaks, tiers, and challenges; and a friends leaderboard.
  *
  * Link policy: anything that does not have a real destination yet is modeled
  * as `href: null` so the UI can render it grayed out and non-interactive
@@ -35,20 +37,20 @@ export const stores = [
 ] as const;
 
 export const nav = {
-  cta: { label: "Get the app", href: null as string | null },
-  login: { label: "Log in", href: null as string | null },
+  /** Scrolls to the closing panel with the store badges. Relabel "Get the app" at launch. */
+  cta: { label: "Coming soon", href: "#get-the-app" as string | null },
 } as const;
 
 export const hero = {
   eyebrow: "Introducing Wayborne",
   headline: "Every drive, scored in real time",
   subhead: [
-    "Wayborne turns everyday driving into a safety score you can watch improve.",
+    "Wayborne turns everyday driving into a safety score you can watch improve,",
     "and a record that can lower what you pay to insure the car.",
   ],
-  image: "/images/app/home.png",
+  image: "/images/iphone/home.png",
   imageAlt:
-    "Wayborne home screen showing a safety score of 84 with sub-scores for speed, smooth driving, braking, and awareness",
+    "Wayborne home screen showing a safety score of 79, rated Fair, with speed 100, smooth driving 39, braking 57, and awareness 100",
 } as const;
 
 export const showcase = {
@@ -65,21 +67,30 @@ export const showcase = {
 
 export const trips = {
   id: "trips",
-  eyebrow: "Trips",
-  heading: "Every trip, scored the moment you park",
-  body: "Wayborne detects each drive automatically and grades it on its own. Open any trip to see the route it saved, the safety events it flagged, and exactly what moved the number.",
-  features: [
+  heading: "Every trip, graded the moment you park",
+  body: "Plug in a Bluetooth OBD-II adapter once. Wayborne then picks up every drive on its own and grades it. Open any trip to see what built its score and where each event happened.",
+  /** Reading order: list, breakdown, map. The middle one sits forward. */
+  screens: [
     {
-      heading: "A graded history of every drive",
-      body: "Distance, duration, safety events, and a score per trip make a rough week obvious at a glance, and a clean one too.",
-      image: "/images/app/trips.png",
-      alt: "Wayborne trips list showing recent drives with per-trip safety scores",
+      tab: "Trip history",
+      src: "/images/iphone/trips.png",
+      alt: "Wayborne trips list with seven recent drives, each with its own score",
+      heading: "A graded history",
+      body: "Every drive gets its own score, so a rough commute can't hide in an average.",
     },
     {
-      heading: "The route behind the score",
-      body: "Each trip keeps its own map with the points Wayborne recorded, and pins every safety event to the spot it happened, down to your speed and the limit you passed.",
-      image: "/images/app/trip-map.png",
-      alt: "Wayborne trip detail map for a drive on Interstate 90, with a speeding event pinned to the route showing 71 mph in a 65 zone",
+      tab: "Breakdown",
+      src: "/images/iphone/trip.png",
+      alt: "Wayborne trip detail for Home to Climbing gym, scored 95 Excellent, with a score breakdown by habit",
+      heading: "What built the score",
+      body: "Tap any habit to see the events behind it, like a hard brake or time over the limit.",
+    },
+    {
+      tab: "Route",
+      src: "/images/iphone/map.png",
+      alt: "Wayborne trip map for Home to Climbing gym, with the route and each driving event pinned along it",
+      heading: "Where it happened",
+      body: "Each event is pinned to the route, so you know which corner or on-ramp to work on.",
     },
   ],
 } as const;
@@ -89,8 +100,10 @@ export const insurance = {
   eyebrow: "Insurance preview",
   heading: "See what your driving is worth",
   body: "Wayborne translates your safety score into a usage-based insurance estimate: the discount range, what it saves per month and per year, and which behaviors are carrying it.",
-  image: "/images/app/insurance.png",
-  alt: "Wayborne insurance preview showing an estimated 13-17% discount based on a safety score of 84",
+  image: "/images/iphone/insurance.png",
+  alt: "Wayborne insurance estimate showing a 9 to 13 percent discount at a safety score of 79, about $14 to $21 a month",
+  /** Share of the screen shown above the panel's bottom edge: the end of the Smooth driving row. */
+  cut: 0.94,
   points: [
     {
       eyebrow: "A range, not a promise.",
@@ -108,18 +121,21 @@ export const progress = {
   eyebrow: "Progress",
   heading: "Turn safer habits into something worth keeping",
   body: "Streaks, tiers, challenges, and trophies give a long-term reason to keep the score up, well after the novelty of a new app wears off.",
+  /** `cut` is the share of each screen shown above the card's bottom edge. */
   features: [
     {
-      heading: "Streaks, tiers, and challenges",
-      body: "Keep a driving streak alive, climb from Platinum toward Sapphire, and work through challenges that reward specific habits.",
-      image: "/images/app/profile.png",
-      alt: "Wayborne profile screen showing a driving streak, driver percentile, Platinum tier, and challenges",
+      heading: "Streaks and tiers",
+      body: "Keep a driving streak alive, see where you rank against other drivers, and climb from Silver toward Gold.",
+      image: "/images/iphone/profile.png",
+      alt: "Wayborne profile with a 3 day driving streak, a top 38 percent ranking, and a Silver tier",
+      cut: 0.712,
     },
     {
-      heading: "Trophies for the long haul",
-      body: "Clean records, phone-free trips, flawless days, and roads explored each track toward their own trophy tier.",
-      image: "/images/app/rewards.png",
-      alt: "Wayborne rewards screen showing trophy progress for clean record, clean streak, and phone-free trips",
+      heading: "Challenges and trophies",
+      body: "Work through challenges like three trips without touching your phone, and earn trophies for clean records and phone-free driving.",
+      image: "/images/iphone/challenges-trophies.png",
+      alt: "Wayborne challenges list with Eyes Forward, Ten Up, Back to Back, and Perfect Day, above trophies for Clean Record and Clean Streak",
+      cut: 0.71,
     },
   ],
 } as const;
@@ -128,9 +144,11 @@ export const friends = {
   id: "friends",
   eyebrow: "Friends",
   heading: "Compare scores. Not locations.",
-  body: "Add friends by email or invite code and see how your safety score stacks up. Wayborne shares only the summary you choose, never raw trip routes or location points.",
-  image: "/images/app/friends.png",
-  alt: "Wayborne friends screen showing a leaderboard and sharing controls",
+  body: "Accept friend requests and see where your safety score ranks. Wayborne shares only the summary you choose, never raw trip routes or location points.",
+  image: "/images/iphone/friends.png",
+  alt: "Wayborne friends leaderboard with five drivers ranked by safety score",
+  /** Share of the screen shown above the panel's bottom edge: the end of the leaderboard. */
+  cut: 0.825,
   points: [
     {
       eyebrow: "You pick what leaves the app.",

@@ -17,7 +17,7 @@ export function FinalCta() {
       </div>
 
       <Container>
-        <div className="neu-lg neu-sheen relative flex flex-col items-center gap-7 rounded-[2rem] px-6 py-16 text-center sm:px-12">
+        <div className="neu-lg neu-sheen relative flex flex-col items-center gap-7 rounded-[2rem] px-4 py-16 text-center sm:px-12">
           <Reveal>
             <h2 className="utility-text-gradient text-balance text-4xl font-semibold tracking-tight sm:text-5xl">
               {finalCta.heading}

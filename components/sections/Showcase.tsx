@@ -31,17 +31,19 @@ export function Showcase() {
           </Reveal>
         </div>
 
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-3 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4">
           {showcase.metrics.map((metric, i) => {
             const Icon = METRIC_ICONS[metric.icon];
             return (
               <Reveal
                 key={metric.name}
                 delay={i * 0.06}
-                className="neu neu-sheen neu-interactive relative flex flex-col gap-3 rounded-3xl p-6"
+                className="neu neu-sheen neu-interactive relative flex flex-col gap-2 rounded-3xl p-5 sm:gap-3 sm:p-6"
               >
-                <Icon className="mb-1 h-[22px] w-[22px] text-[var(--color-accent-soft)]" />
-                <h3 className="text-base font-medium text-[var(--color-fg)]">{metric.name}</h3>
+                <h3 className="flex items-center gap-2.5 text-base font-medium text-[var(--color-fg)] sm:flex-col sm:items-start sm:gap-4">
+                  <Icon className="h-5 w-5 shrink-0 text-[var(--color-accent-soft)] sm:h-[22px] sm:w-[22px]" />
+                  {metric.name}
+                </h3>
                 <p className="text-pretty text-[14px] leading-relaxed text-[var(--color-fg-muted)]">{metric.body}</p>
               </Reveal>
             );
