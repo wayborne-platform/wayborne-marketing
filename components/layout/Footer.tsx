@@ -24,12 +24,9 @@ export function Footer() {
       {columns.length === 0 ? (
         /* Before any link group goes live: one row, brand left, copyright right. */
         <div className="mx-auto flex w-full max-w-[1100px] flex-col gap-4 px-6 py-10 sm:flex-row sm:items-center sm:justify-between">
-          <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-4">
-              <div className="flex items-center gap-2.5">
-                <Image src="/icon.png" alt="" width={28} height={28} className="rounded-lg" />
-                <span className="text-[15px] font-semibold tracking-tight">{site.name}</span>
-              </div>
-              <p className="text-[13px] text-[var(--color-fg-muted)]">{footer.tagline}</p>
+          <div className="flex items-center gap-2.5">
+            <Image src="/icon.png" alt="" width={28} height={28} className="rounded-lg" />
+            <span className="text-[15px] font-semibold tracking-tight">{site.name}</span>
           </div>
           <p className="text-[13px] text-[var(--color-fg-subtle)]">
             © {new Date().getFullYear()} {site.name}. All rights reserved.
@@ -43,7 +40,6 @@ export function Footer() {
                 <Image src="/icon.png" alt="" width={28} height={28} className="rounded-lg" />
                 <span className="text-[15px] font-semibold tracking-tight">{site.name}</span>
               </div>
-              <p className="text-[13px] text-[var(--color-fg-muted)]">{footer.tagline}</p>
             </div>
 
             {columns.map((column) => (

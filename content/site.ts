@@ -48,9 +48,6 @@ export const hero = {
     "Wayborne turns everyday driving into a safety score you can watch improve,",
     "and a record that can lower what you pay to insure the car.",
   ],
-  requirement: "Records through a Bluetooth OBD-II adapter.",
-  /** The screenshots show a sample driver, not a real account. */
-  sampleNote: "App screens show a sample driver.",
   image: "/images/iphone/home.png",
   imageAlt:
     "Wayborne home screen showing a safety score of 79, rated Fair, with speed 100, smooth driving 39, braking 57, and awareness 100",
@@ -170,7 +167,6 @@ export const finalCta = {
 } as const;
 
 export const footer = {
-  tagline: "Coming to iOS and Android.",
   columns: [
     {
       title: "Product",
