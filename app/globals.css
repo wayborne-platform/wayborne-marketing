@@ -11,10 +11,10 @@
  * (amber), primary actions (blue), and positive states (green).
  */
 @theme {
-  --color-bg: #1d1f23;
-  --color-bg-elevated: #222428;
-  --color-bg-sunken: #18191d;
-  --color-bg-marketing: #1d1f23;
+  --color-bg: #17181b;
+  --color-bg-elevated: #1c1d20;
+  --color-bg-sunken: #121315;
+  --color-bg-marketing: #17181b;
 
   --color-fg: #eef1f5;
   --color-fg-muted: #9aa3af;
@@ -41,8 +41,8 @@
  * so the surface reads as pressed into the page.
  */
 :root {
-  --neu-light: rgba(255, 255, 255, 0.05);
-  --neu-dark: rgba(0, 0, 0, 0.57);
+  --neu-light: rgba(255, 255, 255, 0.055);
+  --neu-dark: rgba(0, 0, 0, 0.64);
 
   --shadow-neu-sm: -3px -3px 8px var(--neu-light), 4px 4px 10px var(--neu-dark);
   --shadow-neu: -6px -6px 16px var(--neu-light), 8px 8px 20px var(--neu-dark);
