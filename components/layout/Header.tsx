@@ -21,7 +21,7 @@ export function Header() {
       <nav
         aria-label="Main"
         className={`mx-auto flex h-[64px] w-full max-w-[1100px] items-center gap-6 rounded-2xl px-4 transition-shadow duration-300 sm:px-6 ${
-          scrolled ? "neu bg-[rgba(35,39,46,0.92)] backdrop-blur-xl" : "bg-transparent"
+          scrolled ? "neu bg-[rgba(29,31,35,0.92)] backdrop-blur-xl" : "bg-transparent"
         }`}
       >
         <Link href="/" className="flex items-center gap-2.5" aria-label={`${site.name} home`}>

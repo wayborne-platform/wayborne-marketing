@@ -39,7 +39,7 @@ export function ScrollHint() {
         scrolled ? "pointer-events-none" : ""
       }`}
     >
-      <span className="flex h-10 w-10 items-center justify-center rounded-full border border-white/[0.08] bg-[rgba(35,39,46,0.72)] shadow-[0_8px_30px_rgba(0,0,0,0.22)] backdrop-blur-md transition-[border-color,background-color,transform] duration-300 group-hover:-translate-y-0.5 group-hover:border-white/[0.16] group-hover:bg-[rgba(39,44,52,0.9)]">
+      <span className="flex h-10 w-10 items-center justify-center rounded-full border border-white/[0.08] bg-[rgba(29,31,35,0.72)] shadow-[0_8px_30px_rgba(0,0,0,0.22)] backdrop-blur-md transition-[border-color,background-color,transform] duration-300 group-hover:-translate-y-0.5 group-hover:border-white/[0.16] group-hover:bg-[rgba(34,36,40,0.9)]">
         <motion.svg
           aria-hidden="true"
           viewBox="0 0 16 16"

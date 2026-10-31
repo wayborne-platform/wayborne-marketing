@@ -1,6 +1,6 @@
 # Design system
 
-The site uses a neumorphic (soft UI) treatment: a single mid-dark slate surface throughout, with depth coming from paired shadows: a cool highlight from the top-left and a deep shadow to the bottom-right, rather than borders or contrasting fills. The elevation scale lives in `app/globals.css` as `.neu`, `.neu-sm`, `.neu-lg`, `.neu-inset`, and `.neu-inset-sm`, with `.neu-interactive` for pads that settle toward the page on hover.
+The site uses a neumorphic (soft UI) treatment: a single dark, nearly neutral slate surface throughout (`#1d1f23`, a step toward the app's near-black from the original `#23272e`), with depth coming from paired shadows: a cool highlight from the top-left and a deep shadow to the bottom-right, rather than borders or contrasting fills. The elevation scale lives in `app/globals.css` as `.neu`, `.neu-sm`, `.neu-lg`, `.neu-inset`, and `.neu-inset-sm`, with `.neu-interactive` for pads that settle toward the page on hover.
 
 The owner prefers this look. Treat design changes as refinements of it, not redesigns.
 

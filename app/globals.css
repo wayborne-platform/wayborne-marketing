@@ -3,17 +3,18 @@
 /*
  * Design tokens for the Wayborne marketing site.
  *
- * Neumorphic (soft UI) aesthetic, pulled directly from the app: one mid-dark
- * slate surface everywhere, with depth created by paired shadows: a cool
+ * Neumorphic (soft UI) aesthetic: one dark, nearly neutral slate surface
+ * everywhere (a step toward the app's near-black so its screenshots sit
+ * comfortably), with depth created by paired shadows: a cool
  * highlight from the top-left and a deep shadow to the bottom-right, instead
  * of borders or contrasting fills. Accent colors match the app's score ring
  * (amber), primary actions (blue), and positive states (green).
  */
 @theme {
-  --color-bg: #23272e;
-  --color-bg-elevated: #272c34;
-  --color-bg-sunken: #1f232a;
-  --color-bg-marketing: #23272e;
+  --color-bg: #1d1f23;
+  --color-bg-elevated: #222428;
+  --color-bg-sunken: #18191d;
+  --color-bg-marketing: #1d1f23;
 
   --color-fg: #eef1f5;
   --color-fg-muted: #9aa3af;
@@ -40,8 +41,8 @@
  * so the surface reads as pressed into the page.
  */
 :root {
-  --neu-light: rgba(255, 255, 255, 0.045);
-  --neu-dark: rgba(0, 0, 0, 0.5);
+  --neu-light: rgba(255, 255, 255, 0.05);
+  --neu-dark: rgba(0, 0, 0, 0.57);
 
   --shadow-neu-sm: -3px -3px 8px var(--neu-light), 4px 4px 10px var(--neu-dark);
   --shadow-neu: -6px -6px 16px var(--neu-light), 8px 8px 20px var(--neu-dark);
