@@ -42,7 +42,7 @@ const BUTTONS = [
  * so a tall phone capture is never cropped to fit a landscape box; the frame
  * sizes itself to the screenshot instead of the other way around.
  *
- * The frame itself is real hardware rather than a plain rounded pad: a titanium
+ * The frame itself is real hardware rather than a plain rounded pad: a natural-titanium
  * rail catching light from the top-left to match the page's neumorphic lighting,
  * a black bezel inside it, side buttons tucked behind the rail so they read as
  * protruding, and a Dynamic Island over the screen. The island lands in the gap
@@ -64,8 +64,8 @@ export function PhoneFrame({ src, alt, priority = false, className = "", sizes =
             [button.side]: "-2px",
             background:
               button.side === "left"
-                ? "linear-gradient(to right, #14171c, #3b414b)"
-                : "linear-gradient(to left, #14171c, #3b414b)",
+                ? "linear-gradient(to right, #7d766b, #c4bcaf)"
+                : "linear-gradient(to left, #7d766b, #c4bcaf)",
           }}
         />
       ))}
@@ -73,7 +73,7 @@ export function PhoneFrame({ src, alt, priority = false, className = "", sizes =
       {/* The titanium rail. */}
       <div
         className="neu-lg relative rounded-[2.7rem] p-[3px]"
-        style={{ background: "linear-gradient(150deg, #5b626e 0%, #2c313a 26%, #1b1f25 58%, #454c57 100%)" }}
+        style={{ background: "linear-gradient(150deg, #d8d1c5 0%, #aea699 26%, #9a9285 58%, #c4bcaf 100%)" }}
       >
         {/* The black bezel between rail and glass. */}
         <div className="relative overflow-hidden rounded-[2.6rem] bg-[#050607] p-[6px]">

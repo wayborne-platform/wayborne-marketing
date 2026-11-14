@@ -48,7 +48,7 @@ export const hero = {
   ],
   image: "/images/app/home.png",
   imageAlt:
-    "Wayborne home screen showing a safety score of 84 with sub-scores for speed, smooth driving, braking, and awareness",
+    "Wayborne home screen showing a safety score of 79 with sub-scores for speed, smooth driving, braking, and awareness",
 } as const;
 
 export const showcase = {
@@ -79,7 +79,7 @@ export const trips = {
       heading: "The route behind the score",
       body: "Each trip keeps its own map with the points Wayborne recorded, and pins every safety event to the spot it happened, down to your speed and the limit you passed.",
       image: "/images/app/trip-map.png",
-      alt: "Wayborne trip detail map for a drive on Interstate 90, with a speeding event pinned to the route showing 71 mph in a 65 zone",
+      alt: "Wayborne trip map for a drive on Loop 360, with five safety events pinned along the route",
     },
   ],
 } as const;
@@ -90,7 +90,7 @@ export const insurance = {
   heading: "See what your driving is worth",
   body: "Wayborne translates your safety score into a usage-based insurance estimate: the discount range, what it saves per month and per year, and which behaviors are carrying it.",
   image: "/images/app/insurance.png",
-  alt: "Wayborne insurance preview showing an estimated 13-17% discount based on a safety score of 84",
+  alt: "Wayborne insurance estimate showing a 9-13% estimated discount based on a safety score of 79",
   points: [
     {
       eyebrow: "A range, not a promise.",
@@ -113,7 +113,7 @@ export const progress = {
       heading: "Streaks, tiers, and challenges",
       body: "Keep a driving streak alive, climb from Platinum toward Sapphire, and work through challenges that reward specific habits.",
       image: "/images/app/profile.png",
-      alt: "Wayborne profile screen showing a driving streak, driver percentile, Platinum tier, and challenges",
+      alt: "Wayborne profile screen showing a driving streak, driver percentile, Silver tier, and challenges",
     },
     {
       heading: "Trophies for the long haul",
@@ -130,7 +130,7 @@ export const friends = {
   heading: "Compare scores. Not locations.",
   body: "Add friends by email or invite code and see how your safety score stacks up. Wayborne shares only the summary you choose, never raw trip routes or location points.",
   image: "/images/app/friends.png",
-  alt: "Wayborne friends screen showing a leaderboard and sharing controls",
+  alt: "Wayborne friends screen showing a friend request and a leaderboard",
   points: [
     {
       eyebrow: "You pick what leaves the app.",
